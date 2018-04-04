@@ -14,7 +14,7 @@ namespace WindowsGame1
     {
         public virtual void Initialize() { }
         public virtual void LoadContent(ContentManager Content);
-        public virtual void Update(GameTime gameTime) { }
-        public virtual void Draw(SpriteBatch spriteBatch) { }
+        public virtual void Update(GameTime gameTime) { }    
+        
     }
 }
