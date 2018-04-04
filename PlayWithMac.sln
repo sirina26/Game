@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayWithMac", "PlayWithMac\PlayWithMac\PlayWithMac.csproj", "{A3F3FDE5-AB12-4643-8B94-A2D61FFF3DC7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayWithMac", "PlayWithMac\PlayWithMac.csproj", "{A3F3FDE5-AB12-4643-8B94-A2D61FFF3DC7}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "PlayWithMacContent", "PlayWithMac\PlayWithMacContent\PlayWithMacContent.contentproj", "{2E385804-5848-4F5D-9BAF-107944A2753D}"
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "PlayWithMacContent", "PlayWithMacContent\PlayWithMacContent.contentproj", "{2E385804-5848-4F5D-9BAF-107944A2753D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

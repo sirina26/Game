@@ -21,6 +21,7 @@ namespace PlayWithMac
 
         public Game1()
         {
+            // Test
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
