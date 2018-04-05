@@ -8,7 +8,7 @@ namespace PlayWithMac
 {
     public class GameScreen
     {
-        public virtual void Initialize() { };
-        public virtual void LoadContent(ContentManager);
+        public virtual void Initialize() { }
+        public virtual void LoadContent(ContentManager Content) { }
     }
 }
