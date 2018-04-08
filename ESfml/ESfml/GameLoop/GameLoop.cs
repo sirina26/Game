@@ -34,14 +34,21 @@ namespace ESfml
         protected GameLoop(uint windowWidth, uint windowHeight, string windowTitle, Color WindowClearColor)
         {
             this.WindowClearColor = WindowClearColor;
-            this.Window = new RenderWindow(new VideoMode(windowWidth, windowHeight), windowTitle);
+            this.Window = new RenderWindow(new VideoMode(windowHeight, windowHeight), windowTitle);
             this.GameTime = new GameTime();
+            Window.Closed += WindowClosed;
         }
+
+        private void WindowClosed(object sender, EventArgs e)
+        {
+            Window.Close();
+        }
+
         public void Run()
         {
             LoadContent();
             Initialize();
-            float totalTimeBeforUpdate = 0d;
+            float totalTimeBeforUpdate = 0f;
             float previousTimeElapsed = 0f;//temp passé
             float deltaTime = 0f;
             float totalTimeElapsed = 0f;
@@ -60,8 +67,12 @@ namespace ESfml
                 if (totalTimeElapsed >= TIME_UNTIL_UPDATE)
                 {
                     GameTime.Update(totalTimeBeforUpdate, clock.ElapsedTime.AsSeconds());
+                    totalTimeBeforUpdate = 0f;
 
                     Update(GameTime);
+                    Window.Clear(WindowClearColor);
+                    Draw(GameTime);
+                    Window.Display();
                     
                 }
             }

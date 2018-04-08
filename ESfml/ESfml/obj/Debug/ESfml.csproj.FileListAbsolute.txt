@@ -1,0 +1,50 @@
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\ESfml.exe.config
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\ESfml.exe
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\ESfml.pdb
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\sfmlnet-audio-2.dll
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\sfmlnet-graphics-2.dll
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\sfmlnet-system-2.dll
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\sfmlnet-window-2.dll
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\obj\Debug\ESfml.csprojResolveAssemblyReference.cache
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\obj\Debug\ESfml.Properties.Resources.resources
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\obj\Debug\ESfml.csproj.GenerateResource.cache
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\obj\Debug\ESfml.csproj.CoreCompileInputs.cache
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\obj\Debug\ESfml.csproj.CopyComplete
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\obj\Debug\ESfml.exe
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\obj\Debug\ESfml.pdb
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\csfml-audio-2.dll
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\csfml-graphics-2.dll
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\csfml-network-2.dll
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\csfml-system-2.dll
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\csfml-window-2.dll
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\libsndfile-1.dll
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\openal32.dll
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\OpenTK.Compatibility.dll
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\OpenTK.dll
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\Form1.cs
+C:\Users\SASSISirine\documents\visual studio 2017\Projects\ESfml\ESfml\bin\Debug\Form1.Designer.cs
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\csfml-audio-2.dll
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\csfml-graphics-2.dll
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\csfml-network-2.dll
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\csfml-system-2.dll
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\csfml-window-2.dll
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\libsndfile-1.dll
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\openal32.dll
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\OpenTK.Compatibility.dll
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\OpenTK.dll
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\sfmlnet-audio-2.dll
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\sfmlnet-graphics-2.dll
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\sfmlnet-system-2.dll
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\sfmlnet-window-2.dll
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\Form1.cs
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\Form1.Designer.cs
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\ESfml.exe.config
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\ESfml.exe
+C:\dev\PlayWithMac\ESfml\ESfml\bin\Debug\ESfml.pdb
+C:\dev\PlayWithMac\ESfml\ESfml\obj\Debug\ESfml.csprojResolveAssemblyReference.cache
+C:\dev\PlayWithMac\ESfml\ESfml\obj\Debug\ESfml.Properties.Resources.resources
+C:\dev\PlayWithMac\ESfml\ESfml\obj\Debug\ESfml.csproj.GenerateResource.cache
+C:\dev\PlayWithMac\ESfml\ESfml\obj\Debug\ESfml.csproj.CoreCompileInputs.cache
+C:\dev\PlayWithMac\ESfml\ESfml\obj\Debug\ESfml.csproj.CopyComplete
+C:\dev\PlayWithMac\ESfml\ESfml\obj\Debug\ESfml.exe
+C:\dev\PlayWithMac\ESfml\ESfml\obj\Debug\ESfml.pdb
