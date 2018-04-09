@@ -34,8 +34,8 @@ namespace ESfml
         protected GameLoop(uint windowWidth, uint windowHeight, string windowTitle, Color WindowClearColor)
         {
             this.WindowClearColor = WindowClearColor;
-            this.Window = new RenderWindow(new VideoMode(windowHeight, windowHeight), windowTitle);
-            this.GameTime = new GameTime();
+            Window = new RenderWindow(new VideoMode(windowHeight, windowHeight), windowTitle);
+            GameTime = new GameTime();
             Window.Closed += WindowClosed;
         }
 

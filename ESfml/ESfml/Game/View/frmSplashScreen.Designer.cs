@@ -36,20 +36,18 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ESfml.Properties.Resources.ff;
-            this.pictureBox1.Location = new System.Drawing.Point(52, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(30, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(603, 279);
+            this.pictureBox1.Size = new System.Drawing.Size(659, 393);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(52, 308);
-            this.progressBar1.MarqueeAnimationSpeed = 50;
+            this.progressBar1.Location = new System.Drawing.Point(30, 412);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(603, 27);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar1.Size = new System.Drawing.Size(659, 23);
             this.progressBar1.TabIndex = 1;
             // 
             // frmSplashScreen
