@@ -48,3 +48,4 @@ C:\dev\PlayWithMac\ESfml\ESfml\obj\Debug\ESfml.csproj.CoreCompileInputs.cache
 C:\dev\PlayWithMac\ESfml\ESfml\obj\Debug\ESfml.csproj.CopyComplete
 C:\dev\PlayWithMac\ESfml\ESfml\obj\Debug\ESfml.exe
 C:\dev\PlayWithMac\ESfml\ESfml\obj\Debug\ESfml.pdb
+C:\dev\PlayWithMac\ESfml\ESfml\obj\Debug\ESfml.Game.View.frmSplashScreen.resources
