@@ -16,9 +16,7 @@ namespace ESfml
         {
             PlayWithMac pwm = new PlayWithMac();
             pwm.Run();
-           /* Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());*/
+           
         }
     }
 }
