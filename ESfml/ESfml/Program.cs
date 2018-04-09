@@ -16,18 +16,10 @@ namespace ESfml
         [STAThread]
         static void Main()
         {
-
-            /* PlayWithMac pwm = new PlayWithMac();
-             pwm.Run();*/
-            Thread th = new Thread(new ThreadStart(StartForm));
-            th.Start();
-            Thread.Sleep(5000);
-            Application.Run(new frmSplashScreen());
-            th.Abort();
+            /*  PlayWithMac pwm = new PlayWithMac();
+              pwm.Run();*/
+            frmMain screenSplash = new frmMain();
         }
-        public static void StartForm()
-        {
-            Application.Run(new frmSplashScreen());
-        }
+        
     }
 }
