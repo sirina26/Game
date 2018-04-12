@@ -6,28 +6,34 @@ using System.Threading;
 using System.Windows.Forms;
 using ESfml.Game.View;
 
+using SFML.System;
+using SFML.Window;
+using SFML.Audio;
+using SFML.Graphics;
+
 namespace ESfml
 {
     static class Program
     {
-        /// <summary>
-        /// Point d'entrée principal de l'application.
-        /// </summary>
+       
         [STAThread]
         static void Main()
         {
+            /*
+                          PlayWithMac pwm = new PlayWithMac();
+                          pwm.Run();
+                         Thread th = new Thread(new ThreadStart(StartForm));
+                         th.Start();
+                         Thread.Sleep(5000);
+                         Application.Run(new frmSplashScreen());
+                         th.Abort();*/
 
-            /* PlayWithMac pwm = new PlayWithMac();
-             pwm.Run();*/
-            Thread th = new Thread(new ThreadStart(StartForm));
-            th.Start();
-            Thread.Sleep(5000);
-            Application.Run(new frmSplashScreen());
-            th.Abort();
+            Menu menu = new Menu();
+            menu.Run();
         }
-        public static void StartForm()
+        /*public static void Main(string[] arg)
         {
-            Application.Run(new frmSplashScreen());
-        }
+            
+        }*/
     }
 }

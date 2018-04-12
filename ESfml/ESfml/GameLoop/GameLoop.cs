@@ -11,10 +11,10 @@ using SFML.Audio;
 
 namespace ESfml
 {
-    public abstract class GameLoop//abstract pattern to owr game
+    public abstract class GameLoop
     {
         public const int TARGET_FPS = 60;
-        public const float TIME_UNTIL_UPDATE=1f/TARGET_FPS;//time before update
+        public const float TIME_UNTIL_UPDATE=1f/TARGET_FPS;
 
         public RenderWindow Window
         {
