@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace ESfml
 {
-    public class Macron
+    public interface Enemy
     {
-        PartGame _contexte;
-
-        public Macron(PartGame acontext)
-        {
-            _contexte = acontext;
-        }
+        
     }
 }

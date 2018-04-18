@@ -16,24 +16,47 @@ namespace ESfml
     static class Program
     {
        
-        [STAThread]
-        static void Main()
+        public static void Main(string[] arg)
         {
-            /*
-                          PlayWithMac pwm = new PlayWithMac();
-                          pwm.Run();
-                         Thread th = new Thread(new ThreadStart(StartForm));
-                         th.Start();
-                         Thread.Sleep(5000);
-                         Application.Run(new frmSplashScreen());
-                         th.Abort();*/
+            Menu menu = new Menu(1200, 750);
+            RenderWindow window = new RenderWindow(new VideoMode(1200, 750), "PlayWithMac");
 
-            Menu menu = new Menu();
-            menu.Run();
+            while (window.IsOpen)
+            {
+                if (Keyboard.IsKeyPressed(Keyboard.Key.Z))
+                {
+                    menu.Move(Keyboard.Key.Z);
+                }
+                else if (Keyboard.IsKeyPressed(Keyboard.Key.S))
+                {
+                    menu.Move(Keyboard.Key.S);
+                }
+
+                else if (Keyboard.IsKeyPressed(Keyboard.Key.Return))
+                {
+                    if (menu.SelectedItemIndex == 0)
+                    {
+                        window.Close();
+                        Games game = new Games();
+                        game.Run();
+                        break;
+                    }else if(menu.SelectedItemIndex == 1)
+                    {
+                        //Programme pour envoyer dans l'options
+                        window.Close();
+                        //Option option = new Option(1200, 750);
+
+                    }
+                    else if (menu.SelectedItemIndex == 2)
+                    {
+                        window.Close();
+                    }
+                }
+
+                menu.Draw(window);
+                window.Display();
+                Thread.Sleep(85);
+            }
         }
-        /*public static void Main(string[] arg)
-        {
-            
-        }*/
     }
 }

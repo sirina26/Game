@@ -14,7 +14,7 @@ namespace ESfml
     public abstract class GameLoop
     {
         public const int TARGET_FPS = 60;
-        public const float TIME_UNTIL_UPDATE=1f/TARGET_FPS;
+        public const float TIME_UNTIL_UPDATE = 1f / TARGET_FPS;
 
         public RenderWindow Window
         {
@@ -73,10 +73,13 @@ namespace ESfml
                     Window.Clear(WindowClearColor);
                     Draw(GameTime);
                     Window.Display();
-                    
+
                 }
+
+               
             }
-        }
+                
+            }
         public abstract void LoadContent ();
         public abstract void Initialize();
         public abstract void Update(GameTime gameTime);

@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace ESfml
 {
-    public class Macron
+    public class Move
     {
-        PartGame _contexte;
-
-        public Macron(PartGame acontext)
+        public void MoveObjet(Object obj)
         {
-            _contexte = acontext;
+            
         }
     }
 }

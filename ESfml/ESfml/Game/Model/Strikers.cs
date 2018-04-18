@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace ESfml
 {
-    public class Macron
+    public class Strikers: Enemy //Grévistes
     {
-        PartGame _contexte;
-
-        public Macron(PartGame acontext)
+        public Strikers()
         {
-            _contexte = acontext;
+
         }
     }
 }

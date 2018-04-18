@@ -72,9 +72,18 @@
     <Compile Include="GameLoop\GameLoop.cs" />
     <Compile Include="GameLoop\GameTime.cs" />
     <Compile Include="Game\DebugUtility.cs" />
+    <Compile Include="Game\Games.cs" />
+    <Compile Include="Game\Model\BigBoss.cs" />
+    <Compile Include="Game\Model\Enemy.cs" />
     <Compile Include="Game\Model\Macron.cs" />
+    <Compile Include="Game\Model\Map.cs" />
     <Compile Include="Game\Model\Menu.cs" />
+    <Compile Include="Game\Model\Move.cs" />
     <Compile Include="Game\Model\Moverole.cs" />
+    <Compile Include="Game\Model\Option.cs" />
+    <Compile Include="Game\Model\Rats.cs" />
+    <Compile Include="Game\Model\Strikers.cs" />
+    <Compile Include="Game\PartGame.cs" />
     <Compile Include="Game\PlayWithMac.cs" />
     <Compile Include="Game\View\frmMain.cs">
       <SubType>Form</SubType>
@@ -149,6 +158,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\ff.jpg" />
+    <Content Include="Resources\images.jpg" />
     <Content Include="sfmlnet-audio-2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
