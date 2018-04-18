@@ -13,7 +13,7 @@ namespace ESfml
     public class Menu
     {
         public const uint MAX_NUMBER_OF_ITEMS = 3;
-        private const string V = @"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\arial.ttf";
+        private const string V = @"../../arial.ttf";
         private int selectedItemIndex;
         private Font font = new Font(V);
         private Text[] menu = new Text[MAX_NUMBER_OF_ITEMS];

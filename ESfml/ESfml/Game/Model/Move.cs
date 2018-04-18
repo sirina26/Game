@@ -4,13 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ESfml
+namespace ESfml.Game.Model
 {
     public class Move
     {
-        public void MoveObjet(Object obj)
+        public interface animated
         {
-            
+            void GetAction();
+            void Move();
+            void CheckCollision(Macron Collider);
+            /*void CheckCollision(Soldat Collider);
+            void CheckCollision(Ground Collider);
+            void Draw(RenderWindow windowHandler, int xOffset, int yOffset);*/
+            bool GetIsSituated();
+            bool Alive { get; }
         }
     }
 }
