@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ESfml.Properties
+namespace PlayWithMac.Properties
 {
 
 

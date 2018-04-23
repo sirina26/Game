@@ -9,7 +9,7 @@ using SFML.Window;
 using SFML.System;
 using SFML.Audio;
 
-namespace ESfml
+namespace PlayWithMac
 {
     public abstract class GameLoop
     {
