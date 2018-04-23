@@ -8,17 +8,42 @@ using SFML.Graphics;
 using SFML.Window;
 namespace PlayWithMac
 {
-    class Macron
+    public class Macron
     {
-        Dictionary<Sprite, Macron> _macron = new Dictionary<Sprite, Macron>();
-        public enum MacSide
+        /* Dictionary<Sprite, Macron> _macron = new Dictionary<Sprite, Macron>();
+         public enum MacSide
+         {
+             Left,
+             MovesLeft1,
+             MovesLeft2,
+             Right,
+             MovesRight1,
+             MovesRight2,
+         }*/
+        PartGame _contexte;
+        float _life;
+        //Pour voir la position du joueur 
+        float _x;
+        float _y;
+
+        static Texture _picturepersonnage = new Texture(@"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\personnage.jpg");
+        static Sprite personnage;
+
+        public SFML.System.Vector2f Position { get; private set; }
+
+        public Macron(PartGame acontext)
         {
-            Left,
-            MovesLeft1,
-            MovesLeft2,
-            Right,
-            MovesRight1,
-            MovesRight2,
+            personnage = new Sprite(_picturepersonnage);
+            _contexte = acontext;
         }
+
+        public void Draw(RenderWindow window)
+        {
+            Position = new SFML.System.Vector2f(1200 / 2, (750 / 4) * 3);
+            window.Draw(personnage);
+
+            // _map.Draw(Window, DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
+        }
+
     }
 }
