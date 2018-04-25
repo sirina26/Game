@@ -19,43 +19,44 @@ namespace PlayWithMac
             Menu menu = new Menu(1200, 750);
             RenderWindow window = new RenderWindow(new VideoMode(1200, 750), "PlayWithMac");
 
-            while (window.IsOpen)
-            {
-                if (Keyboard.IsKeyPressed(Keyboard.Key.Z))
-                {
-                    menu.Move(Keyboard.Key.Z);
-                }
-                else if (Keyboard.IsKeyPressed(Keyboard.Key.S))
-                {
-                    menu.Move(Keyboard.Key.S);
-                }
+            /* while (window.IsOpen)
+             {
+                 if (Keyboard.IsKeyPressed(Keyboard.Key.Z))
+                 {
+                     menu.Move(Keyboard.Key.Z);
+                 }
+                 else if (Keyboard.IsKeyPressed(Keyboard.Key.S))
+                 {
+                     menu.Move(Keyboard.Key.S);
+                 }
 
-                else if (Keyboard.IsKeyPressed(Keyboard.Key.Return))
-                {
-                    if (menu.SelectedItemIndex == 0)
-                    {
-                        window.Close();
-                        Games game = new Games();
-                        game.Run();
-                        break;
-                    }
-                    else if (menu.SelectedItemIndex == 1)
-                    {
-                        //Programme pour envoyer dans l'options
-                        /*window.Close();
-                        Option option = new Option();
-                        option.Run();*/
-                        break;
+                 else if (Keyboard.IsKeyPressed(Keyboard.Key.Return))
+                 {
+                     if (menu.SelectedItemIndex == 0)
+                     {
+                         window.Close();
+                         Games game = new Games();
+                         game.Run();
+                         break;
+                     }
+                     else if (menu.SelectedItemIndex == 1)
+                     {
+                         //Programme pour envoyer dans l'options
 
-                    }
-                    else if (menu.SelectedItemIndex == 2)
-                    {
-                        window.Close();
-                    }
-                }
 
-                menu.Draw(window);
-                window.Display();
+                         break;
+
+                     }
+                     else if (menu.SelectedItemIndex == 2)
+                     {
+                         window.Close();
+                     }
+                 }
+ */
+            //menu.Draw(window);
+            //Enemy.Draw(RenderWindow windowHandler, int xOffset, int yOffset)
+            Enemy.Draw();
+            window.Display();
                 Thread.Sleep(85);
             }
         }

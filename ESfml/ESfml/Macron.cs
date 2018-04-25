@@ -10,7 +10,7 @@ namespace PlayWithMac
 {
     public class Macron
     {
-        /* Dictionary<Sprite, Macron> _macron = new Dictionary<Sprite, Macron>();
+       Dictionary<Sprite, Macron> _macron = new Dictionary<Sprite, Macron>();
          public enum MacSide
          {
              Left,
@@ -19,16 +19,22 @@ namespace PlayWithMac
              Right,
              MovesRight1,
              MovesRight2,
-         }*/
+         }
+        Texture texture = new Texture(12,15);
         PartGame _contexte;
+        Sprite mac = new Sprite();
+
         float _life;
         //Pour voir la position du joueur 
         float _x;
         float _y;
-
-        static Texture _picturepersonnage = new Texture(@"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\personnage.jpg");
+        
+        static Texture _picturepersonnage = new Texture(@"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\personnage.jpg");
         static Sprite personnage;
-
+        public void Draw()
+        {
+            
+        }
         public SFML.System.Vector2f Position { get; private set; }
 
         public Macron(PartGame acontext)
@@ -36,6 +42,8 @@ namespace PlayWithMac
             personnage = new Sprite(_picturepersonnage);
             _contexte = acontext;
         }
+    
+
 
         public void Draw(RenderWindow window)
         {

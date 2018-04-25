@@ -59,16 +59,20 @@
   <ItemGroup>
     <Compile Include="Context.cs" />
     <Compile Include="ContextOptions.cs" />
+    <Compile Include="enemy.cs" />
     <Compile Include="GameLoop\GameLoop.cs" />
     <Compile Include="GameLoop\GameTime.cs" />
     <Compile Include="Games.cs" />
     <Compile Include="Macron.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="MotionDirector.cs" />
     <Compile Include="Movement.cs" />
     <Compile Include="PartGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rectangle.cs" />
+    <Compile Include="Textures.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

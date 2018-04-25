@@ -22,6 +22,6 @@ namespace PlayWithMac
 
         }
 
-        public Macron Mac => this._mac;
+        public Macron Mac => _mac;
     }
 }

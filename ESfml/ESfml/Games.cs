@@ -14,7 +14,7 @@ namespace PlayWithMac
         const uint DEFAULT_WINDOW_HEIGHT = 750;
         const string WINDOW_TITLE = "PlayWithMac";
 
-        static Texture _background = new Texture(@"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\images.jpg");
+        static Texture _background = new Texture(@"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\images.jpg");
         static Sprite backgroundSprite;
 
         Map _map;
