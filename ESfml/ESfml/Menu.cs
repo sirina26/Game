@@ -20,7 +20,7 @@ namespace PlayWithMac
         static Texture _background = new Texture(@"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\images.jpg");
         static Sprite backgroundSprite;
 
-        public Menu(float width, float heigh)
+        public Menu(uint width, uint heigh)
         {
             menu[0] = new Text
             {

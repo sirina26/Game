@@ -57,16 +57,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Composant\Rectangle.cs" />
+    <Compile Include="Composant\Textures.cs" />
+    <Compile Include="Composant\Vector.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="ContextOptions.cs" />
+    <Compile Include="Factory.cs" />
+    <Compile Include="FactoryInvalidArgumentsException.cs" />
     <Compile Include="GameLoop\GameLoop.cs" />
     <Compile Include="GameLoop\GameTime.cs" />
     <Compile Include="Games.cs" />
+    <Compile Include="Levelcontexte.cs" />
     <Compile Include="Macron.cs" />
     <Compile Include="Map.cs" />
+    <Compile Include="Mapinterface.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Movement.cs" />
     <Compile Include="PartGame.cs" />
+    <Compile Include="Personnage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -122,6 +130,18 @@
     <Content Include="OpenTK.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Ressources\Macron\MCLeft0.png" />
+    <Content Include="Ressources\Macron\MCLeft1.png" />
+    <Content Include="Ressources\Macron\MCLeft2.png" />
+    <Content Include="Ressources\Macron\MCLeft3.png" />
+    <Content Include="Ressources\Macron\MCRight0.png" />
+    <Content Include="Ressources\Macron\MCRight1.png" />
+    <Content Include="Ressources\Macron\MCRight2.png" />
+    <Content Include="Ressources\Macron\MCRight3.png" />
+    <Content Include="Ressources\Map\Example.png" />
+    <Content Include="Ressources\Map\Ground0.png" />
+    <Content Include="Ressources\Map\Ground1.png" />
+    <Content Include="Ressources\Niveau\Level1.txt" />
     <Content Include="sfmlnet-audio-2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -135,8 +155,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Ressources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

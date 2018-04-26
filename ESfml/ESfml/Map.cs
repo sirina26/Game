@@ -4,31 +4,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SFML.Graphics;
+using SFML.System;
 
 namespace PlayWithMac
 {
-    public class Map
+    public class Map: Mapinterface
     {
-        PartGame _context;
+        private Rectangle rect;
+        private Sprite dirt;
+        private Sprite grass;
 
-        uint _width;
-        uint _heigth;
+        public Rectangle Rect { get { return rect; } }
 
-        Macron _macron;
-
-        public Map(PartGame acontext, uint awith, uint aheigth)
+        public Map(Rectangle rect)
         {
-            _context = acontext;
-            _width = awith;
-            _heigth = aheigth;
+            /* uint heightBase = Textures.GroundTextures["Dirt"].Size.Y;
+             uint widthBase = Textures.GroundTextures["Dirt"].Size.X;*/
+            uint heightBase = 60;
+            uint widthBase = 60;
 
-            _macron = new Macron(_context);
+            if ((rect.Height % heightBase) != 0)
+            {
+                rect.Height = rect.Height / heightBase;
+                rect.Height = rect.Height * heightBase;
+            }
+
+            if ((rect.Width % widthBase) != 0)
+            {
+                rect.Width = rect.Width / widthBase;
+                rect.Width = rect.Width * widthBase;
+            }
+
+            dirt = new Sprite(Textures.GroundTextures["Dirt"], new IntRect(0, 0, 660, 720));
+            grass = new Sprite(Textures.GroundTextures["Grass"], new IntRect(0, 0, 660, 60));
+
+            dirt.Position = new Vector2f(rect.Left, rect.Top);
+            grass.Position = new Vector2f(rect.Left, rect.Top);
+
+            this.rect = rect;
         }
 
-        public void Draw(RenderWindow window, uint mapWidth, uint mapHeight)
+        public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
         {
-            //_macron.Draw(window, mapWidth, mapHeight);
-            
+            dirt.Position = new Vector2f(Rect.Left + xOffset, Rect.Top + yOffset);
+            grass.Position = dirt.Position;
+            windowHandler.Draw(dirt);
+            windowHandler.Draw(grass);
         }
     }
 }

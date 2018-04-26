@@ -14,7 +14,7 @@ namespace PlayWithMac
         const uint DEFAULT_WINDOW_HEIGHT = 750;
         const string WINDOW_TITLE = "PlayWithMac";
 
-        static Texture _background = new Texture(@"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\images.jpg");
+        static Texture _background = new Texture(@"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\LEVEL1MAP1.png");
         static Sprite backgroundSprite;
 
         Map _map;
@@ -27,14 +27,14 @@ namespace PlayWithMac
 
         public override void Draw(GameTime gameTime)
         {
-            backgroundSprite.Draw(Window, RenderStates.Default);
-            _map.Draw(Window, DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
+            //backgroundSprite.Draw(Window, RenderStates.Default);
+           // _map.Draw(Window, DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
 
         }
 
         public override void Initialize()
         {
-            _map = new Map(new PartGame(), DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
+            //_map = new Map(new PartGame(), DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
             _partie = new PartGame();
         }
 
