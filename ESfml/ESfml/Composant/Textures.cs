@@ -21,7 +21,7 @@ namespace PlayWithMac
 
         private static void MCInit()
         {
-            string MCpath = @"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\" + @"Macron\";
+            string MCpath = @"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\" + @"Macron\";
 
             MainCharacterTextures.Add("Left0", new Texture(MCpath + "MCLeft0.png"));
             MainCharacterTextures.Add("Left1", new Texture(MCpath + "MCLeft1.png"));
@@ -38,8 +38,8 @@ namespace PlayWithMac
         {
             //string GDpath = path + "Map/";
 
-            Texture dirt = new Texture(@"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\Map\" + "Ground0.png");
-            Texture grass = new Texture(@"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\Map\" + "Ground1.png");
+            Texture dirt = new Texture(@"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\Map\" + "Ground0.png");
+            Texture grass = new Texture(@"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\Map\" + "Ground1.png");
 
             dirt.Repeated = true;
             grass.Repeated = true;

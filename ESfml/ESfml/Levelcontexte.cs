@@ -54,7 +54,7 @@ namespace PlayWithMac
         {
             //string levelPath = @"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\Niveau\";
 
-            context = new LevelContext(@"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\Niveau\" + "Level1.txt");
+            context = new LevelContext(@"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\Niveau\" + "Level1.txt");
         }
 
         public void RequestActions()
