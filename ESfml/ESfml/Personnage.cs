@@ -12,7 +12,7 @@ namespace PlayWithMac
         void GetAction();
         void Move();
         void CheckCollision(Macron Collider);
-        /*void CheckCollision(Ghost Collider);*/
+        void CheckCollision(Enemy Collider);
         void CheckCollision(Map Collider);
         void Draw(RenderWindow windowHandler, int xOffset, int yOffset);
         bool GetIsSituated();

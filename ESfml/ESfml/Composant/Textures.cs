@@ -12,7 +12,7 @@ namespace PlayWithMac
         private static bool isInitialized = false;
         public static Dictionary<string, Texture> MainCharacterTextures = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> GroundTextures = new Dictionary<string, Texture>();
-        public static Dictionary<string, Texture> GhostTextures = new Dictionary<string, Texture>();
+        public static Dictionary<string, Texture> EnemyTextures = new Dictionary<string, Texture>();
 
         //private const string path = @"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\";
         //private const string path = "../../../ESfml/Ressources/";
@@ -48,16 +48,17 @@ namespace PlayWithMac
             GroundTextures.Add("Grass", grass);
         }
 
-       /* private static void GHInit()
+       private static void GHInit()
         {
-            string Gpath = path + "Ghost/";
+        
+            string Gpath = @"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\" + @"Enemy\";
 
-            GhostTextures.Add("Left1", new Texture(Gpath + "GLeft0.png"));
-            GhostTextures.Add("Left2", new Texture(Gpath + "GLeft1.png"));
+            EnemyTextures.Add("Left1", new Texture(Gpath + "GLeft0.png"));
+            EnemyTextures.Add("Left2", new Texture(Gpath + "GLeft1.png"));
 
-            GhostTextures.Add("Right1", new Texture(Gpath + "GRight0.png"));
-            GhostTextures.Add("Right2", new Texture(Gpath + "GRight1.png"));
-        }*/
+            EnemyTextures.Add("Right1", new Texture(Gpath + "GRight0.png"));
+            EnemyTextures.Add("Right2", new Texture(Gpath + "GRight1.png"));
+        }
 
         public static void init()
         {
@@ -67,7 +68,7 @@ namespace PlayWithMac
                 {
                     MCInit();
                     GDInit();
-                    //GHInit();
+                    GHInit();
                 }
             }
             catch (Exception e)

@@ -235,5 +235,10 @@ namespace PlayWithMac
                 bodyCollides = true;
             }
         }
+
+        public void CheckCollision(Enemy Collider)
+        {
+            //throw new NotImplementedException();
+        }
     }
 }

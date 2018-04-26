@@ -33,15 +33,15 @@ namespace PlayWithMac
                     {
                         Motionless.Add((Map)product);
                     }
-                      else if (product.GetType().Equals(typeof(Macron)))
+                    else if (product.GetType().Equals(typeof(Macron)))
                     {
                         Movables.Add((Macron)product);
                         MainCharacterHandler = (Macron)product;
                     }
-                  /*else if (product.GetType().Equals(typeof(Ghost)))
+                    else if (product.GetType().Equals(typeof(Enemy)))
                     {
-                        Movables.Add((Ghost)product);
-                    }*/
+                        Movables.Add((Enemy)product);
+                    }
                     //else throw new NotImplementedException();
                 }
 
@@ -82,11 +82,11 @@ namespace PlayWithMac
 
                     foreach (Personnage collider in context.Movables)
                     {
-                       /* if (collider.GetType().Equals(typeof(Ghost)))
+                        if (collider.GetType().Equals(typeof(Enemy)))
                         {
-                            element.CheckCollision((Ghost)collider);
-                        }*/
-                        if (collider.GetType().Equals(typeof(Macron)))
+                            element.CheckCollision((Enemy)collider);
+                        }
+                       else if (collider.GetType().Equals(typeof(Macron)))
                         {
                             element.CheckCollision((Macron)collider);
                         }

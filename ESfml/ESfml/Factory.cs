@@ -50,9 +50,9 @@ namespace PlayWithMac
                     case "macron":
                         product = new Macron(rect);
                         break;
-                    /*case "ghost":
-                        product = new Ghost(rect);
-                        break;*/
+                    case "enemy":
+                        product = new Enemy(rect);
+                        break;
                     case "map":
                         product = new Map(rect);
                         break;
