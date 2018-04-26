@@ -24,6 +24,8 @@ namespace PlayWithMac
             JumpsRight
         }
 
+        //public string[] CharacterSide = { "StaysLeft", "MovesLeft1", "MovesLeft2", "JumpsLeft", "StaysRight", "MovesRight1", "MovesRight2", "JumpsRight" };
+
         public enum CharacterSounds
         {
             Jump,
@@ -72,12 +74,10 @@ namespace PlayWithMac
             fallSpeed = 0;
             animationIterator = 0;
 
-            try
-            {
-                rect.Height = Textures.MainCharacterTextures["Right1"].Size.Y;
-                rect.Width = Textures.MainCharacterTextures["Right1"].Size.X;
+            rect.Height = Textures.MainCharacterTextures["Right1"].Size.Y;
+            rect.Width = Textures.MainCharacterTextures["Right1"].Size.X;
 
-                sprite = new Dictionary<CharacterSide, Sprite>();
+            sprite = new Dictionary<CharacterSide, Sprite>();
 
                 sprite.Add(CharacterSide.StaysLeft, new Sprite(Textures.MainCharacterTextures["Left0"]));
                 sprite.Add(CharacterSide.StaysRight, new Sprite(Textures.MainCharacterTextures["Right0"]));
@@ -87,12 +87,7 @@ namespace PlayWithMac
                 sprite.Add(CharacterSide.MovesRight2, new Sprite(Textures.MainCharacterTextures["Right2"]));
                 sprite.Add(CharacterSide.JumpsLeft, new Sprite(Textures.MainCharacterTextures["Left3"]));
                 sprite.Add(CharacterSide.JumpsRight, new Sprite(Textures.MainCharacterTextures["Right3"]));
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Cannot create a sprite: ", e);
-            }
-
+          
             bodyRect = rect;
             feetRect = new Rectangle(rect.Bottom, (rect.Left + 3), 1, (rect.Width - 6));
         }
@@ -104,17 +99,6 @@ namespace PlayWithMac
 
         public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
         {
-            sprite = new Dictionary<CharacterSide, Sprite>();
-
-            sprite.Add(CharacterSide.StaysLeft, new Sprite(Textures.MainCharacterTextures["Left0"]));
-            sprite.Add(CharacterSide.StaysRight, new Sprite(Textures.MainCharacterTextures["Right0"]));
-            sprite.Add(CharacterSide.MovesLeft1, new Sprite(Textures.MainCharacterTextures["Left1"]));
-            sprite.Add(CharacterSide.MovesLeft2, new Sprite(Textures.MainCharacterTextures["Left2"]));
-            sprite.Add(CharacterSide.MovesRight1, new Sprite(Textures.MainCharacterTextures["Right1"]));
-            sprite.Add(CharacterSide.MovesRight2, new Sprite(Textures.MainCharacterTextures["Right2"]));
-            sprite.Add(CharacterSide.JumpsLeft, new Sprite(Textures.MainCharacterTextures["Left3"]));
-            sprite.Add(CharacterSide.JumpsRight, new Sprite(Textures.MainCharacterTextures["Right3"]));
-
             sprite[side].Position = new Vector2f(bodyRect.Left + xOffset, bodyRect.Top + yOffset);
             windowHandler.Draw(sprite[side]);
         }

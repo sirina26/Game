@@ -23,8 +23,8 @@ namespace PlayWithMac
             string[] objectParameters = objectDescriptor.Split();
             string firstElement = objectParameters[0];
 
-            try
-            {
+           /* try
+            {*/
                 switch (objectParameters.Length)
                 {
                     case 3:
@@ -59,7 +59,7 @@ namespace PlayWithMac
                     default:
                         throw new FactoryInvalidArgumentsException();
                 }
-            }
+           /* }
             catch (FactoryInvalidArgumentsException e)
             {
                 Console.WriteLine("Object could not be created: ", e);
@@ -67,7 +67,7 @@ namespace PlayWithMac
             catch (Exception e)
             {
                 Console.WriteLine("Object could not be created: ", e);
-            }
+            }*/
 
             return product;
         }

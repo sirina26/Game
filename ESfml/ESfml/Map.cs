@@ -18,10 +18,8 @@ namespace PlayWithMac
 
         public Map(Rectangle rect)
         {
-            /* uint heightBase = Textures.GroundTextures["Dirt"].Size.Y;
-             uint widthBase = Textures.GroundTextures["Dirt"].Size.X;*/
-            uint heightBase = 60;
-            uint widthBase = 60;
+             uint heightBase = Textures.GroundTextures["Dirt"].Size.Y;
+             uint widthBase = Textures.GroundTextures["Dirt"].Size.X;
 
             if ((rect.Height % heightBase) != 0)
             {
@@ -35,8 +33,8 @@ namespace PlayWithMac
                 rect.Width = rect.Width * widthBase;
             }
 
-            dirt = new Sprite(Textures.GroundTextures["Dirt"], new IntRect(0, 0, 660, 720));
-            grass = new Sprite(Textures.GroundTextures["Grass"], new IntRect(0, 0, 660, 60));
+            dirt = new Sprite(Textures.GroundTextures["Dirt"], new IntRect(0, 0, (int)rect.Width, (int)(rect.Height)));
+            grass = new Sprite(Textures.GroundTextures["Grass"], new IntRect(0, 0, (int)(rect.Width), (int)heightBase));
 
             dirt.Position = new Vector2f(rect.Left, rect.Top);
             grass.Position = new Vector2f(rect.Left, rect.Top);

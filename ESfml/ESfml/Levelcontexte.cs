@@ -29,11 +29,11 @@ namespace PlayWithMac
 
                     product = Factory.CreateRectangularObject(line);
 
-                   /* if (product.GetType().Equals(typeof(Map)))
+                    if (product.GetType().Equals(typeof(Map)))
                     {
                         Motionless.Add((Map)product);
                     }
-                      else */if (product.GetType().Equals(typeof(Macron)))
+                      else if (product.GetType().Equals(typeof(Macron)))
                     {
                         Movables.Add((Macron)product);
                         MainCharacterHandler = (Macron)product;
@@ -42,7 +42,7 @@ namespace PlayWithMac
                     {
                         Movables.Add((Ghost)product);
                     }*/
-                    else throw new NotImplementedException();
+                    //else throw new NotImplementedException();
                 }
 
             }
@@ -71,11 +71,11 @@ namespace PlayWithMac
             {
                 while (element.GetIsSituated() == false)
                 {
-                    foreach (Vectors collider in context.Motionless)
+                    foreach (Mapinterface collider in context.Motionless)
                     {
                         if (collider.GetType().Equals(typeof(Map)))
                         {
-                            //element.CheckCollision((Map)collider);
+                            element.CheckCollision((Map)collider);
                         }
                         else throw new Exception();
                     }
