@@ -139,7 +139,6 @@
     <Content Include="Ressources\Macron\MCRight1.png" />
     <Content Include="Ressources\Macron\MCRight2.png" />
     <Content Include="Ressources\Macron\MCRight3.png" />
-    <Content Include="Ressources\Map\Example.png" />
     <Content Include="Ressources\Map\Ground0.png" />
     <Content Include="Ressources\Map\Ground1.png" />
     <Content Include="Ressources\Niveau\Level1.txt" />
