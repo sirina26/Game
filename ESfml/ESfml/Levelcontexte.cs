@@ -10,7 +10,7 @@ namespace PlayWithMac
 {
     public class Levelcontexte
     {
-        static Texture _background = new Texture(@"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\LEVEL1MAP1.png");
+        static Texture _background = new Texture(@"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\LEVEL1MAP1.png");
         static Sprite backgroundSprite = new Sprite(_background);
 
         public class LevelContext
@@ -38,15 +38,15 @@ namespace PlayWithMac
                     {
                         Motionless.Add((Map)product);
                     }
-                      else if (product.GetType().Equals(typeof(Macron)))
+                    else if (product.GetType().Equals(typeof(Macron)))
                     {
                         Movables.Add((Macron)product);
                         MainCharacterHandler = (Macron)product;
                     }
-                  /*else if (product.GetType().Equals(typeof(Ghost)))
+                    else if (product.GetType().Equals(typeof(Enemy)))
                     {
-                        Movables.Add((Ghost)product);
-                    }*/
+                        Movables.Add((Enemy)product);
+                    }
                     //else throw new NotImplementedException();
                 }
 
@@ -59,7 +59,7 @@ namespace PlayWithMac
         {
             //string levelPath = @"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\Niveau\";
 
-            context = new LevelContext(@"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\Niveau\" + "Level1.txt");
+            context = new LevelContext(@"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\Niveau\" + "Level1.txt");
         }
 
         public void RequestActions()
@@ -87,11 +87,11 @@ namespace PlayWithMac
 
                     foreach (Personnage collider in context.Movables)
                     {
-                       /* if (collider.GetType().Equals(typeof(Ghost)))
+                        if (collider.GetType().Equals(typeof(Enemy)))
                         {
-                            element.CheckCollision((Ghost)collider);
-                        }*/
-                        if (collider.GetType().Equals(typeof(Macron)))
+                            element.CheckCollision((Enemy)collider);
+                        }
+                       else if (collider.GetType().Equals(typeof(Macron)))
                         {
                             element.CheckCollision((Macron)collider);
                         }
