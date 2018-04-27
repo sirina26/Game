@@ -10,11 +10,16 @@ namespace PlayWithMac
 {
     public class Levelcontexte
     {
+        static Texture _background = new Texture(@"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\LEVEL1MAP1.png");
+        static Sprite backgroundSprite = new Sprite(_background);
+
         public class LevelContext
         {
             public List<Personnage> Movables = null;
             public List<Mapinterface> Motionless;
             public Macron MainCharacterHandler;
+
+            
 
             public LevelContext(string levelPath)
             {
@@ -112,6 +117,7 @@ namespace PlayWithMac
 
         public void DrawObjects(RenderWindow windowHandler)
         {
+            backgroundSprite.Draw(windowHandler, RenderStates.Default);
             int XOffset = -(context.MainCharacterHandler.BodyRect.Left - 600);
 
             foreach (Mapinterface element in context.Motionless)
