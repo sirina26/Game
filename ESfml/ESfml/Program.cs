@@ -16,7 +16,6 @@ namespace PlayWithMac
     {
         static ContextSettings settings = new ContextSettings();
         static RenderWindow window = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac", Styles.Default, settings);
-        //static Color backgroundColor = new Color(5, 70, 55, 1);
 
         static void Main(string[] args)
         {
@@ -64,10 +63,7 @@ namespace PlayWithMac
                     }
                     else if (menu.SelectedItemIndex == 1)
                     {
-                        //Programme pour envoyer dans l'options
-                        /*window.Close();
-                        Option option = new Option();
-                        option.Run();*/
+                        
                         break;
 
                     }
@@ -80,7 +76,6 @@ namespace PlayWithMac
 
                 menu.Draw(windowMenu);
                 windowMenu.Display();
-                //Thread.Sleep(85);
             }
         }
 

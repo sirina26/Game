@@ -9,7 +9,6 @@ namespace PlayWithMac
 {
     public class Games : GameLoop
     {
-        //readonly string path;
         const uint DEFAULT_WINDOW_WIDTH = 1200;
         const uint DEFAULT_WINDOW_HEIGHT = 750;
         const string WINDOW_TITLE = "PlayWithMac";
@@ -27,14 +26,12 @@ namespace PlayWithMac
 
         public override void Draw(GameTime gameTime)
         {
-            //backgroundSprite.Draw(Window, RenderStates.Default);
-           // _map.Draw(Window, DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
+          
 
         }
 
         public override void Initialize()
         {
-            //_map = new Map(new PartGame(), DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
             _partie = new PartGame();
         }
 

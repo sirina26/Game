@@ -24,7 +24,6 @@ namespace PlayWithMac
             JumpsRight
         }
 
-        //public string[] CharacterSide = { "StaysLeft", "MovesLeft1", "MovesLeft2", "JumpsLeft", "StaysRight", "MovesRight1", "MovesRight2", "JumpsRight" };
 
         private bool binateSprite;
         private bool alive;
@@ -43,7 +42,6 @@ namespace PlayWithMac
         private CharacterSide side;
 
         private Dictionary<CharacterSide, Sprite> sprite;
-        //private Dictionary<CharacterSounds, Sound> sound;
         private Rectangle bodyRect;
         private Rectangle feetRect;
         public Vectors director;
@@ -52,7 +50,6 @@ namespace PlayWithMac
         public Rectangle BodyRect { get { return bodyRect; } }
         public Rectangle FeetRect { get { return feetRect; } }
 
-        //public bool Alive => throw new NotImplementedException();
 
         public Macron(Rectangle rect)
         {
@@ -88,7 +85,6 @@ namespace PlayWithMac
 
         public void CheckCollision(Macron Collider)
         {
-            //throw new NotImplementedException();
         }
 
         public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
@@ -228,7 +224,6 @@ namespace PlayWithMac
 
         public void CheckCollision(Enemy Collider)
         {
-            //throw new NotImplementedException();
         }
     }
 }

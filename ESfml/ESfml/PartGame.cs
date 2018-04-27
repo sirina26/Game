@@ -8,12 +8,10 @@ namespace PlayWithMac
 {
     public class PartGame
     {
-        //private Macron _mac;
        
         
         public PartGame()
         {
-            //_mac = new Macron(this);
 
         }
 
@@ -22,6 +20,5 @@ namespace PlayWithMac
 
         }
 
-        //public Macron Mac => this._mac;
     }
 }

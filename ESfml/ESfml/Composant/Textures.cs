@@ -14,14 +14,12 @@ namespace PlayWithMac
         public static Dictionary<string, Texture> MapTextures = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> EnemyTextures = new Dictionary<string, Texture>();
 
-        //private const string path = @"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\";
-        //private const string path = "../../../ESfml/Ressources/";
-
+        
         public static bool IsInitialized { get { return isInitialized; } }
 
         private static void MCInit()
         {
-            //string MCpath = @"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\" + @"Macron\";
+        
             string MCpath = @".\Ressources\" + @"Macron\";
 
             PersonnagePle.Add("Left0", new Texture(MCpath + "MCLeft0.png"));
@@ -37,10 +35,7 @@ namespace PlayWithMac
 
         private static void GDInit()
         {
-            //string GDpath = path + "Map/";
-
-            //Texture dirt = new Texture(@"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\Map\" + "Ground0.png");
-            //Texture grass = new Texture(@"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\Map\" + "Ground1.png");
+            
             Texture dirt = new Texture(@".\Ressources\Map\" + "Ground0.png");
             Texture grass = new Texture(@".\Ressources\Map\" + "Ground1.png");
 
