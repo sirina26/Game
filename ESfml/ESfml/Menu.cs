@@ -80,11 +80,11 @@ namespace PlayWithMac
         public void Move(Keyboard.Key key)
         {
 
-            if (key == Keyboard.Key.Z)
+            if (key == Keyboard.Key.Up)
             {
                 MoveUp();
             }
-            else if (key == Keyboard.Key.S)
+            else if (key == Keyboard.Key.Down)
             {
                 MoveDown();
             }
