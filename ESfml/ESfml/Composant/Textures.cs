@@ -21,7 +21,8 @@ namespace PlayWithMac
 
         private static void MCInit()
         {
-            string MCpath = @"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\" + @"Macron\";
+            //string MCpath = @"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\" + @"Macron\";
+            string MCpath = @".\Ressources\" + @"Macron\";
 
             MainCharacterTextures.Add("Left0", new Texture(MCpath + "MCLeft0.png"));
             MainCharacterTextures.Add("Left1", new Texture(MCpath + "MCLeft1.png"));
@@ -38,8 +39,10 @@ namespace PlayWithMac
         {
             //string GDpath = path + "Map/";
 
-            Texture dirt = new Texture(@"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\Map\" + "Ground0.png");
-            Texture grass = new Texture(@"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\Map\" + "Ground1.png");
+            //Texture dirt = new Texture(@"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\Map\" + "Ground0.png");
+            //Texture grass = new Texture(@"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\Map\" + "Ground1.png");
+            Texture dirt = new Texture(@".\Ressources\Map\" + "Ground0.png");
+            Texture grass = new Texture(@".\Ressources\Map\" + "Ground1.png");
 
             dirt.Repeated = true;
             grass.Repeated = true;
@@ -49,9 +52,8 @@ namespace PlayWithMac
         }
 
        private static void GHInit()
-        {
-        
-            string Gpath = @"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\" + @"Enemy\";
+        {         
+            string Gpath = @".\Ressources\" + @"Enemy\";
 
             EnemyTextures.Add("Left1", new Texture(Gpath + "GLeft0.png"));
             EnemyTextures.Add("Left2", new Texture(Gpath + "GLeft1.png"));

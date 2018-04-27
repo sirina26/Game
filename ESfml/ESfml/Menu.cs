@@ -13,11 +13,11 @@ namespace PlayWithMac
     public class Menu
     {
         public const uint MAX_NUMBER_OF_ITEMS = 3;
-        private const string V = @"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\arial.ttf";
+        private const string V = @".\Ressources\arial.ttf";
         private int selectedItemIndex;
         private Font font = new Font(V);
         private Text[] menu = new Text[MAX_NUMBER_OF_ITEMS];
-        static Texture _background = new Texture(@"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\images.jpg");
+        static Texture _background = new Texture(@".\Ressources\images.jpg");
         static Sprite backgroundSprite;
 
         public Menu(uint width, uint heigh)

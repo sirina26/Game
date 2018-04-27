@@ -10,7 +10,7 @@ namespace PlayWithMac
 {
     public class Levelcontexte
     {
-        static Texture _background = new Texture(@"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\LEVEL1MAP1.png");
+        static Texture _background = new Texture(@".\Ressources\LEVEL1MAP1.png");
         static Sprite backgroundSprite = new Sprite(_background);
 
         public class LevelContext
@@ -59,7 +59,7 @@ namespace PlayWithMac
         {
             //string levelPath = @"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\Niveau\";
 
-            context = new LevelContext(@"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\Niveau\" + "Level1.txt");
+            context = new LevelContext(@".\Ressources\Niveau\" + "Level1.txt");
         }
 
         public void RequestActions()
