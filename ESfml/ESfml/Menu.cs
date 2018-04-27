@@ -97,15 +97,7 @@ namespace PlayWithMac
 
         }
 
-       /* public void PlaySoundMenu()
-        {
-            //music.Play();
-        }
-
-        public void StopSoundMenu()
-        {
-            //music.Stop();
-        }*/
+       
 
     }
 }

@@ -208,7 +208,6 @@ namespace PlayWithMac
 
         public void CheckCollision(Enemy Collider)
         {
-            //throw new NotImplementedException();
         }
 
         public void CheckCollision(Map Collider)
