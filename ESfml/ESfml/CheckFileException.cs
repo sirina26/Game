@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PlayWithMac
 {
-    public class FactoryInvalidArgumentsException: Exception
+    public class CheckFileException: Exception
     {
-        public FactoryInvalidArgumentsException() :
+        public CheckFileException() :
             base("This kind of object is not supported by the Factory")
         {
         }

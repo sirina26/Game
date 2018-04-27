@@ -18,8 +18,8 @@ namespace PlayWithMac
 
         public Map(Rectangle rect)
         {
-             uint heightBase = Textures.GroundTextures["Dirt"].Size.Y;
-             uint widthBase = Textures.GroundTextures["Dirt"].Size.X;
+             uint heightBase = Textures.MapTextures["Dirt"].Size.Y;
+             uint widthBase = Textures.MapTextures["Dirt"].Size.X;
 
             if ((rect.Height % heightBase) != 0)
             {
@@ -33,8 +33,8 @@ namespace PlayWithMac
                 rect.Width = rect.Width * widthBase;
             }
 
-            dirt = new Sprite(Textures.GroundTextures["Dirt"], new IntRect(0, 0, (int)rect.Width, (int)(rect.Height)));
-            grass = new Sprite(Textures.GroundTextures["Grass"], new IntRect(0, 0, (int)(rect.Width), (int)heightBase));
+            dirt = new Sprite(Textures.MapTextures["Dirt"], new IntRect(0, 0, (int)rect.Width, (int)(rect.Height)));
+            grass = new Sprite(Textures.MapTextures["Grass"], new IntRect(0, 0, (int)(rect.Width), (int)heightBase));
 
             dirt.Position = new Vector2f(rect.Left, rect.Top);
             grass.Position = new Vector2f(rect.Left, rect.Top);
@@ -42,9 +42,9 @@ namespace PlayWithMac
             this.rect = rect;
         }
 
-        public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
+        public void Draw(RenderWindow windowHandler, int x, int y)
         {
-            dirt.Position = new Vector2f(Rect.Left + xOffset, Rect.Top + yOffset);
+            dirt.Position = new Vector2f(Rect.Left + x, Rect.Top + y);
             grass.Position = dirt.Position;
             windowHandler.Draw(dirt);
             windowHandler.Draw(grass);

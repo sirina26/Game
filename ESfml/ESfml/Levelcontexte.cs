@@ -15,16 +15,16 @@ namespace PlayWithMac
 
         public class LevelContext
         {
-            public List<Personnage> Movables = null;
-            public List<Mapinterface> Motionless;
-            public Macron MainCharacterHandler;
+            public List<Personnage> PersonneDraw = null;
+            public List<Mapinterface> MapDraw;
+            public Macron MacronObj;
 
             
 
             public LevelContext(string levelPath)
             {
-                Movables = new List<Personnage>();
-                Motionless = new List<Mapinterface>();
+                PersonneDraw = new List<Personnage>();
+                MapDraw = new List<Mapinterface>();
 
                 string[] levelDescriptor = File.ReadAllLines(levelPath);
 
@@ -32,22 +32,21 @@ namespace PlayWithMac
                 {
                     object product;
 
-                    product = Factory.CreateRectangularObject(line);
+                    product = Checkfile.CreateRectangularObject(line);
 
                     if (product.GetType().Equals(typeof(Map)))
                     {
-                        Motionless.Add((Map)product);
+                        MapDraw.Add((Map)product);
                     }
                     else if (product.GetType().Equals(typeof(Macron)))
                     {
-                        Movables.Add((Macron)product);
-                        MainCharacterHandler = (Macron)product;
+                        PersonneDraw.Add((Macron)product);
+                        MacronObj = (Macron)product;
                     }
                     else if (product.GetType().Equals(typeof(Enemy)))
                     {
-                        Movables.Add((Enemy)product);
+                        PersonneDraw.Add((Enemy)product);
                     }
-                    //else throw new NotImplementedException();
                 }
 
             }
@@ -62,9 +61,9 @@ namespace PlayWithMac
             context = new LevelContext(@".\Ressources\Niveau\" + "Level1.txt");
         }
 
-        public void RequestActions()
+        public void Actions()
         {
-            foreach (Personnage element in context.Movables)
+            foreach (Personnage element in context.PersonneDraw)
             {
                 element.GetAction();
             }
@@ -72,11 +71,11 @@ namespace PlayWithMac
 
         public void PerformActions()
         {
-            foreach (Personnage element in context.Movables)
+            foreach (Personnage element in context.PersonneDraw)
             {
                 while (element.GetIsSituated() == false)
                 {
-                    foreach (Mapinterface collider in context.Motionless)
+                    foreach (Mapinterface collider in context.MapDraw)
                     {
                         if (collider.GetType().Equals(typeof(Map)))
                         {
@@ -85,7 +84,7 @@ namespace PlayWithMac
                         else throw new Exception();
                     }
 
-                    foreach (Personnage collider in context.Movables)
+                    foreach (Personnage collider in context.PersonneDraw)
                     {
                         if (collider.GetType().Equals(typeof(Enemy)))
                         {
@@ -103,37 +102,33 @@ namespace PlayWithMac
             }
         }
 
-        public void RemoveNotAliveObjects()
+        public void RemoveNotAliveObjets()
         {
-            foreach (Personnage element in context.Movables)
+            foreach (Personnage element in context.PersonneDraw)
             {
                 if (element.Alive == false)
                 {
-                    context.Movables.Remove(element);
+                    context.PersonneDraw.Remove(element);
                     break;
                 }
             }
         }
 
-        public void DrawObjects(RenderWindow windowHandler)
+        public void DrawObjets(RenderWindow windowHandler)
         {
             backgroundSprite.Draw(windowHandler, RenderStates.Default);
-            int XOffset = -(context.MainCharacterHandler.BodyRect.Left - 600);
+            int X = -(context.MacronObj.BodyRect.Left - 600);
 
-            foreach (Mapinterface element in context.Motionless)
+            foreach (Mapinterface element in context.MapDraw)
             {
-                element.Draw(windowHandler, XOffset, 0);
+                element.Draw(windowHandler, X, 0);
             }
 
-            foreach (Personnage element in context.Movables)
+            foreach (Personnage element in context.PersonneDraw)
             {
-                element.Draw(windowHandler, XOffset, 0);
+                element.Draw(windowHandler, X, 0);
             }
         }
 
-        public void Delay(uint miliseconds)
-        {
-
-        }
     }
 }

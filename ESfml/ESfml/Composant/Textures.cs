@@ -10,8 +10,8 @@ namespace PlayWithMac
     public static class Textures
     {
         private static bool isInitialized = false;
-        public static Dictionary<string, Texture> MainCharacterTextures = new Dictionary<string, Texture>();
-        public static Dictionary<string, Texture> GroundTextures = new Dictionary<string, Texture>();
+        public static Dictionary<string, Texture> PersonnagePle = new Dictionary<string, Texture>();
+        public static Dictionary<string, Texture> MapTextures = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> EnemyTextures = new Dictionary<string, Texture>();
 
         //private const string path = @"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\Ressources\";
@@ -24,15 +24,15 @@ namespace PlayWithMac
             //string MCpath = @"C:\dev\PlayWithMac\ESfml\ESfml\Ressources\" + @"Macron\";
             string MCpath = @".\Ressources\" + @"Macron\";
 
-            MainCharacterTextures.Add("Left0", new Texture(MCpath + "MCLeft0.png"));
-            MainCharacterTextures.Add("Left1", new Texture(MCpath + "MCLeft1.png"));
-            MainCharacterTextures.Add("Left2", new Texture(MCpath + "MCLeft2.png"));
-            MainCharacterTextures.Add("Left3", new Texture(MCpath + "MCLeft3.png"));
+            PersonnagePle.Add("Left0", new Texture(MCpath + "MCLeft0.png"));
+            PersonnagePle.Add("Left1", new Texture(MCpath + "MCLeft1.png"));
+            PersonnagePle.Add("Left2", new Texture(MCpath + "MCLeft2.png"));
+            PersonnagePle.Add("Left3", new Texture(MCpath + "MCLeft3.png"));
 
-            MainCharacterTextures.Add("Right0", new Texture(MCpath + "MCRight0.png"));
-            MainCharacterTextures.Add("Right1", new Texture(MCpath + "MCRight1.png"));
-            MainCharacterTextures.Add("Right2", new Texture(MCpath + "MCRight2.png"));
-            MainCharacterTextures.Add("Right3", new Texture(MCpath + "MCRight3.png"));
+            PersonnagePle.Add("Right0", new Texture(MCpath + "MCRight0.png"));
+            PersonnagePle.Add("Right1", new Texture(MCpath + "MCRight1.png"));
+            PersonnagePle.Add("Right2", new Texture(MCpath + "MCRight2.png"));
+            PersonnagePle.Add("Right3", new Texture(MCpath + "MCRight3.png"));
         }
 
         private static void GDInit()
@@ -47,8 +47,8 @@ namespace PlayWithMac
             dirt.Repeated = true;
             grass.Repeated = true;
 
-            GroundTextures.Add("Dirt", dirt);
-            GroundTextures.Add("Grass", grass);
+            MapTextures.Add("Dirt", dirt);
+            MapTextures.Add("Grass", grass);
         }
 
        private static void GHInit()

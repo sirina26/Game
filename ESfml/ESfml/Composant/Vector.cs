@@ -29,8 +29,8 @@ namespace PlayWithMac
             Right
         }
 
-        private uint NumberOfCollisions;
-        private uint maxNumberOfCollisions;
+       /* private uint NumberOfCollisions;
+        private uint maxNumberOfCollisions;*/
         private bool previousMoveSucceed;
         private bool verticalMoveFailed;
         private bool horizontalMoveFailed;

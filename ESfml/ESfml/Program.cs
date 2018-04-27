@@ -48,10 +48,10 @@ namespace PlayWithMac
                         {
                             window.Clear(/*backgroundColor*/);
 
-                            level.RequestActions();
+                            level.Actions();
                             level.PerformActions();
-                            level.DrawObjects(window);
-                            level.RemoveNotAliveObjects();
+                            level.DrawObjets(window);
+                            level.RemoveNotAliveObjets();
 
                             window.DispatchEvents();
                             window.Display();

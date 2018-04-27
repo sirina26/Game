@@ -26,25 +26,19 @@ namespace PlayWithMac
 
         //public string[] CharacterSide = { "StaysLeft", "MovesLeft1", "MovesLeft2", "JumpsLeft", "StaysRight", "MovesRight1", "MovesRight2", "JumpsRight" };
 
-        public enum CharacterSounds
-        {
-            Jump,
-            Kick
-        }
-
         private bool binateSprite;
         private bool alive;
         private bool bodyCollides;
         private bool feetCollides;
-        private bool shooted;
-        private bool coollidesWithLadder;
+        /*private bool shooted;
+        private bool coollidesWithLadder;*/
         private bool isSituated;
 
         private const int speed = 6;
         private int fallSpeed;
         private const int animationSpeed = 5;
         private int animationIterator;
-        private int health;
+        //private int health;
 
         private CharacterSide side;
 
@@ -66,27 +60,27 @@ namespace PlayWithMac
             alive = true;
             bodyCollides = false;
             feetCollides = false;
-            shooted = false;
-            coollidesWithLadder = false;
+           /* shooted = false;
+            coollidesWithLadder = false;*/
             side = CharacterSide.StaysRight;
 
-            health = 100;
+            //health = 100;
             fallSpeed = 0;
             animationIterator = 0;
 
-            rect.Height = Textures.MainCharacterTextures["Right1"].Size.Y;
-            rect.Width = Textures.MainCharacterTextures["Right1"].Size.X;
+            rect.Height = Textures.PersonnagePle["Right1"].Size.Y;
+            rect.Width = Textures.PersonnagePle["Right1"].Size.X;
 
             sprite = new Dictionary<CharacterSide, Sprite>();
 
-                sprite.Add(CharacterSide.StaysLeft, new Sprite(Textures.MainCharacterTextures["Left0"]));
-                sprite.Add(CharacterSide.StaysRight, new Sprite(Textures.MainCharacterTextures["Right0"]));
-                sprite.Add(CharacterSide.MovesLeft1, new Sprite(Textures.MainCharacterTextures["Left1"]));
-                sprite.Add(CharacterSide.MovesLeft2, new Sprite(Textures.MainCharacterTextures["Left2"]));
-                sprite.Add(CharacterSide.MovesRight1, new Sprite(Textures.MainCharacterTextures["Right1"]));
-                sprite.Add(CharacterSide.MovesRight2, new Sprite(Textures.MainCharacterTextures["Right2"]));
-                sprite.Add(CharacterSide.JumpsLeft, new Sprite(Textures.MainCharacterTextures["Left3"]));
-                sprite.Add(CharacterSide.JumpsRight, new Sprite(Textures.MainCharacterTextures["Right3"]));
+                sprite.Add(CharacterSide.StaysLeft, new Sprite(Textures.PersonnagePle["Left0"]));
+                sprite.Add(CharacterSide.StaysRight, new Sprite(Textures.PersonnagePle["Right0"]));
+                sprite.Add(CharacterSide.MovesLeft1, new Sprite(Textures.PersonnagePle["Left1"]));
+                sprite.Add(CharacterSide.MovesLeft2, new Sprite(Textures.PersonnagePle["Left2"]));
+                sprite.Add(CharacterSide.MovesRight1, new Sprite(Textures.PersonnagePle["Right1"]));
+                sprite.Add(CharacterSide.MovesRight2, new Sprite(Textures.PersonnagePle["Right2"]));
+                sprite.Add(CharacterSide.JumpsLeft, new Sprite(Textures.PersonnagePle["Left3"]));
+                sprite.Add(CharacterSide.JumpsRight, new Sprite(Textures.PersonnagePle["Right3"]));
           
             bodyRect = rect;
             feetRect = new Rectangle(rect.Bottom, (rect.Left + 3), 1, (rect.Width - 6));
@@ -120,7 +114,6 @@ namespace PlayWithMac
                 {
                     fallSpeed = 4 * (-speed);
                     feetCollides = false;
-                    //sound[CharacterSounds.Jump].Play();
                 }
                 else
                 {
@@ -217,9 +210,6 @@ namespace PlayWithMac
                     bodyRect.Top++;
                     FeetRect.Top++;
                     break;
-
-                default:
-                    throw new Exception();
             }
         }
 

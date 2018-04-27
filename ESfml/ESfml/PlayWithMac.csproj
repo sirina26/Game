@@ -63,8 +63,8 @@
     <Compile Include="Context.cs" />
     <Compile Include="ContextOptions.cs" />
     <Compile Include="Enemy.cs" />
-    <Compile Include="Factory.cs" />
-    <Compile Include="FactoryInvalidArgumentsException.cs" />
+    <Compile Include="Checkfile.cs" />
+    <Compile Include="CheckFileException.cs" />
     <Compile Include="GameLoop\GameLoop.cs" />
     <Compile Include="GameLoop\GameTime.cs" />
     <Compile Include="Games.cs" />
