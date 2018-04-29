@@ -105,7 +105,7 @@ namespace PlayWithMac
         {
             foreach (Personnage element in context.Movables)
             {
-                if (element.Alive == false)
+                if (element.IsAlive == false)
                 {
                     context.Movables.Remove(element);
                     break;
