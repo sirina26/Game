@@ -14,8 +14,7 @@ namespace PlayWithMac
 {
     class Program
     {
-        static ContextSettings settings = new ContextSettings();
-        static RenderWindow window = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac", Styles.Default, settings);
+        static RenderWindow window = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
 
         static void Main(string[] args)
         {
@@ -23,7 +22,7 @@ namespace PlayWithMac
              RenderWindow windowMenu = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
 
             Textures.init();
-            window.Closed += Window_Closed;
+           // window.Closed += Window_Closed;
             Levelcontexte level = new Levelcontexte();
 
             while (windowMenu.IsOpen)

@@ -55,25 +55,25 @@ namespace PlayWithMac
 
         }
 
-        private bool CheckIfVerticalBordersAreInside(Rectangle Collider)
+        private bool CheckIfVerticalBordersAreInside(Rectangle rect)
         {
-            return (((this.Top >= Collider.Top) && (this.Top <= Collider.Bottom)) || ((this.Bottom >= Collider.Top) && (this.Bottom <= Collider.Bottom)))
+            return (((this.Top >= rect.Top) && (this.Top <= rect.Bottom)) || ((this.Bottom >= rect.Top) && (this.Bottom <= rect.Bottom)))
                 ? true : false;
         }
 
-        private bool CheckIfHorizontalBordersAreInside(Rectangle Collider)
+        private bool CheckIfHorizontalBordersAreInside(Rectangle rect)
         {
-            return (((this.Left >= Collider.Left) && (this.Left <= Collider.Right)) || ((this.Right >= Collider.Left) && (this.Right <= Collider.Right)))
+            return (((this.Left >= rect.Left) && (this.Left <= rect.Right)) || ((this.Right >= rect.Left) && (this.Right <= rect.Right)))
                 ? true : false;
         }
 
-        public bool CheckCollisions(Rectangle Collider)
+        public bool CheckCollisions(Rectangle rect)
         {
             bool retval = false;
 
-            if ((this.CheckIfVerticalBordersAreInside(Collider)) || (Collider.CheckIfVerticalBordersAreInside(this)))
+            if ((this.CheckIfVerticalBordersAreInside(rect)) || (rect.CheckIfVerticalBordersAreInside(this)))
             {
-                if ((this.CheckIfHorizontalBordersAreInside(Collider)) || (Collider.CheckIfHorizontalBordersAreInside(this)))
+                if ((this.CheckIfHorizontalBordersAreInside(rect)) || (rect.CheckIfHorizontalBordersAreInside(this)))
                 {
                     retval = true;
                 }

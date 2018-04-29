@@ -36,14 +36,14 @@ namespace PlayWithMac
         private static void GDInit()
         {
             
-            Texture dirt = new Texture(@".\Ressources\Map\" + "Ground0.png");
-            Texture grass = new Texture(@".\Ressources\Map\" + "Ground1.png");
+            Texture sidewalk = new Texture(@".\Ressources\Map\" + "Ground0.png");//trottoire
+            Texture wall = new Texture(@".\Ressources\Map\" + "Ground1.png");//mûr
 
-            dirt.Repeated = true;
-            grass.Repeated = true;
+            sidewalk.Repeated = true;
+            wall.Repeated = true;
 
-            MapTextures.Add("Dirt", dirt);
-            MapTextures.Add("Grass", grass);
+            MapTextures.Add("Sidewalk", sidewalk);
+            MapTextures.Add("Wall", wall);
         }
 
        private static void GHInit()

@@ -13,7 +13,7 @@ namespace PlayWithMac
 {
     public class Enemy : Personnage
     {
-        public enum EnemySide
+        public enum MovementEnemy
         {
             Left1,
             Left2,
@@ -23,22 +23,22 @@ namespace PlayWithMac
 
         private bool binateSprite;
         private bool alive;
-        private bool bodyCollides;
-        private bool feetCollides;
-        private bool groundCollides;
+        private bool bodyCollision;
+        private bool feetCollision;
+        private bool mapCollision;
         private bool isSituated;
 
         private const int speed = 2;
-        private int fallSpeed;
+        private int stopSpeed;
         private const int animationSpeed = 2;
         private int animationIterator;
-        private EnemySide side;
+        private MovementEnemy side;
 
-        private Dictionary<EnemySide, Sprite> sprite;
+        private Dictionary<MovementEnemy, Sprite> sprite;
         private Rectangle bodyRect;
         private Rectangle feetRect;
         private Rectangle groundRect;
-        public Vectors director;
+        public Vectors direction;
 
         public bool Alive { get { return alive; } }
         public Rectangle BodyRect { get { return bodyRect; } }
@@ -54,13 +54,15 @@ namespace PlayWithMac
 
             switch (side)
             {
-                case EnemySide.Left1:
-                case EnemySide.Left2:
-                    side = (binateSprite) ? EnemySide.Left1 : EnemySide.Left2;
+                case MovementEnemy.Left1:
+                case MovementEnemy.Left2:
+                    if (binateSprite) side = MovementEnemy.Left1;
+                    else side = MovementEnemy.Left2;
                     break;
-                case EnemySide.Right1:
-                case EnemySide.Right2:
-                    side = (binateSprite) ? EnemySide.Right1 : EnemySide.Right2;
+                case MovementEnemy.Right1:
+                case MovementEnemy.Right2:
+                    if (binateSprite) side = MovementEnemy.Right1;
+                    else side = MovementEnemy.Right2;
                     break;
             }
         }
@@ -69,21 +71,21 @@ namespace PlayWithMac
         {
             binateSprite = true;
             alive = true;
-            bodyCollides = false;
-            feetCollides = true;
-            groundCollides = false;
-            fallSpeed = 0;
+            bodyCollision = false;
+            feetCollision = true;
+            mapCollision = false;
+            stopSpeed = 0;
             animationIterator = 0;
-            side = EnemySide.Right1;
+            side = MovementEnemy.Right1;
 
             rect.Height = Textures.EnemyTextures["Right1"].Size.Y;
             rect.Width = Textures.EnemyTextures["Right1"].Size.X;
 
-            sprite = new Dictionary<EnemySide, Sprite>();
-            sprite.Add(EnemySide.Left1, new Sprite(Textures.EnemyTextures["Left1"]));
-            sprite.Add(EnemySide.Left2, new Sprite(Textures.EnemyTextures["Left2"]));
-            sprite.Add(EnemySide.Right1, new Sprite(Textures.EnemyTextures["Right1"]));
-            sprite.Add(EnemySide.Right2, new Sprite(Textures.EnemyTextures["Right2"]));
+            sprite = new Dictionary<MovementEnemy, Sprite>();
+            sprite.Add(MovementEnemy.Left1, new Sprite(Textures.EnemyTextures["Left1"]));
+            sprite.Add(MovementEnemy.Left2, new Sprite(Textures.EnemyTextures["Left2"]));
+            sprite.Add(MovementEnemy.Right1, new Sprite(Textures.EnemyTextures["Right1"]));
+            sprite.Add(MovementEnemy.Right2, new Sprite(Textures.EnemyTextures["Right2"]));
 
             bodyRect = rect;
             feetRect = new Rectangle(rect.Bottom, (rect.Left + (int)rect.Width / 2), 1, (rect.Width / 2));
@@ -94,50 +96,51 @@ namespace PlayWithMac
         {
             isSituated = false;
 
-            if (groundCollides == false)
+            if (mapCollision == false)
             {
-                fallSpeed += 2;
+                stopSpeed += 2;
             }
             else
             {
-                fallSpeed = 0;
+                stopSpeed = 0;
 
-                if (bodyCollides == true)
+                if (bodyCollision == true)
                 {
-                    side = (side == EnemySide.Left1 || side == EnemySide.Left2) ? EnemySide.Right1 : EnemySide.Left1;
+                    if (side == MovementEnemy.Left1 || side == MovementEnemy.Left2) side = MovementEnemy.Right1;
+                    else side = MovementEnemy.Left1;
                 }
             }
 
-            bodyCollides = false;
-            feetCollides = false;
-            groundCollides = false;
+            bodyCollision = false;
+            feetCollision = false;
+            mapCollision = false;
 
             chooseSprite();
 
             switch (side)
             {
-                case EnemySide.Left1:
-                case EnemySide.Left2:
-                    director = new Vectors(new Vectors.Vector((-speed), fallSpeed));
+                case MovementEnemy.Left1:
+                case MovementEnemy.Left2:
+                    direction = new Vectors(new Vectors.Vector((-speed), stopSpeed));
                     break;
-                case EnemySide.Right1:
-                case EnemySide.Right2:
-                    director = new Vectors(new Vectors.Vector(speed, fallSpeed));
+                case MovementEnemy.Right1:
+                case MovementEnemy.Right2:
+                    direction = new Vectors(new Vectors.Vector(speed, stopSpeed));
                     break;
             }
         }
 
         public void Move()
         {
-            if (fallSpeed > 0 && feetCollides)
+            if (stopSpeed > 0 && feetCollision)
             {
-                fallSpeed = 0;
-                director.HightReached = true;
+                stopSpeed = 0;
+                direction.HightReached = true;
             }
 
-            director.MoveSucceed = !bodyCollides;
-            Vectors.Direction move = director.NextMove;
-            bodyCollides = false;
+            direction.MoveSucceed = !bodyCollision;
+            Vectors.Direction move = direction.NextMove;
+            bodyCollision = false;
 
             switch (move)
             {
@@ -173,13 +176,13 @@ namespace PlayWithMac
                     throw new Exception();
             }
 
-            if ((move == Vectors.Direction.Right) && (side == EnemySide.Left1))
+            if ((move == Vectors.Direction.Right) && (side == MovementEnemy.Left1))
             {
-                side = EnemySide.Right1;
+                side = MovementEnemy.Right1;
             }
-            else if ((move == Vectors.Direction.Left) && (side == EnemySide.Right1))
+            else if ((move == Vectors.Direction.Left) && (side == MovementEnemy.Right1))
             {
-                side = EnemySide.Left1;
+                side = MovementEnemy.Left1;
             }
         }
 
@@ -187,17 +190,17 @@ namespace PlayWithMac
         {
             if (groundRect.CheckCollisions(Collider.BodyRect))
             {
-                groundCollides = true;
+                mapCollision = true;
             }
 
             if (feetRect.CheckCollisions(Collider.BodyRect))
             {
-                feetCollides = true;
+                feetCollision = true;
             }
 
             if (bodyRect.CheckCollisions(Collider.BodyRect))
             {
-                bodyCollides = true;
+                bodyCollision = true;
             }
 
             if (bodyRect.CheckCollisions(Collider.FeetRect))
@@ -214,19 +217,19 @@ namespace PlayWithMac
         {
             if (groundRect.CheckCollisions(Collider.Rect))
             {
-                groundCollides = true;
+                mapCollision = true;
             }
-            else groundCollides = false;
+            else mapCollision = false;
 
             if (feetRect.CheckCollisions(Collider.Rect))
             {
-                feetCollides = true;
+                feetCollision = true;
             }
-            else feetCollides = false;
+            else feetCollision = false;
 
-            if (bodyRect.CheckCollisions(Collider.Rect) || (!feetCollides && groundCollides))
+            if (bodyRect.CheckCollisions(Collider.Rect) || (!feetCollision && mapCollision))
             {
-                bodyCollides = true;
+                bodyCollision = true;
             }
         }
 

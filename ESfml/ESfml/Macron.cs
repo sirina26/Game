@@ -12,7 +12,7 @@ namespace PlayWithMac
 {
     public class Macron : Personnage
     {
-        public enum CharacterSide
+        public enum MovementMacron
         {
             StaysLeft,
             MovesLeft1,
@@ -27,24 +27,24 @@ namespace PlayWithMac
 
         private bool binateSprite;
         private bool alive;
-        private bool bodyCollides;
-        private bool feetCollides;
+        private bool bodyCollision;
+        private bool feetCollision;
         /*private bool shooted;
         private bool coollidesWithLadder;*/
         private bool isSituated;
 
         private const int speed = 6;
-        private int fallSpeed;
-        private const int animationSpeed = 5;
-        private int animationIterator;
+        private int stopSpeed;
+        private const int animation = 5;
+        private int animationcollision;
         //private int health;
 
-        private CharacterSide side;
+        private MovementMacron side;
 
-        private Dictionary<CharacterSide, Sprite> sprite;
+        private Dictionary<MovementMacron, Sprite> sprite;
         private Rectangle bodyRect;
         private Rectangle feetRect;
-        public Vectors director;
+        public Vectors direction;
 
         public bool Alive { get { return alive; } }
         public Rectangle BodyRect { get { return bodyRect; } }
@@ -55,29 +55,29 @@ namespace PlayWithMac
         {
             binateSprite = true;
             alive = true;
-            bodyCollides = false;
-            feetCollides = false;
+            bodyCollision = false;
+            feetCollision = false;
            /* shooted = false;
             coollidesWithLadder = false;*/
-            side = CharacterSide.StaysRight;
+            side = MovementMacron.StaysRight;
 
             //health = 100;
-            fallSpeed = 0;
-            animationIterator = 0;
+            stopSpeed = 0;
+            animationcollision = 0;
 
             rect.Height = Textures.PersonnagePle["Right1"].Size.Y;
             rect.Width = Textures.PersonnagePle["Right1"].Size.X;
 
-            sprite = new Dictionary<CharacterSide, Sprite>();
+            sprite = new Dictionary<MovementMacron, Sprite>();
 
-                sprite.Add(CharacterSide.StaysLeft, new Sprite(Textures.PersonnagePle["Left0"]));
-                sprite.Add(CharacterSide.StaysRight, new Sprite(Textures.PersonnagePle["Right0"]));
-                sprite.Add(CharacterSide.MovesLeft1, new Sprite(Textures.PersonnagePle["Left1"]));
-                sprite.Add(CharacterSide.MovesLeft2, new Sprite(Textures.PersonnagePle["Left2"]));
-                sprite.Add(CharacterSide.MovesRight1, new Sprite(Textures.PersonnagePle["Right1"]));
-                sprite.Add(CharacterSide.MovesRight2, new Sprite(Textures.PersonnagePle["Right2"]));
-                sprite.Add(CharacterSide.JumpsLeft, new Sprite(Textures.PersonnagePle["Left3"]));
-                sprite.Add(CharacterSide.JumpsRight, new Sprite(Textures.PersonnagePle["Right3"]));
+                sprite.Add(MovementMacron.StaysLeft, new Sprite(Textures.PersonnagePle["Left0"]));
+                sprite.Add(MovementMacron.StaysRight, new Sprite(Textures.PersonnagePle["Right0"]));
+                sprite.Add(MovementMacron.MovesLeft1, new Sprite(Textures.PersonnagePle["Left1"]));
+                sprite.Add(MovementMacron.MovesLeft2, new Sprite(Textures.PersonnagePle["Left2"]));
+                sprite.Add(MovementMacron.MovesRight1, new Sprite(Textures.PersonnagePle["Right1"]));
+                sprite.Add(MovementMacron.MovesRight2, new Sprite(Textures.PersonnagePle["Right2"]));
+                sprite.Add(MovementMacron.JumpsLeft, new Sprite(Textures.PersonnagePle["Left3"]));
+                sprite.Add(MovementMacron.JumpsRight, new Sprite(Textures.PersonnagePle["Right3"]));
           
             bodyRect = rect;
             feetRect = new Rectangle(rect.Bottom, (rect.Left + 3), 1, (rect.Width - 6));
@@ -95,71 +95,75 @@ namespace PlayWithMac
 
         public void GetAction()
         {
-            bodyCollides = false;
+            bodyCollision = false;
             isSituated = false;
 
-            if (++animationIterator > animationSpeed)
+            if (++animationcollision > animation)
             {
                 binateSprite = !binateSprite;
-                animationIterator = 0;
+                animationcollision = 0;
             }
 
-            if (feetCollides)
+            if (feetCollision)
             {
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Space))
                 {
-                    fallSpeed = 4 * (-speed);
-                    feetCollides = false;
+                    stopSpeed = 4 * (-speed);
+                    feetCollision = false;
                 }
                 else
                 {
-                    fallSpeed = 0;
+                    stopSpeed = 0;
                 }
             }
             else
             {
-                fallSpeed += 2;
+                stopSpeed += 2;
             }
 
-            feetCollides = false;
+            feetCollision = false;
 
             if (Keyboard.IsKeyPressed(Keyboard.Key.Right))
             {
-                director = new Vectors(new Vectors.Vector(speed, fallSpeed));
+                direction = new Vectors(new Vectors.Vector(speed, stopSpeed));
 
-                if (fallSpeed == 0)
+                if (stopSpeed == 0)
                 {
-                    side = (binateSprite) ? CharacterSide.MovesRight1 : CharacterSide.MovesRight2;
+                    if (binateSprite) side = MovementMacron.MovesRight1;
+                    else side = MovementMacron.MovesRight2;
                 }
                 else
                 {
-                    side = CharacterSide.JumpsRight;
+                    side = MovementMacron.JumpsRight;
                 }
             }
             else if (Keyboard.IsKeyPressed(Keyboard.Key.Left))
             {
-                director = new Vectors(new Vectors.Vector(-speed, fallSpeed));
+                direction = new Vectors(new Vectors.Vector(-speed, stopSpeed));
 
-                if (fallSpeed == 0)
+                if (stopSpeed == 0)
                 {
-                    side = (binateSprite) ? CharacterSide.MovesLeft1 : CharacterSide.MovesLeft2;
+                    if (binateSprite) side = MovementMacron.MovesLeft1;
+                    else side = MovementMacron.MovesLeft2;
                 }
                 else
                 {
-                    side = CharacterSide.JumpsLeft;
+                    side = MovementMacron.JumpsLeft;
                 }
             }
             else
             {
-                director = new Vectors(new Vectors.Vector(0, fallSpeed));
+                direction = new Vectors(new Vectors.Vector(0, stopSpeed));
 
-                if (fallSpeed == 0)
+                if (stopSpeed == 0)
                 {
-                    side = (side >= CharacterSide.StaysRight) ? CharacterSide.StaysRight : CharacterSide.StaysLeft;
+                    if (side >= MovementMacron.StaysRight) side = MovementMacron.StaysRight;
+                    else side = MovementMacron.StaysLeft;
                 }
                 else
                 {
-                    side = (side >= CharacterSide.StaysRight) ? CharacterSide.JumpsRight : CharacterSide.JumpsLeft;
+                    if (side >= MovementMacron.StaysRight) side = MovementMacron.JumpsRight;
+                    else side = MovementMacron.JumpsLeft;
                 }
             }
         }
@@ -171,15 +175,15 @@ namespace PlayWithMac
 
         public void Move()
         {
-            if (fallSpeed > 0 && feetCollides)
+            if (stopSpeed > 0 && feetCollision)
             {
-                fallSpeed = 0;
-                director.HightReached = true;
+                stopSpeed = 0;
+                direction.HightReached = true;
             }
 
-            director.MoveSucceed = !bodyCollides;
-            Vectors.Direction move = director.NextMove;
-            bodyCollides = false;
+            direction.MoveSucceed = !bodyCollision;
+            Vectors.Direction move = direction.NextMove;
+            bodyCollision = false;
 
             switch (move)
             {
@@ -213,12 +217,12 @@ namespace PlayWithMac
         {
             if (this.feetRect.CheckCollisions(Collider.Rect))
             {
-                feetCollides = true;
+                feetCollision = true;
             }
 
             if (this.bodyRect.CheckCollisions(Collider.Rect))
             {
-                bodyCollides = true;
+                bodyCollision = true;
             }
         }
 

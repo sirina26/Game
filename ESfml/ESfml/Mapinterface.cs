@@ -9,6 +9,6 @@ namespace PlayWithMac
 {
     public interface Mapinterface
     {
-        void Draw(RenderWindow windowHandler, int xOffset, int yOffset);
+        void Draw(RenderWindow windowHandler, int x, int y);
     }
 }

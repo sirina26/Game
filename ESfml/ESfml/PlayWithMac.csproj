@@ -131,6 +131,7 @@
     <Content Include="OpenTK.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Ressources\menu.jpg" />
     <Content Include="Ressources\Macron\MCLeft0.png" />
     <Content Include="Ressources\Macron\MCLeft1.png" />
     <Content Include="Ressources\Macron\MCLeft2.png" />
