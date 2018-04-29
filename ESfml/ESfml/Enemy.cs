@@ -21,23 +21,23 @@ namespace PlayWithMac
             Right2
         }
 
-        private bool binateSprite;
-        private bool alive;
-        private bool bodyCollides;
-        private bool feetCollides;
-        private bool groundCollides;
-        private bool isSituated;
+         bool binateSprite;
+         bool alive;
+         bool bodyCollides;
+         bool feetCollides;
+         bool groundCollides;
+         bool isSituated;
 
-        private const int speed = 2;
-        private int fallSpeed;
-        private const int animationSpeed = 2;
-        private int animationIterator;
-        private EnemySide side;
+         const int speed = 2;
+         int fallSpeed;
+         const int animationSpeed = 2;
+         int animationIterator;
+         EnemySide side;
 
-        private Dictionary<EnemySide, Sprite> sprite;
-        private Rectangle bodyRect;
-        private Rectangle feetRect;
-        private Rectangle groundRect;
+         Dictionary<EnemySide, Sprite> sprite;
+         Rectangle bodyRect;
+         Rectangle feetRect;
+         Rectangle groundRect;
         public Vectors director;
 
         public bool Alive { get { return alive; } }
