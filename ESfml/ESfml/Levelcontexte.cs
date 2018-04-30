@@ -105,7 +105,7 @@ namespace PlayWithMac
         {
             foreach (Personnage element in context.PersonneDraw)
             {
-                if (element.Alive == false)
+                if (element.IsAlive == false)
                 {
                     context.PersonneDraw.Remove(element);
                     break;

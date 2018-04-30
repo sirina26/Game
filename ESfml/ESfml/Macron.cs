@@ -46,7 +46,7 @@ namespace PlayWithMac
         private Rectangle feetRect;
         public Vectors direction;
 
-        public bool Alive { get { return alive; } }
+        public bool IsAlive { get { return alive; } }
         public Rectangle BodyRect { get { return bodyRect; } }
         public Rectangle FeetRect { get { return feetRect; } }
 
