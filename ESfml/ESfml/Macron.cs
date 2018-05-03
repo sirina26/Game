@@ -25,30 +25,32 @@ namespace PlayWithMac
         }
 
 
-        private bool binateSprite;
-        private bool alive;
-        private bool bodyCollision;
-        private bool feetCollision;
-        /*private bool shooted;
-        private bool coollidesWithLadder;*/
-        private bool isSituated;
+         bool binateSprite;
+         bool alive;
+         bool bodyCollision;
+         bool feetCollision;
+         bool shooted;
+         bool coollidesWithLadder;
+         bool isSituated;
+         int liveNumber = 30;
+         const int speed = 6;
+         int stopSpeed;
+         const int animation = 5;
+         int animationcollision;
+         int health;
 
-        private const int speed = 6;
-        private int stopSpeed;
-        private const int animation = 5;
-        private int animationcollision;
-        //private int health;
+         MovementMacron side;
 
-        private MovementMacron side;
-
-        private Dictionary<MovementMacron, Sprite> sprite;
-        private Rectangle bodyRect;
-        private Rectangle feetRect;
+         Dictionary<MovementMacron, Sprite> sprite;
+         Rectangle bodyRect;
+         Rectangle feetRect;
         public Vectors direction;
 
         public bool Alive { get { return alive; } }
+        public int LiveNumber { get => liveNumber; }
         public Rectangle BodyRect { get { return bodyRect; } }
         public Rectangle FeetRect { get { return feetRect; } }
+
 
 
         public Macron(Rectangle rect)
@@ -57,11 +59,11 @@ namespace PlayWithMac
             alive = true;
             bodyCollision = false;
             feetCollision = false;
-           /* shooted = false;
-            coollidesWithLadder = false;*/
+            shooted = false;
+            coollidesWithLadder = false;
             side = MovementMacron.StaysRight;
 
-            //health = 100;
+            health = 100;
             stopSpeed = 0;
             animationcollision = 0;
 
@@ -85,12 +87,21 @@ namespace PlayWithMac
 
         public void CheckCollision(Macron Collider)
         {
+           
         }
 
         public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
         {
+            Text _liveNumber = new Text()
+            {
+                Font = new Font(@".\Ressources\arial.ttf"),
+                DisplayedString = liveNumber.ToString()
+            };
+
             sprite[side].Position = new Vector2f(bodyRect.Left + xOffset, bodyRect.Top + yOffset);
             windowHandler.Draw(sprite[side]);
+            windowHandler.Draw(_liveNumber);
+
         }
 
         public void GetAction()
@@ -224,10 +235,24 @@ namespace PlayWithMac
             {
                 bodyCollision = true;
             }
+
         }
 
         public void CheckCollision(Enemy Collider)
         {
+            if (this.feetRect.CheckCollisions(Collider.BodyRect))
+            {
+                feetCollision = true;
+            }
+            if (this.bodyRect.CheckCollisions(Collider.BodyRect))
+            {
+                bodyCollision = true;
+                liveNumber--;
+                if (liveNumber<=0)
+                {
+                    alive = false;
+                }
+            }
         }
     }
 }

@@ -32,10 +32,8 @@ namespace PlayWithMac
 
         public uint Height
         {
-            get{
-                return heigth;
-            }
-
+            get => heigth;
+            
             set
             {
                 heigth = value;
@@ -44,10 +42,8 @@ namespace PlayWithMac
 
         public uint Width
         {
-            get
-            {
-                return width;
-            }
+            get => width;
+            
             set
             {
                 width = value;
@@ -71,9 +67,9 @@ namespace PlayWithMac
         {
             bool retval = false;
 
-            if ((this.CheckIfVerticalBordersAreInside(rect)) || (rect.CheckIfVerticalBordersAreInside(this)))
+            if ((CheckIfVerticalBordersAreInside(rect)) || (rect.CheckIfVerticalBordersAreInside(this)))
             {
-                if ((this.CheckIfHorizontalBordersAreInside(rect)) || (rect.CheckIfHorizontalBordersAreInside(this)))
+                if ((CheckIfHorizontalBordersAreInside(rect)) || (rect.CheckIfHorizontalBordersAreInside(this)))
                 {
                     retval = true;
                 }

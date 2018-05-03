@@ -201,6 +201,7 @@ namespace PlayWithMac
             if (bodyRect.CheckCollisions(Collider.BodyRect))
             {
                 bodyCollision = true;
+                
             }
 
             if (bodyRect.CheckCollisions(Collider.FeetRect))

@@ -67,6 +67,7 @@
     <Compile Include="CheckFileException.cs" />
     <Compile Include="GameLoop\GameLoop.cs" />
     <Compile Include="GameLoop\GameTime.cs" />
+    <Compile Include="GameOver.cs" />
     <Compile Include="Games.cs" />
     <Compile Include="Levelcontexte.cs" />
     <Compile Include="Macron.cs" />
