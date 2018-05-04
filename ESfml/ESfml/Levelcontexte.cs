@@ -17,14 +17,14 @@ namespace PlayWithMac
         {
             public List<Personnage> PersonneDraw = null;
             public List<Mapinterface> MapDraw;
+            public List<Mapinterface> LiveDraw;
             public Macron MacronObj;
-
-            
 
             public LevelContext(string levelPath)
             {
                 PersonneDraw = new List<Personnage>();
                 MapDraw = new List<Mapinterface>();
+                LiveDraw = new List<Mapinterface>();
 
                 string[] levelDescriptor = File.ReadAllLines(levelPath);
 
@@ -46,6 +46,11 @@ namespace PlayWithMac
                     else if (product.GetType().Equals(typeof(Enemy)))
                     {
                         PersonneDraw.Add((Enemy)product);
+                    }
+                    else if (product.GetType().Equals(typeof(Live)))
+                    {
+                        LiveDraw.Add((Live)product);
+
                     }
                 }
 
@@ -79,6 +84,14 @@ namespace PlayWithMac
                         if (collider.GetType().Equals(typeof(Map)))
                         {
                             element.CheckCollision((Map)collider);
+                        }
+                        else throw new Exception();
+                    }
+                    foreach (Mapinterface collider in context.LiveDraw)
+                    {
+                        if (collider.GetType().Equals(typeof(Live)))
+                        {
+                            element.CheckCollision((Live)collider);
                         }
                         else throw new Exception();
                     }
@@ -124,6 +137,10 @@ namespace PlayWithMac
             }
 
             foreach (Personnage element in context.PersonneDraw)
+            {
+                element.Draw(windowHandler, X, 0);
+            }
+            foreach(Mapinterface element in context.LiveDraw)
             {
                 element.Draw(windowHandler, X, 0);
             }

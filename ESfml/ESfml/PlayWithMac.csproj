@@ -70,6 +70,7 @@
     <Compile Include="GameOver.cs" />
     <Compile Include="Games.cs" />
     <Compile Include="Levelcontexte.cs" />
+    <Compile Include="Live.cs" />
     <Compile Include="Macron.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Mapinterface.cs" />

@@ -14,6 +14,7 @@ namespace PlayWithMac
         void CheckCollision(Macron Collider);
         void CheckCollision(Enemy Collider);
         void CheckCollision(Map Collider);
+        void CheckCollision(Live Collider);
         void Draw(RenderWindow windowHandler, int x, int y);
         bool GetIsSituated();
         bool Alive { get; }

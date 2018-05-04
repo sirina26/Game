@@ -49,6 +49,9 @@ namespace PlayWithMac
                     case "enemy":
                         element = new Enemy(rect);
                         break;
+                     case "heart":
+                         element = new Live(rect);
+                        break;
                     case "map":
                         element = new Map(rect);
                         break;

@@ -245,6 +245,9 @@ namespace PlayWithMac
             windowHandler.Draw(sprite[side]);
         }
 
-      
+        public void CheckCollision(Live Collider)
+        {
+           // throw new NotImplementedException();
+        }
     }
 }

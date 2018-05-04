@@ -253,5 +253,18 @@ namespace PlayWithMac
                 }
             }
         }
+
+        public void CheckCollision(Live Collider)
+        {
+            /*   if (this.feetRect.CheckCollisions(Collider.BodyRect))
+               {
+                   feetCollision = true;
+               }
+               if (this.bodyRect.CheckCollisions(Collider.BodyRect))
+               {
+
+               }
+           */
+        }
     }
 }

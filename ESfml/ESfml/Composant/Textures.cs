@@ -13,7 +13,7 @@ namespace PlayWithMac
         public static Dictionary<string, Texture> PersonnagePle = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> MapTextures = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> EnemyTextures = new Dictionary<string, Texture>();
-
+        public static Dictionary<string, Texture> LiveTextures = new Dictionary<string, Texture>();
         
         public static bool IsInitialized { get { return isInitialized; } }
 
@@ -46,6 +46,15 @@ namespace PlayWithMac
             MapTextures.Add("Wall", wall);
         }
 
+        private static void LVInit()
+        {
+            Texture heart = new Texture(@".\Ressources\heart\" + "Live.png");
+
+            heart.Repeated = true;
+
+            LiveTextures.Add("heart", heart);
+        }
+
        private static void GHInit()
         {         
             string Gpath = @".\Ressources\" + @"Enemy\";
@@ -66,6 +75,7 @@ namespace PlayWithMac
                     MCInit();
                     GDInit();
                     GHInit();
+                    LVInit();
                 }
             }
             catch (Exception e)
