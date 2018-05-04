@@ -51,8 +51,6 @@ namespace PlayWithMac
         public Rectangle BodyRect { get { return bodyRect; } }
         public Rectangle FeetRect { get { return feetRect; } }
 
-
-
         public Macron(Rectangle rect)
         {
             binateSprite = true;
@@ -89,19 +87,20 @@ namespace PlayWithMac
         {
            
         }
-
-        public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
+        public Text NumberLive()
         {
             Text _liveNumber = new Text()
             {
                 Font = new Font(@".\Ressources\arial.ttf"),
-                DisplayedString = liveNumber.ToString()
+                DisplayedString = liveNumber.ToString()+" Lives"
             };
-
+            return _liveNumber;
+        }
+        public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
+        {
             sprite[side].Position = new Vector2f(bodyRect.Left + xOffset, bodyRect.Top + yOffset);
             windowHandler.Draw(sprite[side]);
-            windowHandler.Draw(_liveNumber);
-
+            windowHandler.Draw(NumberLive());
         }
 
         public void GetAction()

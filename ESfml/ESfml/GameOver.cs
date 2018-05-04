@@ -10,7 +10,13 @@ namespace PlayWithMac
 {
     public class GameOver
     {
-        
+        public void IsDead()
+        {
+            if (true)
+            {
+
+            }
+        }
 
     }
 }
