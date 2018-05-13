@@ -8,13 +8,18 @@ using SFML.System;
 
 namespace PlayWithMac
 {
-    public class Live : Mapinterface
+    public class Live : IMapinterface
     {
         private Rectangle rect;
         private Rectangle bodyRect;
         private Sprite heart;
+        bool alive;
+
+        bool heartAlive;
         public Rectangle Rect => rect;
         public Rectangle BodyRect { get { return bodyRect; } }
+
+        public bool HeartAlive { get { return heartAlive; } }
 
         public Live (Rectangle rect)
         {
@@ -24,12 +29,10 @@ namespace PlayWithMac
             if ((rect.Height % heightBase) != 0)
             {
                 rect.Height = rect.Height / heightBase;
-                //rect.Height = rect.Height * heightBase;
             }
             if ((rect.Width % widthBase) != 0)
             {
                 rect.Width = rect.Width / widthBase;
-              //  rect.Width = rect.Width * widthBase;
             }
 
             heart = new Sprite(Textures.LiveTextures["heart"], new IntRect(0, 0, (int)rect.Width, (int)(rect.Height)));

@@ -11,7 +11,7 @@ using SFML.Window;
 
 namespace PlayWithMac
 {
-    public class Enemy : Personnage
+    public class Enemy : IPersonnage
     {
         public enum MovementEnemy
         {

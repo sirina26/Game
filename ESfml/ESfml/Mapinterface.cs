@@ -7,8 +7,9 @@ using SFML.Graphics;
 
 namespace PlayWithMac
 {
-    public interface Mapinterface
+    public interface IMapinterface
     {
+        bool HeartAlive { get; }
         void Draw(RenderWindow windowHandler, int x, int y);
     }
 }

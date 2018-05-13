@@ -10,7 +10,7 @@ using SFML.Window;
 
 namespace PlayWithMac
 {
-    public class Macron : Personnage
+    public class Macron : IPersonnage
     {
         public enum MovementMacron
         {
@@ -87,7 +87,7 @@ namespace PlayWithMac
         {
            
         }
-        public Text NumberLive()
+       public Text NumberLive()
         {
             Text _liveNumber = new Text()
             {

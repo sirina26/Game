@@ -15,16 +15,16 @@ namespace PlayWithMac
 
         public class LevelContext
         {
-            public List<Personnage> PersonneDraw = null;
-            public List<Mapinterface> MapDraw;
-            public List<Mapinterface> LiveDraw;
+            public List<IPersonnage> PersonneDraw = null;
+            public List<IMapinterface> MapDraw;
+            public List<IMapinterface> LiveDraw = null;
             public Macron MacronObj;
 
             public LevelContext(string levelPath)
             {
-                PersonneDraw = new List<Personnage>();
-                MapDraw = new List<Mapinterface>();
-                LiveDraw = new List<Mapinterface>();
+                PersonneDraw = new List<IPersonnage>();
+                MapDraw = new List<IMapinterface>();
+                LiveDraw = new List<IMapinterface>();
 
                 string[] levelDescriptor = File.ReadAllLines(levelPath);
 
@@ -67,7 +67,7 @@ namespace PlayWithMac
 
         public void Actions()
         {
-            foreach (Personnage element in context.PersonneDraw)
+            foreach (IPersonnage element in context.PersonneDraw)
             {
                 element.GetAction();
             }
@@ -75,11 +75,11 @@ namespace PlayWithMac
 
         public void PerformActions()
         {
-            foreach (Personnage element in context.PersonneDraw)
+            foreach (IPersonnage element in context.PersonneDraw)
             {
                 while (element.GetIsSituated() == false)
                 {
-                    foreach (Mapinterface collider in context.MapDraw)
+                    foreach (IMapinterface collider in context.MapDraw)
                     {
                         if (collider.GetType().Equals(typeof(Map)))
                         {
@@ -87,7 +87,7 @@ namespace PlayWithMac
                         }
                         else throw new Exception();
                     }
-                    foreach (Mapinterface collider in context.LiveDraw)
+                    foreach (IMapinterface collider in context.LiveDraw)
                     {
                         if (collider.GetType().Equals(typeof(Live)))
                         {
@@ -96,7 +96,7 @@ namespace PlayWithMac
                         else throw new Exception();
                     }
 
-                    foreach (Personnage collider in context.PersonneDraw)
+                    foreach (IPersonnage collider in context.PersonneDraw)
                     {
                         if (collider.GetType().Equals(typeof(Enemy)))
                         {
@@ -116,7 +116,7 @@ namespace PlayWithMac
 
         public void RemoveNotAliveObjets()
         {
-            foreach (Personnage element in context.PersonneDraw)
+            foreach (IPersonnage element in context.PersonneDraw)
             {
                 if (element.Alive == false)
                 {
@@ -125,22 +125,32 @@ namespace PlayWithMac
                 }
             }
         }
-
+        public void RemoveHeart()
+        {
+            foreach (IMapinterface element in context.LiveDraw)
+            {
+                if (element.HeartAlive == false)
+                {
+                    context.LiveDraw.Remove(element);
+                    break;
+                }
+            }
+        }
         public void DrawObjets(RenderWindow windowHandler)
         {
             backgroundSprite.Draw(windowHandler, RenderStates.Default);
             int X = -(context.MacronObj.BodyRect.Left - 600);
 
-            foreach (Mapinterface element in context.MapDraw)
+            foreach (IMapinterface element in context.MapDraw)
             {
                 element.Draw(windowHandler, X, 0);
             }
 
-            foreach (Personnage element in context.PersonneDraw)
+            foreach (IPersonnage element in context.PersonneDraw)
             {
                 element.Draw(windowHandler, X, 0);
             }
-            foreach(Mapinterface element in context.LiveDraw)
+            foreach(IMapinterface element in context.LiveDraw)
             {
                 element.Draw(windowHandler, X, 0);
             }

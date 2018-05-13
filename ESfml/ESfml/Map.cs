@@ -8,13 +8,15 @@ using SFML.System;
 
 namespace PlayWithMac
 {
-    public class Map: Mapinterface
+    public class Map: IMapinterface
     {
         private Rectangle rect;
         private Sprite sidewalk;
         private Sprite wall;
 
         public Rectangle Rect { get { return rect; } }
+
+        public bool HeartAlive => throw new NotImplementedException();
 
         public Map(Rectangle rect)
         {

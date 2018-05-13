@@ -7,7 +7,7 @@ using SFML.Graphics;
 
 namespace PlayWithMac
 {
-    public interface Personnage
+    public interface IPersonnage
     {
         void GetAction();
         void Move();
