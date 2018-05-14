@@ -17,6 +17,7 @@ namespace PlayWithMac
 
         bool heartAlive;
         public Rectangle Rect => rect;
+
         public Rectangle BodyRect { get { return bodyRect; } }
 
         public bool HeartAlive { get { return heartAlive; } }

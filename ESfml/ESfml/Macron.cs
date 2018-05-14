@@ -27,7 +27,8 @@ namespace PlayWithMac
 
          bool binateSprite;
          bool alive;
-         bool bodyCollision;
+        bool heartsh;
+        bool bodyCollision;
          bool feetCollision;
          bool shooted;
          bool coollidesWithLadder;
@@ -47,7 +48,9 @@ namespace PlayWithMac
         public Vectors direction;
 
         public bool Alive { get { return alive; } }
-        public int LiveNumber { get => liveNumber; }
+        public bool Heartsh { get { return heartsh; } }
+
+        public int LiveNumber { get { return liveNumber; } }
         public Rectangle BodyRect { get { return bodyRect; } }
         public Rectangle FeetRect { get { return feetRect; } }
 
@@ -256,15 +259,10 @@ namespace PlayWithMac
 
         public void CheckCollision(Live Collider)
         {
-            /*   if (this.feetRect.CheckCollisions(Collider.BodyRect))
-               {
-                   feetCollision = true;
-               }
-               if (this.bodyRect.CheckCollisions(Collider.BodyRect))
-               {
-
-               }
-           */
+            if ((this.feetRect.CheckCollisions(Collider.BodyRect)) || (this.bodyRect.CheckCollisions(Collider.BodyRect)))
+            {
+                heartsh = false;
+            }
         }
     }
 }
