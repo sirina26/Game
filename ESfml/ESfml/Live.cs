@@ -8,18 +8,20 @@ using SFML.System;
 
 namespace PlayWithMac
 {
-    public class Live : IMapinterface
+    public class Live : IMapinterface, IPersonnage
     {
         private Rectangle rect;
         private Rectangle bodyRect;
         private Sprite heart;
 
-        bool heartAlive;
+        //bool heartAlive;
         public Rectangle Rect => rect;
 
         public Rectangle BodyRect { get { return bodyRect; } }
 
-        public bool HeartAlive { get { return heartAlive; } }
+        //public bool HeartAlive { get { return heartAlive; } }
+
+        public bool Alive => throw new NotImplementedException();
 
         public Live (Rectangle rect)
         {
@@ -45,6 +47,41 @@ namespace PlayWithMac
         {
             heart.Position = new Vector2f(Rect.Left + x, Rect.Top + y);
             windowHandler.Draw(heart);
+        }
+
+        public void GetAction()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Move()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CheckCollision(Macron Collider)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CheckCollision(Enemy Collider)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CheckCollision(Map Collider)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CheckCollision(Live Collider)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool GetIsSituated()
+        {
+            throw new NotImplementedException();
         }
     }
 }

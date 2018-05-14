@@ -12,6 +12,7 @@ namespace PlayWithMac
 {
     public class Macron : IPersonnage
     {
+        readonly Font livePoint;
         public enum MovementMacron
         {
             StaysLeft,
@@ -23,9 +24,13 @@ namespace PlayWithMac
             MovesRight2,
             JumpsRight
         }
+        public enum MacSounds
+        {
+            Jump,
+            Kick
+        }
 
-
-         bool binateSprite;
+        bool binateSprite;
          bool alive;
         bool heartsh;
         bool bodyCollision;
@@ -43,7 +48,9 @@ namespace PlayWithMac
          MovementMacron side;
 
          Dictionary<MovementMacron, Sprite> sprite;
-         Rectangle bodyRect;
+        private Dictionary<MacSounds, Sound> sound;
+
+        Rectangle bodyRect;
          Rectangle feetRect;
         public Vectors direction;
 
@@ -56,6 +63,7 @@ namespace PlayWithMac
 
         public Macron(Rectangle rect)
         {
+            livePoint = new Font(@".\Ressources\arial.ttf");
             binateSprite = true;
             alive = true;
             bodyCollision = false;
@@ -67,7 +75,19 @@ namespace PlayWithMac
             health = 100;
             stopSpeed = 0;
             animationcollision = 0;
+            try
+            {
+                string path = @".\Ressources\Sounds/";
 
+                sound = new Dictionary<MacSounds, Sound>();
+
+                sound.Add(MacSounds.Jump, new Sound(new SoundBuffer(path + "jump.wav")));
+                sound.Add(MacSounds.Kick, new Sound(new SoundBuffer(path + "kick.wav")));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Cannot load the sounds", e);
+            }
             rect.Height = Textures.PersonnagePle["Right1"].Size.Y;
             rect.Width = Textures.PersonnagePle["Right1"].Size.X;
 
@@ -94,7 +114,7 @@ namespace PlayWithMac
         {
             Text _liveNumber = new Text()
             {
-                Font = new Font(@".\Ressources\arial.ttf"),
+                Font = livePoint,
                 DisplayedString = liveNumber.ToString() + " Lives"
             };
             return _liveNumber;
@@ -124,6 +144,8 @@ namespace PlayWithMac
                 {
                     stopSpeed = 4 * (-speed);
                     feetCollision = false;
+                    sound[MacSounds.Jump].Play();
+
                 }
                 else
                 {
@@ -246,6 +268,11 @@ namespace PlayWithMac
             if (this.feetRect.CheckCollisions(Collider.BodyRect))
             {
                 feetCollision = true;
+
+                if (sound[MacSounds.Kick].Status != SoundStatus.Playing)
+                {
+                    sound[MacSounds.Kick].Play();
+                }
             }
             if (this.bodyRect.CheckCollisions(Collider.BodyRect))
             {

@@ -9,7 +9,7 @@ namespace PlayWithMac
 {
     public interface IMapinterface
     {
-        bool HeartAlive { get; }
+        //bool HeartAlive { get; }
         void Draw(RenderWindow windowHandler, int x, int y);
     }
 }

@@ -126,17 +126,17 @@ namespace PlayWithMac
             }
             
         }
-        public void RemoveHeart()
-        {
-            foreach (IMapinterface element in context.LiveDraw)
-            {
-                if (element.HeartAlive == false)
-                {
-                    context.LiveDraw.Remove(element);
-                    break;
-                }
-            }
-        }
+        //public void RemoveHeart()
+        //{
+        //    foreach (IMapinterface element in context.LiveDraw)
+        //    {
+        //        if (element.HeartAlive == false)
+        //        {
+        //            context.LiveDraw.Remove(element);
+        //            break;
+        //        }
+        //    }
+        //}
         public void DrawObjets(RenderWindow windowHandler)
         {
             backgroundSprite.Draw(windowHandler, RenderStates.Default);
