@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SFML.Graphics;
+using SFML.Window;
 
 namespace PlayWithMac
 {
@@ -17,7 +18,7 @@ namespace PlayWithMac
         {
             public List<IPersonnage> PersonneDraw = null;
             public List<IMapinterface> MapDraw;
-            public List<IMapinterface> LiveDraw = null;
+            public List<IMapinterface> LiveDraw;//= null;
             public Macron MacronObj;
 
             public LevelContext(string levelPath)
@@ -108,8 +109,7 @@ namespace PlayWithMac
                         }
                         else throw new Exception();
                     }
-
-                    element.Move();
+                        element.Move();
                 }
             }
         }
@@ -124,6 +124,7 @@ namespace PlayWithMac
                     break;
                 }
             }
+            
         }
         public void RemoveHeart()
         {

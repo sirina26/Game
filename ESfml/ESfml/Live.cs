@@ -13,7 +13,6 @@ namespace PlayWithMac
         private Rectangle rect;
         private Rectangle bodyRect;
         private Sprite heart;
-        bool alive;
 
         bool heartAlive;
         public Rectangle Rect => rect;

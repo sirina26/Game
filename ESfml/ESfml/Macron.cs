@@ -90,12 +90,12 @@ namespace PlayWithMac
         {
            
         }
-       public Text NumberLive()
+        public Text NumberLive()
         {
             Text _liveNumber = new Text()
             {
                 Font = new Font(@".\Ressources\arial.ttf"),
-                DisplayedString = liveNumber.ToString()+" Lives"
+                DisplayedString = liveNumber.ToString() + " Lives"
             };
             return _liveNumber;
         }
@@ -104,6 +104,7 @@ namespace PlayWithMac
             sprite[side].Position = new Vector2f(bodyRect.Left + xOffset, bodyRect.Top + yOffset);
             windowHandler.Draw(sprite[side]);
             windowHandler.Draw(NumberLive());
+            if (liveNumber == 0) windowHandler.Close();
         }
 
         public void GetAction()
@@ -259,10 +260,10 @@ namespace PlayWithMac
 
         public void CheckCollision(Live Collider)
         {
-            if ((this.feetRect.CheckCollisions(Collider.BodyRect)) || (this.bodyRect.CheckCollisions(Collider.BodyRect)))
-            {
-                heartsh = false;
-            }
+            //if ((this.feetRect.CheckCollisions(Collider.BodyRect)) || (this.bodyRect.CheckCollisions(Collider.BodyRect)))
+            //{
+            //    heartsh = false;
+            //}
         }
     }
 }

@@ -14,7 +14,7 @@ namespace PlayWithMac
 {
     class Program
     {
-        static RenderWindow window = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
+        static RenderWindow windowGame = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
 
         static void Main(string[] args)
         {
@@ -42,18 +42,18 @@ namespace PlayWithMac
                      {
                         windowMenu.Close();
                         
-                        while (window.IsOpen)
+                        while (windowGame.IsOpen)
                         {
-                            window.Clear(/*backgroundColor*/);
+                            windowGame.Clear(/*backgroundColor*/);
 
                             level.Actions();
                             level.PerformActions();
-                            level.DrawObjets(window);
+                            level.DrawObjets(windowGame);
                             level.RemoveNotAliveObjets();
                             level.RemoveHeart();
 
-                            window.DispatchEvents();
-                            window.Display();
+                            windowGame.DispatchEvents();
+                            windowGame.Display();
 
                             System.Threading.Thread.Sleep(15);
                         }
@@ -81,7 +81,7 @@ namespace PlayWithMac
 
         private static void Window_Closed(object sender, EventArgs e)
         {
-            window.Close();
+            windowGame.Close();
         }
     }
 }
