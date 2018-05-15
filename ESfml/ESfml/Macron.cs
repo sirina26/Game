@@ -13,6 +13,8 @@ namespace PlayWithMac
     public class Macron : IPersonnage
     {
         readonly Font livePoint;
+        readonly Options op;
+
         public enum MovementMacron
         {
             StaysLeft,
@@ -24,11 +26,7 @@ namespace PlayWithMac
             MovesRight2,
             JumpsRight
         }
-        public enum MacSounds
-        {
-            Jump,
-            Kick
-        }
+       
 
         bool binateSprite;
          bool alive;
@@ -48,7 +46,6 @@ namespace PlayWithMac
          MovementMacron side;
 
          Dictionary<MovementMacron, Sprite> sprite;
-        private Dictionary<MacSounds, Sound> sound;
 
         Rectangle bodyRect;
          Rectangle feetRect;
@@ -64,6 +61,8 @@ namespace PlayWithMac
         public Macron(Rectangle rect)
         {
             livePoint = new Font(@".\Ressources\arial.ttf");
+            op = new Options();
+
             binateSprite = true;
             alive = true;
             bodyCollision = false;
@@ -75,19 +74,8 @@ namespace PlayWithMac
             health = 100;
             stopSpeed = 0;
             animationcollision = 0;
-            try
-            {
-                string path = @".\Ressources\Sounds/";
 
-                sound = new Dictionary<MacSounds, Sound>();
-
-                sound.Add(MacSounds.Jump, new Sound(new SoundBuffer(path + "jump.wav")));
-                sound.Add(MacSounds.Kick, new Sound(new SoundBuffer(path + "kick.wav")));
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Cannot load the sounds", e);
-            }
+            
             rect.Height = Textures.PersonnagePle["Right1"].Size.Y;
             rect.Width = Textures.PersonnagePle["Right1"].Size.X;
 
@@ -144,8 +132,7 @@ namespace PlayWithMac
                 {
                     stopSpeed = 4 * (-speed);
                     feetCollision = false;
-                    sound[MacSounds.Jump].Play();
-
+                    op.GetActionSound();
                 }
                 else
                 {
@@ -268,11 +255,7 @@ namespace PlayWithMac
             if (this.feetRect.CheckCollisions(Collider.BodyRect))
             {
                 feetCollision = true;
-
-                if (sound[MacSounds.Kick].Status != SoundStatus.Playing)
-                {
-                    sound[MacSounds.Kick].Play();
-                }
+                op.CheckCollisionSound();
             }
             if (this.bodyRect.CheckCollisions(Collider.BodyRect))
             {
