@@ -13,7 +13,7 @@ namespace PlayWithMac
     public class Macron : IPersonnage
     {
         readonly Font livePoint;
-        readonly Options op;
+        readonly SoundGame sg;
 
         public enum MovementMacron
         {
@@ -61,7 +61,7 @@ namespace PlayWithMac
         public Macron(Rectangle rect)
         {
             livePoint = new Font(@".\Ressources\arial.ttf");
-            op = new Options();
+            sg = new SoundGame();
 
             binateSprite = true;
             alive = true;
@@ -132,7 +132,7 @@ namespace PlayWithMac
                 {
                     stopSpeed = 4 * (-speed);
                     feetCollision = false;
-                    op.GetActionSound();
+                    sg.GetActionSound();
                 }
                 else
                 {
@@ -255,10 +255,11 @@ namespace PlayWithMac
             if (this.feetRect.CheckCollisions(Collider.BodyRect))
             {
                 feetCollision = true;
-                op.CheckCollisionSound();
+                sg.CheckCollisionSound();
             }
             if (this.bodyRect.CheckCollisions(Collider.BodyRect))
             {
+                sg.CheckCollisionSound();
                 bodyCollision = true;
                 liveNumber--;
                 if (liveNumber<=0)

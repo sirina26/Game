@@ -19,8 +19,10 @@ namespace PlayWithMac
         static void Main(string[] args)
         {
             Menu menu = new Menu(1200, 700);
-             RenderWindow windowMenu = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
+            Options op = new Options(1200, 700);
 
+             RenderWindow windowMenu = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
+            RenderWindow windowOp = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
             Textures.init();
            // window.Closed += Window_Closed;
             Levelcontexte level = new Levelcontexte();
@@ -63,9 +65,12 @@ namespace PlayWithMac
                     }
                     else if (menu.SelectedItemIndex == 1)
                     {
-                        
-                        break;
-
+                        while (windowOp.IsOpen)
+                        {
+                            op.Draw(windowOp);
+                            //op.Display();
+                        }
+                            //break;
                     }
                     else if (menu.SelectedItemIndex == 2)
                     {
