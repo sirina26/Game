@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using SFML.Graphics;
 using SFML.System;
+using SFML.Window;
 
-namespace PlayWithMac.Model
+
+namespace PlayWithMac
 {
-    public class Enemy : IPersonnage
+    public class Enemy : Personnage
     {
-        public enum EnemySide
+        public enum MovementEnemy
         {
             Left1,
             Left2,
@@ -18,6 +21,29 @@ namespace PlayWithMac.Model
             Right2
         }
 
+<<<<<<< HEAD
+        private bool binateSprite;
+        private bool alive;
+        private bool bodyCollision;
+        private bool feetCollision;
+        private bool mapCollision;
+        private bool isSituated;
+
+        private const int speed = 2;
+        private int stopSpeed;
+        private const int animationSpeed = 2;
+        private int animationIterator;
+        private MovementEnemy side;
+
+        private Dictionary<MovementEnemy, Sprite> sprite;
+        private Rectangle bodyRect;
+        private Rectangle feetRect;
+        private Rectangle groundRect;
+        public Vectors direction;
+
+        public bool Alive { get { return alive; } }
+        public Rectangle BodyRect { get { return bodyRect; } }
+=======
          bool _binateSprite;
          bool _isAlive;
          bool _bodyCollides;
@@ -39,6 +65,7 @@ namespace PlayWithMac.Model
 
         public bool IsAlive { get { return _isAlive; } }
         public Rectangle BodyRect { get { return _bodyRect; } }
+>>>>>>> It0
         public const int Damage = 20;
 
         private void ChooseSprite()
@@ -51,6 +78,17 @@ namespace PlayWithMac.Model
 
             switch (_side)
             {
+<<<<<<< HEAD
+                case MovementEnemy.Left1:
+                case MovementEnemy.Left2:
+                    if (binateSprite) side = MovementEnemy.Left1;
+                    else side = MovementEnemy.Left2;
+                    break;
+                case MovementEnemy.Right1:
+                case MovementEnemy.Right2:
+                    if (binateSprite) side = MovementEnemy.Right1;
+                    else side = MovementEnemy.Right2;
+=======
                 case EnemySide.Left1:
                 case EnemySide.Left2:
                     _side = (_binateSprite) ? EnemySide.Left1 : EnemySide.Left2;
@@ -58,12 +96,23 @@ namespace PlayWithMac.Model
                 case EnemySide.Right1:
                 case EnemySide.Right2:
                     _side = (_binateSprite) ? EnemySide.Right1 : EnemySide.Right2;
+>>>>>>> It0
                     break;
             }
         }
 
         public Enemy(Rectangle rect)
         {
+<<<<<<< HEAD
+            binateSprite = true;
+            alive = true;
+            bodyCollision = false;
+            feetCollision = true;
+            mapCollision = false;
+            stopSpeed = 0;
+            animationIterator = 0;
+            side = MovementEnemy.Right1;
+=======
             _binateSprite = true;
             _isAlive = true;
             _bodyCollides = false;
@@ -72,27 +121,54 @@ namespace PlayWithMac.Model
             _fallSpeed = 0;
             _animationIterator = 0;
             _side = EnemySide.Right1;
+>>>>>>> It0
 
             rect.Height = Textures.EnemyTextures["Right1"].Size.Y;
             rect.Width = Textures.EnemyTextures["Right1"].Size.X;
 
+<<<<<<< HEAD
+            sprite = new Dictionary<MovementEnemy, Sprite>();
+            sprite.Add(MovementEnemy.Left1, new Sprite(Textures.EnemyTextures["Left1"]));
+            sprite.Add(MovementEnemy.Left2, new Sprite(Textures.EnemyTextures["Left2"]));
+            sprite.Add(MovementEnemy.Right1, new Sprite(Textures.EnemyTextures["Right1"]));
+            sprite.Add(MovementEnemy.Right2, new Sprite(Textures.EnemyTextures["Right2"]));
+=======
             _sprite = new Dictionary<EnemySide, Sprite>();
             _sprite.Add(EnemySide.Left1, new Sprite(Textures.EnemyTextures["Left1"]));
             _sprite.Add(EnemySide.Left2, new Sprite(Textures.EnemyTextures["Left2"]));
             _sprite.Add(EnemySide.Right1, new Sprite(Textures.EnemyTextures["Right1"]));
             _sprite.Add(EnemySide.Right2, new Sprite(Textures.EnemyTextures["Right2"]));
+>>>>>>> It0
 
             _bodyRect = rect;
             _feetRect = new Rectangle(rect.Bottom, (rect.Left + (int)rect.Width / 2), 1, (rect.Width / 2));
             _groundRect = new Rectangle(rect.Bottom, (rect.Left), 1, (rect.Width));
         }
 
-        //public bool Alive => throw new NotImplementedException();
-
         public void GetAction()
         {
             _isSituated = false;
 
+<<<<<<< HEAD
+            if (mapCollision == false)
+            {
+                stopSpeed += 2;
+            }
+            else
+            {
+                stopSpeed = 0;
+
+                if (bodyCollision == true)
+                {
+                    if (side == MovementEnemy.Left1 || side == MovementEnemy.Left2) side = MovementEnemy.Right1;
+                    else side = MovementEnemy.Left1;
+                }
+            }
+
+            bodyCollision = false;
+            feetCollision = false;
+            mapCollision = false;
+=======
             if (_groundCollides == false)
             {
                 _fallSpeed += 2;
@@ -110,11 +186,21 @@ namespace PlayWithMac.Model
             _bodyCollides = false;
             _feetCollides = false;
             _groundCollides = false;
+>>>>>>> It0
 
             ChooseSprite();
 
             switch (_side)
             {
+<<<<<<< HEAD
+                case MovementEnemy.Left1:
+                case MovementEnemy.Left2:
+                    direction = new Vectors(new Vectors.Vector((-speed), stopSpeed));
+                    break;
+                case MovementEnemy.Right1:
+                case MovementEnemy.Right2:
+                    direction = new Vectors(new Vectors.Vector(speed, stopSpeed));
+=======
                 case EnemySide.Left1:
                 case EnemySide.Left2:
                     _director = new Vectors(new Vectors.Vector((-_speed), _fallSpeed));
@@ -122,12 +208,24 @@ namespace PlayWithMac.Model
                 case EnemySide.Right1:
                 case EnemySide.Right2:
                     _director = new Vectors(new Vectors.Vector(_speed, _fallSpeed));
+>>>>>>> It0
                     break;
             }
         }
 
         public void Move()
         {
+<<<<<<< HEAD
+            if (stopSpeed > 0 && feetCollision)
+            {
+                stopSpeed = 0;
+                direction.HightReached = true;
+            }
+
+            direction.MoveSucceed = !bodyCollision;
+            Vectors.Direction move = direction.NextMove;
+            bodyCollision = false;
+=======
             if (_fallSpeed > 0 && _feetCollides)
             {
                 _fallSpeed = 0;
@@ -137,6 +235,7 @@ namespace PlayWithMac.Model
             _director.MoveSucceed = !_bodyCollides;
             Vectors.Direction move = _director.NextMove;
             _bodyCollides = false;
+>>>>>>> It0
 
             switch (move)
             {
@@ -172,6 +271,15 @@ namespace PlayWithMac.Model
                     throw new Exception();
             }
 
+<<<<<<< HEAD
+            if ((move == Vectors.Direction.Right) && (side == MovementEnemy.Left1))
+            {
+                side = MovementEnemy.Right1;
+            }
+            else if ((move == Vectors.Direction.Left) && (side == MovementEnemy.Right1))
+            {
+                side = MovementEnemy.Left1;
+=======
             if ((move == Vectors.Direction.Right) && (_side == EnemySide.Left1))
             {
                 _side = EnemySide.Right1;
@@ -179,6 +287,7 @@ namespace PlayWithMac.Model
             else if ((move == Vectors.Direction.Left) && (_side == EnemySide.Right1))
             {
                 _side = EnemySide.Left1;
+>>>>>>> It0
             }
         }
 
@@ -186,17 +295,29 @@ namespace PlayWithMac.Model
         {
             if (_groundRect.CheckCollisions(Collider.BodyRect))
             {
+<<<<<<< HEAD
+                mapCollision = true;
+=======
                 _groundCollides = true;
+>>>>>>> It0
             }
 
             if (_feetRect.CheckCollisions(Collider.BodyRect))
             {
+<<<<<<< HEAD
+                feetCollision = true;
+=======
                 _feetCollides = true;
+>>>>>>> It0
             }
 
             if (_bodyRect.CheckCollisions(Collider.BodyRect))
             {
+<<<<<<< HEAD
+                bodyCollision = true;
+=======
                 _bodyCollides = true;
+>>>>>>> It0
             }
 
             if (_bodyRect.CheckCollisions(Collider.FeetRect))
@@ -213,12 +334,27 @@ namespace PlayWithMac.Model
         {
             if (_groundRect.CheckCollisions(Collider.Rect))
             {
+<<<<<<< HEAD
+                mapCollision = true;
+            }
+            else mapCollision = false;
+=======
                 _groundCollides = true;
             }
             else _groundCollides = false;
+>>>>>>> It0
 
             if (_feetRect.CheckCollisions(Collider.Rect))
             {
+<<<<<<< HEAD
+                feetCollision = true;
+            }
+            else feetCollision = false;
+
+            if (bodyRect.CheckCollisions(Collider.Rect) || (!feetCollision && mapCollision))
+            {
+                bodyCollision = true;
+=======
                 _feetCollides = true;
             }
             else _feetCollides = false;
@@ -226,6 +362,7 @@ namespace PlayWithMac.Model
             if (_bodyRect.CheckCollisions(Collider.Rect) || (!_feetCollides && _groundCollides))
             {
                 _bodyCollides = true;
+>>>>>>> It0
             }
         }
 
