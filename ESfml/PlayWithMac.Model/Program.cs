@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlayWithMac
+namespace PlayWithMac.Model
 {
-    class Context
+    public class Program
     {
+        static void Main(string[] args)
+        {
+        }
     }
 }

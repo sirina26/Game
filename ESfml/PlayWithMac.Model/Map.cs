@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using SFML.Graphics;
 using SFML.System;
 
-namespace PlayWithMac
+namespace PlayWithMac.Model
 {
-    public class Map: Mapinterface
+    public class Map: IMap
     {
         private Rectangle rect;
         private Sprite sidewalk;
@@ -18,8 +18,8 @@ namespace PlayWithMac
 
         public Map(Rectangle rect)
         {
-             uint heightBase = Textures.MapTextures["Sidewalk"].Size.Y;
-             uint widthBase = Textures.MapTextures["Wall"].Size.X;
+            uint heightBase = Textures.MapTextures["Sidewalk"].Size.Y;
+            uint widthBase = Textures.MapTextures["Wall"].Size.X;
 
             if ((rect.Height % heightBase) != 0)
             {

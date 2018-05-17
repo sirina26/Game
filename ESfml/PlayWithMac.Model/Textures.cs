@@ -5,21 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using SFML.Graphics;
 
-namespace PlayWithMac
+namespace PlayWithMac.Model
 {
-    public static class Textures
+    public class Textures
     {
         private static bool isInitialized = false;
         public static Dictionary<string, Texture> PersonnagePle = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> MapTextures = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> EnemyTextures = new Dictionary<string, Texture>();
 
-        
+
         public static bool IsInitialized { get { return isInitialized; } }
 
         private static void MCInit()
         {
-        
+
             string MCpath = @".\Ressources\" + @"Macron\";
 
             PersonnagePle.Add("Left0", new Texture(MCpath + "MCLeft0.png"));
@@ -35,7 +35,7 @@ namespace PlayWithMac
 
         private static void GDInit()
         {
-            
+
             Texture sidewalk = new Texture(@".\Ressources\Map\" + "Ground0.png");//trottoire
             Texture wall = new Texture(@".\Ressources\Map\" + "Ground1.png");//mûr
 
@@ -46,8 +46,8 @@ namespace PlayWithMac
             MapTextures.Add("Wall", wall);
         }
 
-       private static void GHInit()
-        {         
+        private static void GHInit()
+        {
             string Gpath = @".\Ressources\" + @"Enemy\";
 
             EnemyTextures.Add("Left1", new Texture(Gpath + "GLeft0.png"));
@@ -78,6 +78,4 @@ namespace PlayWithMac
             }
         }
     }
-
 }
-

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlayWithMac
+namespace PlayWithMac.Model
 {
     public class Vectors
     {
@@ -29,8 +29,8 @@ namespace PlayWithMac
             Right
         }
 
-       /* private uint NumberOfCollisions;
-        private uint maxNumberOfCollisions;*/
+        /* private uint NumberOfCollisions;
+         private uint maxNumberOfCollisions;*/
         private bool previousMoveSucceed;
         private bool verticalMoveFailed;
         private bool horizontalMoveFailed;
@@ -210,4 +210,3 @@ namespace PlayWithMac
         }
     }
 }
-

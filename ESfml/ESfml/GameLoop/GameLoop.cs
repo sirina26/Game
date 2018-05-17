@@ -34,7 +34,7 @@ namespace PlayWithMac
         protected GameLoop(uint windowWidth, uint windowHeight, string windowTitle, Color WindowClearColor)
         {
             this.WindowClearColor = WindowClearColor;
-            this.Window = new RenderWindow(new VideoMode(windowHeight, windowHeight), windowTitle);
+            this.Window = new RenderWindow(new VideoMode(windowWidth, windowHeight), windowTitle);
             this.GameTime = new GameTime();
             Window.Closed += WindowClosed;
         }
@@ -46,8 +46,8 @@ namespace PlayWithMac
 
         public void Run()
         {
-            LoadContent();
             Initialize();
+            LoadContent(); 
             float totalTimeBeforUpdate = 0f;
             float previousTimeElapsed = 0f;//temp passé
             float deltaTime = 0f;

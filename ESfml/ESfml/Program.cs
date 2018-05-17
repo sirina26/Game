@@ -9,6 +9,7 @@ using SFML.Window;
 using SFML.Audio;
 using SFML.Graphics;
 using System.Threading;
+using PlayWithMac.Model;
 
 namespace PlayWithMac
 {
@@ -22,7 +23,7 @@ namespace PlayWithMac
              RenderWindow windowMenu = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
 
             Textures.init();
-           // window.Closed += Window_Closed;
+            window.Closed += Window_Closed;
             Levelcontexte level = new Levelcontexte();
 
             while (windowMenu.IsOpen)

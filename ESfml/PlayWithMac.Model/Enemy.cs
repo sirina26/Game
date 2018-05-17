@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using SFML.Graphics;
 using SFML.System;
-using SFML.Window;
 
-
-namespace PlayWithMac
+namespace PlayWithMac.Model
 {
-    public class Enemy : Personnage
+    public class Enemy : IPersonnage
     {
         public enum MovementEnemy
         {
@@ -91,6 +88,8 @@ namespace PlayWithMac
             feetRect = new Rectangle(rect.Bottom, (rect.Left + (int)rect.Width / 2), 1, (rect.Width / 2));
             groundRect = new Rectangle(rect.Bottom, (rect.Left), 1, (rect.Width));
         }
+
+        //public bool Alive => throw new NotImplementedException();
 
         public void GetAction()
         {
@@ -243,7 +242,5 @@ namespace PlayWithMac
             sprite[side].Position = new Vector2f(bodyRect.Left + xOffset, bodyRect.Top + yOffset);
             windowHandler.Draw(sprite[side]);
         }
-
-      
     }
 }

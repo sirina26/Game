@@ -1,0 +1,11 @@
+C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\PlayWithMac.Model\obj\Debug\PlayWithMac.Model.csproj.CoreCompileInputs.cache
+C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\PlayWithMac.Model\bin\Debug\PlayWithMac.Model.exe.config
+C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\PlayWithMac.Model\bin\Debug\PlayWithMac.Model.exe
+C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\PlayWithMac.Model\bin\Debug\PlayWithMac.Model.pdb
+C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\PlayWithMac.Model\bin\Debug\sfmlnet-graphics-2.dll
+C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\PlayWithMac.Model\bin\Debug\sfmlnet-system-2.dll
+C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\PlayWithMac.Model\bin\Debug\sfmlnet-window-2.dll
+C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\PlayWithMac.Model\obj\Debug\PlayWithMac.Model.csproj.CopyComplete
+C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\PlayWithMac.Model\obj\Debug\PlayWithMac.Model.exe
+C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\PlayWithMac.Model\obj\Debug\PlayWithMac.Model.pdb
+C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\PlayWithMac.Model\bin\Debug\sfmlnet-audio-2.dll

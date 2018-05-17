@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlayWithMac
+namespace PlayWithMac.Model
 {
     public class Rectangle
     {
@@ -32,7 +32,8 @@ namespace PlayWithMac
 
         public uint Height
         {
-            get{
+            get
+            {
                 return heigth;
             }
 

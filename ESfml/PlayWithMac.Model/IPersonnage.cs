@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using SFML.Graphics;
 
-namespace PlayWithMac
+namespace PlayWithMac.Model
 {
-    public interface Personnage
+    public interface IPersonnage
     {
         void GetAction();
         void Move();
