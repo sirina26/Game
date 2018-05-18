@@ -21,7 +21,8 @@ namespace PlayWithMac.Model
             StaysRight,
             MovesRight1,
             MovesRight2,
-            JumpsRight
+            JumpsRight,
+            Shoot
         }
 
 
@@ -50,8 +51,8 @@ namespace PlayWithMac.Model
         public Rectangle BodyRect { get { return bodyRect; } }
         public Rectangle FeetRect { get { return feetRect; } }
 
-        Color color;
-        float raduis;
+        public List<Bullet> bullets;
+        RenderWindow window;
 
         public Macron(Rectangle rect)
         {
@@ -80,6 +81,7 @@ namespace PlayWithMac.Model
             sprite.Add(MovementMacron.MovesRight2, new Sprite(Textures.PersonnagePle["Right2"]));
             sprite.Add(MovementMacron.JumpsLeft, new Sprite(Textures.PersonnagePle["Left3"]));
             sprite.Add(MovementMacron.JumpsRight, new Sprite(Textures.PersonnagePle["Right3"]));
+            sprite.Add(MovementMacron.Shoot, new Sprite(Textures.PersonnagePle["shoot"]));
 
             bodyRect = rect;
             feetRect = new Rectangle(rect.Bottom, (rect.Left + 3), 1, (rect.Width - 6));
@@ -91,9 +93,11 @@ namespace PlayWithMac.Model
 
         public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
         {
+            window = windowHandler;
             sprite[side].Position = new Vector2f(bodyRect.Left + xOffset, bodyRect.Top + yOffset);
             windowHandler.Draw(sprite[side]);
-            
+
+           
         }
 
         public void GetAction()
@@ -155,8 +159,9 @@ namespace PlayWithMac.Model
                 }
             }
             //Gestion de shoot
-            else if (Keyboard.IsKeyPressed(Keyboard.Key.Space))
+            else if (Keyboard.IsKeyPressed(Keyboard.Key.B))
             {
+                side = MovementMacron.Shoot;
                 ShootEnemy();
             }
             else
@@ -244,17 +249,17 @@ namespace PlayWithMac.Model
             CircleShape player = new CircleShape(25f);
             player.FillColor = Color.White;
             player.SetPointCount(3);
-            //player.Origin = Vector2f(25f, 25f);
+            player.Position = new Vector2f(25f, 25f);
 
             Bullet bl = new Bullet();
-            List<Bullet> bullets = new List<Bullet>();
+            bullets = new List<Bullet>();
             Vector2f playerCenter;
             Vector2f mousePosWindows;
             Vector2f aimDir;
             Vector2f aimDirNorm;
 
-            playerCenter = new Vector2f();
-            mousePosWindows = new Vector2f();
+            playerCenter = new Vector2f(25f, 25f);
+            mousePosWindows = new Vector2f(25f, 25f);
             aimDir = mousePosWindows - playerCenter;
             aimDirNorm = aimDir / (float) Math.Sqrt(Math.Pow(aimDir.X, 2) + Math.Pow(aimDir.Y, 2));
 
@@ -262,17 +267,29 @@ namespace PlayWithMac.Model
             float deg = (float)Math.Atan2(aimDirNorm.Y, aimDirNorm.X) * 180 / PI;
             player.Rotation = deg + 90;
 
-            bl.Mac.Position = playerCenter;
+            bl.Shape.Position = new Vector2f(25f, 25f);
             bl.CurrVelocity = aimDirNorm * bl.Maxspeed;
 
             bullets.Add(bl);
 
-            
+            for(int i = 0; i<bullets.Count(); i++)
+            {
+                bullets[i].Shape.Scale = bullets[i].CurrVelocity;
+
+
+            }
+
+            window.Draw(player);
+
+             for (int i = 0; i < bullets.Count(); i++)
+            {
+                window.Draw(bullets[i].Shape);
+            }
 
         }
 
         //Test shoot
-       public Color Color { get; set; }
+        public Color Color { get; set; }
         public float Radius { get; set; }
     }
 }

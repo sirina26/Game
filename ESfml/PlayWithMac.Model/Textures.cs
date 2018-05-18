@@ -31,6 +31,9 @@ namespace PlayWithMac.Model
             PersonnagePle.Add("Right1", new Texture(MCpath + "MCRight1.png"));
             PersonnagePle.Add("Right2", new Texture(MCpath + "MCRight2.png"));
             PersonnagePle.Add("Right3", new Texture(MCpath + "MCRight3.png"));
+
+            PersonnagePle.Add("shoot", new Texture(MCpath + "shoot.png"));
+
         }
 
         private static void GDInit()

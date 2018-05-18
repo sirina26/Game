@@ -63,7 +63,7 @@ namespace PlayWithMac
                     }
                     else if (menu.SelectedItemIndex == 1)
                     {
-                        
+                        windowMenu.Close();
                         break;
 
                     }

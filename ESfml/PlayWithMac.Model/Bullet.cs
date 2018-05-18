@@ -11,21 +11,24 @@ namespace PlayWithMac.Model
 {
     public class Bullet
     {
-        CircleShape mac;
+        CircleShape shape;
         Vector2f currVelocity;
         float maxSpeed;
                
 
         public Bullet(float radius = 5f)
         {
+            shape = new CircleShape();
             currVelocity = new Vector2f(0f, 0f);
             maxSpeed = 15f;
-            mac.Radius = radius;
-            mac.FillColor = Color.Red;
-            
+            shape.Radius = radius;
+            shape.FillColor = Color.Red;
         }
 
-        public CircleShape Mac { get; }
+        public CircleShape Shape {
+            get { return shape; }
+            set { shape = value;  }
+        }
         public Vector2f CurrVelocity { get; set; }
         public float Maxspeed { get; }
     }
