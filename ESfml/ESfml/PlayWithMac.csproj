@@ -134,18 +134,6 @@
     <Content Include="OpenTK.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Ressources\menu.jpg" />
-    <Content Include="Ressources\Macron\MCLeft0.png" />
-    <Content Include="Ressources\Macron\MCLeft1.png" />
-    <Content Include="Ressources\Macron\MCLeft2.png" />
-    <Content Include="Ressources\Macron\MCLeft3.png" />
-    <Content Include="Ressources\Macron\MCRight0.png" />
-    <Content Include="Ressources\Macron\MCRight1.png" />
-    <Content Include="Ressources\Macron\MCRight2.png" />
-    <Content Include="Ressources\Macron\MCRight3.png" />
-    <Content Include="Ressources\Map\Ground0.png" />
-    <Content Include="Ressources\Map\Ground1.png" />
-    <Content Include="Ressources\Niveau\Level1.txt" />
     <Content Include="sfmlnet-audio-2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
