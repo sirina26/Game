@@ -249,7 +249,7 @@ namespace PlayWithMac.Model
             CircleShape player = new CircleShape(25f);
             player.FillColor = Color.White;
             player.SetPointCount(3);
-            player.Position = new Vector2f(25f, 25f);
+            player.Position = sprite[side].Position;
 
             Bullet bl = new Bullet();
             bullets = new List<Bullet>();
@@ -258,8 +258,8 @@ namespace PlayWithMac.Model
             Vector2f aimDir;
             Vector2f aimDirNorm;
 
-            playerCenter = new Vector2f(25f, 25f);
-            mousePosWindows = new Vector2f(25f, 25f);
+            playerCenter = new Vector2f(player.Position.X, player.Position.Y);
+            mousePosWindows = new Vector2f(Mouse.GetPosition().X, Mouse.GetPosition().Y);
             aimDir = mousePosWindows - playerCenter;
             aimDirNorm = aimDir / (float) Math.Sqrt(Math.Pow(aimDir.X, 2) + Math.Pow(aimDir.Y, 2));
 
@@ -267,15 +267,24 @@ namespace PlayWithMac.Model
             float deg = (float)Math.Atan2(aimDirNorm.Y, aimDirNorm.X) * 180 / PI;
             player.Rotation = deg + 90;
 
-            bl.Shape.Position = new Vector2f(25f, 25f);
-            bl.CurrVelocity = aimDirNorm * bl.Maxspeed;
+            if (Mouse.IsButtonPressed(Mouse.Button.Left))
+            {
+                bl.Shape.Position = playerCenter;
+                bl.CurrVelocity = aimDirNorm * bl.Maxspeed;
 
-            bullets.Add(bl);
+                bullets.Add(bl);
+            }
 
             for(int i = 0; i<bullets.Count(); i++)
             {
                 bullets[i].Shape.Scale = bullets[i].CurrVelocity;
-
+                if (bullets[i].Shape.Position.X < 0 || bullets[i].Shape.Position.X > window.Size.X
+                    || bullets[i].Shape.Position.Y < 0 || bullets[i].Shape.Position.Y > window.Size.Y)
+                {
+                    // bullets.Remove(bullets.Begin + i);
+                }
+                else { 
+                }
 
             }
 
@@ -283,8 +292,10 @@ namespace PlayWithMac.Model
 
              for (int i = 0; i < bullets.Count(); i++)
             {
-                window.Draw(bullets[i].Shape);
+                bullets[i].Shape.Draw(window, RenderStates.Default);
             }
+
+            window.Display();
 
         }
 
