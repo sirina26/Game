@@ -10,11 +10,16 @@ namespace PlayWithMac.Model
 {
     public class Live : IMap
     {
+        bool heartAlive;
         private Rectangle rect;
         private Rectangle bodyRect;
         private Sprite heart;
         public Rectangle Rect => rect;
         public Rectangle BodyRect { get { return bodyRect; } }
+
+        public bool HeartAlive {
+            get { return heartAlive;  }
+        }
 
         public Live(Rectangle rect)
         {

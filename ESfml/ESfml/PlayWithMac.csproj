@@ -57,7 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContextOptions.cs" />
     <Compile Include="Checkfile.cs" />
     <Compile Include="CheckFileException.cs" />
     <Compile Include="GameLoop\GameLoop.cs" />

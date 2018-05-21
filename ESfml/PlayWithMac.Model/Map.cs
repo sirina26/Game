@@ -16,6 +16,10 @@ namespace PlayWithMac.Model
 
         public Rectangle Rect { get { return rect; } }
 
+        public bool HeartAlive {
+            get { return false; }
+        }
+
         public Map(Rectangle rect)
         {
             uint heightBase = Textures.MapTextures["Sidewalk"].Size.Y;

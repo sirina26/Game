@@ -12,6 +12,9 @@ namespace PlayWithMac.Model
 {
     public class Macron : IPersonnage
     {
+        readonly Font livePoint;
+        readonly Sounds op;
+
         public enum MovementMacron
         {
             StaysLeft,
@@ -48,7 +51,7 @@ namespace PlayWithMac.Model
         private Rectangle feetRect;
         public Vectors direction;
 
-        public bool IsAlive { get { return alive; } }
+        public bool Alive { get { return alive; } }
         public int LiveNumber { get => liveNumber; }
         public Rectangle BodyRect { get { return bodyRect; } }
         public Rectangle FeetRect { get { return feetRect; } }
@@ -58,6 +61,9 @@ namespace PlayWithMac.Model
 
         public Macron(Rectangle rect)
         {
+            livePoint = new Font(@".\Ressources\arial.ttf");
+            op = new Sounds();
+
             binateSprite = true;
             alive = true;
             bodyCollision = false;
@@ -66,7 +72,7 @@ namespace PlayWithMac.Model
             coollidesWithLadder = false;
             side = MovementMacron.StaysRight;
 
-            //health = 100;
+            health = 100;
             stopSpeed = 0;
             animationcollision = 0;
 
@@ -91,14 +97,14 @@ namespace PlayWithMac.Model
 
         public void CheckCollision(Macron Collider)
         {
-<<<<<<< HEAD:ESfml/PlayWithMac.Model/Macron.cs
+
         }
 
         public Text NumberLive()
         {
             Text _liveNumber = new Text()
             {
-                Font = new Font(@"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\bin\Debug\Ressources\arial.ttf"),
+                Font = livePoint,
                 DisplayedString = liveNumber.ToString() + " Lives"
             };
             return _liveNumber;
@@ -108,22 +114,11 @@ namespace PlayWithMac.Model
         public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
         {
             window = windowHandler;
-            Text liveNumber = NumberLive();
+            Text live = NumberLive();
             sprite[side].Position = new Vector2f(bodyRect.Left + xOffset, bodyRect.Top + yOffset);
             windowHandler.Draw(sprite[side]);
-            windowHandler.Draw(liveNumber);
-
-=======
-        }
-
-        public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
-        {
-            window = windowHandler;
-            sprite[side].Position = new Vector2f(bodyRect.Left + xOffset, bodyRect.Top + yOffset);
-            windowHandler.Draw(sprite[side]);
-
-           
->>>>>>> fcca045e8fa9b08569e37eb85ed94e06aa910f8e:ESfml/PlayWithMac.Model/Macron.cs
+            windowHandler.Draw(live);
+            if (liveNumber == 0) windowHandler.Close();
         }
 
         public void GetAction()
@@ -143,6 +138,7 @@ namespace PlayWithMac.Model
                 {
                     stopSpeed = 4 * (-speed);
                     feetCollision = false;
+                    op.GetActionSound();
                 }
                 else
                 {
@@ -207,16 +203,6 @@ namespace PlayWithMac.Model
             }
         }
 
-        public Text NumberLive()
-        {
-            Text _liveNumber = new Text()
-            {
-                Font = new Font(@".\Ressources\arial.ttf"),
-                DisplayedString = liveNumber.ToString() + " Lives"
-            };
-            return _liveNumber;
-        }
-
         public bool GetIsSituated()
         {
             return isSituated;
@@ -277,68 +263,20 @@ namespace PlayWithMac.Model
 
         public void CheckCollision(Enemy Collider)
         {
-        }
-
-        public void ShootEnemy()
-        {
-            shooted = true;
-            CircleShape player = new CircleShape(25f);
-            player.FillColor = Color.White;
-            player.SetPointCount(3);
-            player.Position = sprite[side].Position;
-
-            Bullet bl = new Bullet();
-            bullets = new List<Bullet>();
-            Vector2f playerCenter;
-            Vector2f mousePosWindows;
-            Vector2f aimDir;
-            Vector2f aimDirNorm;
-
-            playerCenter = new Vector2f(player.Position.X, player.Position.Y);
-            mousePosWindows = new Vector2f(Mouse.GetPosition().X, Mouse.GetPosition().Y);
-            aimDir = mousePosWindows - playerCenter;
-            aimDirNorm = aimDir / (float) Math.Sqrt(Math.Pow(aimDir.X, 2) + Math.Pow(aimDir.Y, 2));
-
-            float PI = 3.14159265f;
-            float deg = (float)Math.Atan2(aimDirNorm.Y, aimDirNorm.X) * 180 / PI;
-            player.Rotation = deg + 90;
-
-            if (Mouse.IsButtonPressed(Mouse.Button.Left))
+            if (this.feetRect.CheckCollisions(Collider.BodyRect))
             {
-                bl.Shape.Position = playerCenter;
-                bl.CurrVelocity = aimDirNorm * bl.Maxspeed;
-
-                bullets.Add(bl);
+                feetCollision = true;
+                op.CheckCollisionSound();
             }
-
-            for(int i = 0; i<bullets.Count(); i++)
+            if (this.bodyRect.CheckCollisions(Collider.BodyRect))
             {
-<<<<<<< HEAD:ESfml/PlayWithMac.Model/Macron.cs
-                bullets[i].Shape.Scale = bullets[i].CurrVelocity;
-                if (bullets[i].Shape.Position.X < 0 || bullets[i].Shape.Position.X > window.Size.X
-                    || bullets[i].Shape.Position.Y < 0 || bullets[i].Shape.Position.Y > window.Size.Y)
-=======
                 bodyCollision = true;
                 liveNumber--;
                 if (liveNumber <= 0)
->>>>>>> fcca045e8fa9b08569e37eb85ed94e06aa910f8e:ESfml/PlayWithMac.Model/Macron.cs
                 {
-                    // bullets.Remove(bullets.Begin + i);
+                    alive = false;
                 }
-                else { 
-                }
-
             }
-
-            window.Draw(player);
-
-             for (int i = 0; i < bullets.Count(); i++)
-            {
-                bullets[i].Shape.Draw(window, RenderStates.Default);
-            }
-
-            window.Display();
-
         }
 
         public void ShootEnemy()
@@ -375,9 +313,7 @@ namespace PlayWithMac.Model
 
             for(int i = 0; i<bullets.Count(); i++)
             {
-                bullets[i].Shape.Scale = bullets[i].CurrVelocity;
-                if (bullets[i].Shape.Position.X < 0 || bullets[i].Shape.Position.X > window.Size.X
-                    || bullets[i].Shape.Position.Y < 0 || bullets[i].Shape.Position.Y > window.Size.Y)
+                if (liveNumber <= 0)
                 {
                     // bullets.Remove(bullets.Begin + i);
                 }
@@ -413,10 +349,5 @@ namespace PlayWithMac.Model
         //Test shoot
         public Color Color { get; set; }
         public float Radius { get; set; }
-<<<<<<< HEAD:ESfml/PlayWithMac.Model/Macron.cs
-
-       
-=======
->>>>>>> fcca045e8fa9b08569e37eb85ed94e06aa910f8e:ESfml/PlayWithMac.Model/Macron.cs
     }
 }

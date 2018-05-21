@@ -119,9 +119,21 @@ namespace PlayWithMac
         {
             foreach (IPersonnage element in context.PersonneDraw)
             {
-                if (element.IsAlive == false)
+                if (element.Alive == false)
                 {
                     context.PersonneDraw.Remove(element);
+                    break;
+                }
+            }
+        }
+
+        public void RemoveHeart()
+        {
+            foreach (IMap element in context.LiveDraw)
+            {
+                if (element.HeartAlive == false)
+                {
+                    context.LiveDraw.Remove(element);
                     break;
                 }
             }
