@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlayWithMac
+namespace PlayWithMac.Model
 {
     public class Rectangle
     {
@@ -32,8 +32,11 @@ namespace PlayWithMac
 
         public uint Height
         {
-            get => heigth;
-            
+            get
+            {
+                return heigth;
+            }
+
             set
             {
                 heigth = value;
@@ -42,8 +45,10 @@ namespace PlayWithMac
 
         public uint Width
         {
-            get => width;
-            
+            get
+            {
+                return width;
+            }
             set
             {
                 width = value;
@@ -67,9 +72,9 @@ namespace PlayWithMac
         {
             bool retval = false;
 
-            if ((CheckIfVerticalBordersAreInside(rect)) || (rect.CheckIfVerticalBordersAreInside(this)))
+            if ((this.CheckIfVerticalBordersAreInside(rect)) || (rect.CheckIfVerticalBordersAreInside(this)))
             {
-                if ((CheckIfHorizontalBordersAreInside(rect)) || (rect.CheckIfHorizontalBordersAreInside(this)))
+                if ((this.CheckIfHorizontalBordersAreInside(rect)) || (rect.CheckIfHorizontalBordersAreInside(this)))
                 {
                     retval = true;
                 }

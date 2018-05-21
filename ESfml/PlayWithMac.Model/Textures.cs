@@ -5,21 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using SFML.Graphics;
 
-namespace PlayWithMac
+namespace PlayWithMac.Model
 {
-    public static class Textures
+    public class Textures
     {
         private static bool isInitialized = false;
         public static Dictionary<string, Texture> PersonnagePle = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> MapTextures = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> EnemyTextures = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> LiveTextures = new Dictionary<string, Texture>();
-        
+
+
         public static bool IsInitialized { get { return isInitialized; } }
 
         private static void MCInit()
         {
-        
+
             string MCpath = @".\Ressources\" + @"Macron\";
 
             PersonnagePle.Add("Left0", new Texture(MCpath + "MCLeft0.png"));
@@ -31,11 +32,14 @@ namespace PlayWithMac
             PersonnagePle.Add("Right1", new Texture(MCpath + "MCRight1.png"));
             PersonnagePle.Add("Right2", new Texture(MCpath + "MCRight2.png"));
             PersonnagePle.Add("Right3", new Texture(MCpath + "MCRight3.png"));
+
+            PersonnagePle.Add("shoot", new Texture(MCpath + "shoot.png"));
+
         }
 
         private static void GDInit()
         {
-            
+
             Texture sidewalk = new Texture(@".\Ressources\Map\" + "Ground0.png");//trottoire
             Texture wall = new Texture(@".\Ressources\Map\" + "Ground1.png");//mûr
 
@@ -55,8 +59,8 @@ namespace PlayWithMac
             LiveTextures.Add("heart", heart);
         }
 
-       private static void GHInit()
-        {         
+        private static void GHInit()
+        {
             string Gpath = @".\Ressources\" + @"Enemy\";
 
             EnemyTextures.Add("Left1", new Texture(Gpath + "GLeft0.png"));
@@ -74,8 +78,8 @@ namespace PlayWithMac
                 {
                     MCInit();
                     GDInit();
-                    GHInit();
                     LVInit();
+                    GHInit();
                 }
             }
             catch (Exception e)
@@ -88,6 +92,4 @@ namespace PlayWithMac
             }
         }
     }
-
 }
-

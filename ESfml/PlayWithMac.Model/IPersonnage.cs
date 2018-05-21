@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using SFML.Graphics;
 
-namespace PlayWithMac
+namespace PlayWithMac.Model
 {
-    public interface Personnage
+    public interface IPersonnage
     {
         void GetAction();
         void Move();
@@ -17,6 +17,6 @@ namespace PlayWithMac
         void CheckCollision(Live Collider);
         void Draw(RenderWindow windowHandler, int x, int y);
         bool GetIsSituated();
-        bool Alive { get; }
+        bool IsAlive { get; }
     }
 }
