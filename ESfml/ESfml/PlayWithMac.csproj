@@ -57,27 +57,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Composant\Rectangle.cs" />
-    <Compile Include="Composant\Textures.cs" />
-    <Compile Include="Composant\Vector.cs" />
-    <Compile Include="Context.cs" />
-    <Compile Include="ContextOptions.cs" />
-    <Compile Include="Enemy.cs" />
     <Compile Include="Checkfile.cs" />
     <Compile Include="CheckFileException.cs" />
     <Compile Include="GameLoop\GameLoop.cs" />
     <Compile Include="GameLoop\GameTime.cs" />
     <Compile Include="GameOver.cs" />
-    <Compile Include="Games.cs" />
     <Compile Include="Levelcontexte.cs" />
-    <Compile Include="Live.cs" />
-    <Compile Include="Macron.cs" />
-    <Compile Include="Map.cs" />
-    <Compile Include="Mapinterface.cs" />
     <Compile Include="Menu.cs" />
-    <Compile Include="Movement.cs" />
-    <Compile Include="PartGame.cs" />
-    <Compile Include="Personnage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -158,6 +144,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PlayWithMac.Model\PlayWithMac.Model.csproj">
+      <Project>{6563e82d-68a7-4a84-8a4b-90ce6df86029}</Project>
+      <Name>PlayWithMac.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SFML.Graphics;
+using PlayWithMac.Model;
 
 namespace PlayWithMac
 {
@@ -15,16 +16,16 @@ namespace PlayWithMac
 
         public class LevelContext
         {
-            public List<Personnage> PersonneDraw = null;
-            public List<Mapinterface> MapDraw;
-            public List<Mapinterface> LiveDraw;
+            public List<IPersonnage> PersonneDraw = null;
+            public List<IMap> MapDraw;
+            public List<IMap> LiveDraw;
             public Macron MacronObj;
 
             public LevelContext(string levelPath)
             {
-                PersonneDraw = new List<Personnage>();
-                MapDraw = new List<Mapinterface>();
-                LiveDraw = new List<Mapinterface>();
+                PersonneDraw = new List<IPersonnage>();
+                MapDraw = new List<IMap>();
+                LiveDraw = new List<IMap>();
 
                 string[] levelDescriptor = File.ReadAllLines(levelPath);
 
@@ -67,7 +68,7 @@ namespace PlayWithMac
 
         public void Actions()
         {
-            foreach (Personnage element in context.PersonneDraw)
+            foreach (IPersonnage element in context.PersonneDraw)
             {
                 element.GetAction();
             }
@@ -75,11 +76,11 @@ namespace PlayWithMac
 
         public void PerformActions()
         {
-            foreach (Personnage element in context.PersonneDraw)
+            foreach (IPersonnage element in context.PersonneDraw)
             {
                 while (element.GetIsSituated() == false)
                 {
-                    foreach (Mapinterface collider in context.MapDraw)
+                    foreach (IMap collider in context.MapDraw)
                     {
                         if (collider.GetType().Equals(typeof(Map)))
                         {
@@ -87,7 +88,7 @@ namespace PlayWithMac
                         }
                         else throw new Exception();
                     }
-                    foreach (Mapinterface collider in context.LiveDraw)
+                    foreach (IMap collider in context.LiveDraw)
                     {
                         if (collider.GetType().Equals(typeof(Live)))
                         {
@@ -96,7 +97,7 @@ namespace PlayWithMac
                         else throw new Exception();
                     }
 
-                    foreach (Personnage collider in context.PersonneDraw)
+                    foreach (IPersonnage collider in context.PersonneDraw)
                     {
                         if (collider.GetType().Equals(typeof(Enemy)))
                         {
@@ -116,7 +117,7 @@ namespace PlayWithMac
 
         public void RemoveNotAliveObjets()
         {
-            foreach (Personnage element in context.PersonneDraw)
+            foreach (IPersonnage element in context.PersonneDraw)
             {
                 if (element.Alive == false)
                 {
@@ -131,16 +132,16 @@ namespace PlayWithMac
             backgroundSprite.Draw(windowHandler, RenderStates.Default);
             int X = -(context.MacronObj.BodyRect.Left - 600);
 
-            foreach (Mapinterface element in context.MapDraw)
+            foreach (IMap element in context.MapDraw)
             {
                 element.Draw(windowHandler, X, 0);
             }
 
-            foreach (Personnage element in context.PersonneDraw)
+            foreach (IPersonnage element in context.PersonneDraw)
             {
                 element.Draw(windowHandler, X, 0);
             }
-            foreach(Mapinterface element in context.LiveDraw)
+            foreach(IMap element in context.LiveDraw)
             {
                 element.Draw(windowHandler, X, 0);
             }

@@ -4,21 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlayWithMac
+namespace PlayWithMac.Model
 {
-    public class PartGame
+    public class Program
     {
-       
-        
-        public PartGame()
+        static void Main(string[] args)
         {
-
         }
-
-        public void Update()
-        {
-
-        }
-
     }
 }

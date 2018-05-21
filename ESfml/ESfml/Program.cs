@@ -9,6 +9,7 @@ using SFML.Window;
 using SFML.Audio;
 using SFML.Graphics;
 using System.Threading;
+using PlayWithMac.Model;
 
 namespace PlayWithMac
 {

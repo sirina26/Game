@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using SFML.Graphics;
 using SFML.System;
 
-namespace PlayWithMac
+namespace PlayWithMac.Model
 {
-    public class Live : Mapinterface
+    public class Live: IMap
     {
         private Rectangle rect;
         private Rectangle bodyRect;
@@ -16,7 +16,7 @@ namespace PlayWithMac
         public Rectangle Rect => rect;
         public Rectangle BodyRect { get { return bodyRect; } }
 
-        public Live (Rectangle rect)
+        public Live(Rectangle rect)
         {
             uint heightBase = Textures.LiveTextures["heart"].Size.Y;
             uint widthBase = Textures.LiveTextures["heart"].Size.X;
@@ -29,7 +29,7 @@ namespace PlayWithMac
             if ((rect.Width % widthBase) != 0)
             {
                 rect.Width = rect.Width / widthBase;
-              //  rect.Width = rect.Width * widthBase;
+                //  rect.Width = rect.Width * widthBase;
             }
 
             heart = new Sprite(Textures.LiveTextures["heart"], new IntRect(0, 0, (int)rect.Width, (int)(rect.Height)));
