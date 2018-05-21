@@ -8,7 +8,7 @@ using SFML.System;
 
 namespace PlayWithMac.Model
 {
-    public class Live: IMap
+    public class Live : IMap
     {
         private Rectangle rect;
         private Rectangle bodyRect;
@@ -37,6 +37,7 @@ namespace PlayWithMac.Model
 
             this.rect = rect;
         }
+
 
         public void Draw(RenderWindow windowHandler, int x, int y)
         {

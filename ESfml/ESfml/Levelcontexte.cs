@@ -119,7 +119,7 @@ namespace PlayWithMac
         {
             foreach (IPersonnage element in context.PersonneDraw)
             {
-                if (element.Alive == false)
+                if (element.IsAlive == false)
                 {
                     context.PersonneDraw.Remove(element);
                     break;

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SFML.Audio;
-
-namespace PlayWithMac.Model
+namespace PlayWithMac
 {
-    public class SoundGame
+   public class SoundGame
     {
 
         bool on = true;
@@ -19,7 +18,7 @@ namespace PlayWithMac.Model
         Dictionary<MacSounds, Sound> sound;
         public SoundGame()
         {
-            string path = @"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\bin\Debug\Ressources\Sounds\";
+            string path = @".\Ressources\Sounds/";
 
             sound = new Dictionary<MacSounds, Sound>();
 

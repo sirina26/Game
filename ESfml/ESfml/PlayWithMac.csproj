@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContextOptions.cs" />
     <Compile Include="Checkfile.cs" />
     <Compile Include="CheckFileException.cs" />
     <Compile Include="GameLoop\GameLoop.cs" />
@@ -146,7 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PlayWithMac.Model\PlayWithMac.Model.csproj">
-      <Project>{6563e82d-68a7-4a84-8a4b-90ce6df86029}</Project>
+      <Project>{8cf130c0-07b1-4e8e-b530-acc10c4cba21}</Project>
       <Name>PlayWithMac.Model</Name>
     </ProjectReference>
   </ItemGroup>
