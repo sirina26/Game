@@ -15,13 +15,15 @@ namespace PlayWithMac
 {
     class Program
     {
-        static RenderWindow window = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
+        static RenderWindow windowGame = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
 
         static void Main(string[] args)
         {
             Menu menu = new Menu(1200, 700);
-             RenderWindow windowMenu = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
+            Options op = new Options(1200, 700);
 
+             RenderWindow windowMenu = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
+            RenderWindow windowOp = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
             Textures.init();
            // window.Closed += Window_Closed;
             Levelcontexte level = new Levelcontexte();
@@ -43,17 +45,18 @@ namespace PlayWithMac
                      {
                         windowMenu.Close();
                         
-                        while (window.IsOpen)
+                        while (windowGame.IsOpen)
                         {
-                            window.Clear(/*backgroundColor*/);
+                            windowGame.Clear(/*backgroundColor*/);
 
                             level.Actions();
                             level.PerformActions();
-                            level.DrawObjets(window);
+                            level.DrawObjets(windowGame);
                             level.RemoveNotAliveObjets();
+                            //level.RemoveHeart();
 
-                            window.DispatchEvents();
-                            window.Display();
+                            windowGame.DispatchEvents();
+                            windowGame.Display();
 
                             System.Threading.Thread.Sleep(15);
                         }
@@ -63,9 +66,12 @@ namespace PlayWithMac
                     }
                     else if (menu.SelectedItemIndex == 1)
                     {
-                        
-                        break;
-
+                        while (windowOp.IsOpen)
+                        {
+                            op.Draw(windowOp);
+                            //op.Display();
+                        }
+                            //break;
                     }
                     else if (menu.SelectedItemIndex == 2)
                     {
@@ -81,7 +87,7 @@ namespace PlayWithMac
 
         private static void Window_Closed(object sender, EventArgs e)
         {
-            window.Close();
+            windowGame.Close();
         }
     }
 }
