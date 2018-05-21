@@ -97,7 +97,7 @@ namespace PlayWithMac.Model
         {
             Text _liveNumber = new Text()
             {
-                Font = new Font(@".\Ressources\arial.ttf"),
+                Font = new Font(@"C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\ESfml\bin\Debug\Ressources\arial.ttf"),
                 DisplayedString = liveNumber.ToString() + " Lives"
             };
             return _liveNumber;
@@ -107,10 +107,11 @@ namespace PlayWithMac.Model
         public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
         {
             window = windowHandler;
+            Text liveNumber = NumberLive();
             sprite[side].Position = new Vector2f(bodyRect.Left + xOffset, bodyRect.Top + yOffset);
             windowHandler.Draw(sprite[side]);
+            windowHandler.Draw(liveNumber);
 
-           
         }
 
         public void GetAction()
