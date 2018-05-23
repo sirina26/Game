@@ -42,21 +42,24 @@ namespace PlayWithMac
                         break;
                 }
 
-                switch (firstElement)
-                {
-                    case "macron":
-                        element = new Macron(rect);
-                        break;
-                    case "enemy":
-                        element = new Enemy(rect);
-                        break;
-                     case "heart":
-                         element = new Live(rect);
-                        break;
-                    case "map":
-                        element = new Map(rect);
-                        break;
-                }
+            switch (firstElement)
+            {
+                case "macron":
+                    element = new Macron(rect);
+                    break;
+                case "enemy":
+                    element = new Enemy(rect);
+                    break;
+                case "heart":
+                    element = new Live(rect);
+                    break;
+                case "money":
+                    element = new Money(rect);
+                    break;
+                case "map":
+                    element = new Map(rect);
+                    break;
+            }
 
             return element;
         }

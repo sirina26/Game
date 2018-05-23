@@ -14,6 +14,7 @@ namespace PlayWithMac.Model
         private Sprite sidewalk;
         private Sprite wall;
         bool heartlive;
+        bool moneylive;
 
         public Rectangle Rect { get { return rect; } }
 
@@ -22,9 +23,15 @@ namespace PlayWithMac.Model
             set { heartlive = value; }
         }
 
+        public bool MoneyAlive {
+            get { return moneylive; }
+            set { moneylive = value; }
+        }
+
         public Map(Rectangle rect)
         {
             heartlive = true;
+            moneylive = true;
             uint heightBase = Textures.MapTextures["Sidewalk"].Size.Y;
             uint widthBase = Textures.MapTextures["Wall"].Size.X;
 

@@ -19,6 +19,7 @@ namespace PlayWithMac
             public List<IPersonnage> PersonneDraw = null;
             public List<IMap> MapDraw;
             public List<IMap> LiveDraw;
+            public List<IMap> MoneyDraw;
             public Macron MacronObj;
 
             public LevelContext(string levelPath)
@@ -26,6 +27,7 @@ namespace PlayWithMac
                 PersonneDraw = new List<IPersonnage>();
                 MapDraw = new List<IMap>();
                 LiveDraw = new List<IMap>();
+                MoneyDraw = new List<IMap>();
 
                 string[] levelDescriptor = File.ReadAllLines(levelPath);
 
@@ -51,6 +53,11 @@ namespace PlayWithMac
                     else if (product.GetType().Equals(typeof(Live)))
                     {
                         LiveDraw.Add((Live)product);
+
+                    }
+                    else if (product.GetType().Equals(typeof(Money)))
+                    {
+                        MoneyDraw.Add((Money)product);
 
                     }
                 }
@@ -97,14 +104,22 @@ namespace PlayWithMac
                         }
                         else throw new Exception();
                     }
+                    foreach (IMap collider in context.MoneyDraw)
+                    {
+                        if (collider.GetType().Equals(typeof(Money)))
+                        {
+                            element.CheckCollision((Money)collider);
 
+                        }
+                        else throw new Exception();
+                    }
                     foreach (IPersonnage collider in context.PersonneDraw)
                     {
                         if (collider.GetType().Equals(typeof(Enemy)))
                         {
                             element.CheckCollision((Enemy)collider);
                         }
-                       else if (collider.GetType().Equals(typeof(Macron)))
+                        else if (collider.GetType().Equals(typeof(Macron)))
                         {
                             element.CheckCollision((Macron)collider);
                         }
@@ -139,7 +154,17 @@ namespace PlayWithMac
                 }
             }
         }
-
+        public void RemoveMoney()
+        {
+            foreach (IMap element in context.MoneyDraw)
+            {
+                if (element.MoneyAlive == false)
+                {
+                    context.MoneyDraw.Remove(element);
+                    break;
+                }
+            }
+        }
         public void DrawObjets(RenderWindow windowHandler)
         {
             backgroundSprite.Draw(windowHandler, RenderStates.Default);
