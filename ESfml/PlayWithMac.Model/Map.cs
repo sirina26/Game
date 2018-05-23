@@ -13,15 +13,18 @@ namespace PlayWithMac.Model
         private Rectangle rect;
         private Sprite sidewalk;
         private Sprite wall;
+        bool heartlive;
 
         public Rectangle Rect { get { return rect; } }
 
         public bool HeartAlive {
-            get { return false; }
+            get { return heartlive; }
+            set { heartlive = value; }
         }
 
         public Map(Rectangle rect)
         {
+            heartlive = true;
             uint heightBase = Textures.MapTextures["Sidewalk"].Size.Y;
             uint widthBase = Textures.MapTextures["Wall"].Size.X;
 

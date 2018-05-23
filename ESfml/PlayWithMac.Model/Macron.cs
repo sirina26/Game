@@ -335,15 +335,13 @@ namespace PlayWithMac.Model
 
         public void CheckCollision(Live Collider)
         {
-            /*   if (this.feetRect.CheckCollisions(Collider.BodyRect))
-               {
-                   feetCollision = true;
-               }
-               if (this.bodyRect.CheckCollisions(Collider.BodyRect))
-               {
 
-               }
-           */
+            if (this.bodyRect.CheckCollisions(Collider.Rect))
+            {
+                bodyCollision = true;
+                liveNumber++;
+                Collider.HeartAlive = false;
+            }
         }
 
         //Test shoot

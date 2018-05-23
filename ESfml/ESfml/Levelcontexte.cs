@@ -93,6 +93,7 @@ namespace PlayWithMac
                         if (collider.GetType().Equals(typeof(Live)))
                         {
                             element.CheckCollision((Live)collider);
+
                         }
                         else throw new Exception();
                     }
