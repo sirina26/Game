@@ -247,7 +247,7 @@ namespace PlayWithMac.Model
 
         public void CheckCollision(Money collider)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

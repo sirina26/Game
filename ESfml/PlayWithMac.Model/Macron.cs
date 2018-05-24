@@ -39,8 +39,10 @@ namespace PlayWithMac.Model
 
         private const int speed = 6;
         private int stopSpeed;
+        //
         int liveNumber = 30;
-        int MoneyNumber;
+        int MoneyNumber = 0;
+        //
         private const int animation = 5;
         private int animationcollision;
         int health;
@@ -110,15 +112,25 @@ namespace PlayWithMac.Model
             };
             return _liveNumber;
         }
-
+        public Text NumberMoney()
+        {
+            Text _moneyNumber = new Text()
+            {
+                Font = livePoint,
+                DisplayedString ="               Money"+ MoneyNumber.ToString() 
+            };
+            return _moneyNumber;
+        }
 
         public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
         {
             window = windowHandler;
             Text live = NumberLive();
+            Text money = NumberMoney();
             sprite[side].Position = new Vector2f(bodyRect.Left + xOffset, bodyRect.Top + yOffset);
             windowHandler.Draw(sprite[side]);
             windowHandler.Draw(live);
+            windowHandler.Draw(money);
             if (liveNumber == 0) windowHandler.Close();
         }
 

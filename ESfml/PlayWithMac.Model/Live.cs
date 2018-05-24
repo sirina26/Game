@@ -31,14 +31,17 @@ namespace PlayWithMac.Model
             uint heightBase = Textures.LiveTextures["heart"].Size.Y;
             uint widthBase = Textures.LiveTextures["heart"].Size.X;
 
-            if ((rect.Height % heightBase) != 0)
-            {
-                rect.Height = rect.Height / heightBase;
-            }
-            if ((rect.Width % widthBase) != 0)
-            {
-                rect.Width = rect.Width / widthBase;
-            }
+            /*  if ((rect.Height % heightBase) != 0)
+              {
+                  rect.Height = rect.Height / heightBase;
+              }
+              if ((rect.Width % widthBase) != 0)
+              {
+                  rect.Width = rect.Width / widthBase;
+              }*/
+            rect.Height = heightBase;
+            rect.Width = widthBase;
+
 
             heart = new Sprite(Textures.LiveTextures["heart"], new IntRect(0, 0, (int)rect.Width, (int)(rect.Height)));
             heart.Position = new Vector2f(rect.Left, rect.Top);

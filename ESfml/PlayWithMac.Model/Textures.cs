@@ -54,15 +54,13 @@ namespace PlayWithMac.Model
         private static void LVInit()
         {
             Texture heart = new Texture(@".\Ressources\heart\" + "Live.png");
-
             heart.Repeated = true;
-
             LiveTextures.Add("heart", heart);
         }
 
         private static void MnInit()
         {
-            Texture money = new Texture(@".\Ressources\money\" + "Money.jpg");
+            Texture money = new Texture(@".\Ressources\money\" + "mon.png");
             money.Repeated = true;
             MoneyTextures.Add("money", money);
         }

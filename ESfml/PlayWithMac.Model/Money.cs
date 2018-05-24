@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using SFML.Graphics;
 using SFML.System;
-using SFML.Window;
 
 namespace PlayWithMac.Model
 {
@@ -24,22 +23,17 @@ namespace PlayWithMac.Model
             set { moneyAlive = value; }
         }
 
-        public bool HeartAlive { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public bool HeartAlive { get ; set; }
 
         public Money(Rectangle rect)
         {
             moneyAlive = true;
-            uint heightBase = Textures.MoneyTextures["money"].Size.Y;
+            
             uint widthBase = Textures.MoneyTextures["money"].Size.X;
+            uint heightBase = Textures.MoneyTextures["money"].Size.Y;
 
-            if ((rect.Height % heightBase) != 0)
-            {
-                rect.Height = rect.Height / heightBase;
-            }
-            if ((rect.Width % widthBase) != 0)
-            {
-                rect.Width = rect.Width / widthBase;
-            }
+            rect.Height = heightBase;
+            rect.Width = widthBase;
 
             _money = new Sprite(Textures.MoneyTextures["money"], new IntRect(0, 0, (int)rect.Width, (int)(rect.Height)));
             _money.Position = new Vector2f(rect.Left, rect.Top);

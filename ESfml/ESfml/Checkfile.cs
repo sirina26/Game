@@ -53,11 +53,11 @@ namespace PlayWithMac
                 case "heart":
                     element = new Live(rect);
                     break;
-                case "money":
-                    element = new Money(rect);
-                    break;
                 case "map":
                     element = new Map(rect);
+                    break;
+                case "money":
+                    element = new Money(rect);
                     break;
             }
 

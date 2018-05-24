@@ -183,6 +183,10 @@ namespace PlayWithMac
             {
                 element.Draw(windowHandler, X, 0);
             }
+            foreach (IMap element in context.MoneyDraw)
+            {
+                element.Draw(windowHandler, X, 0);
+            }
         }
 
     }
