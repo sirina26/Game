@@ -23,6 +23,8 @@ namespace PlayWithMac.Model
             set { heartAlive = value; }
         }
 
+        public bool MoneyAlive => throw new NotImplementedException();
+
         public Live(Rectangle rect)
         {
             heartAlive = true;

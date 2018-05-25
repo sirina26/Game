@@ -54,6 +54,7 @@ namespace PlayWithMac
                             level.DrawObjets(windowGame);
                             level.RemoveNotAliveObjets();
                             level.RemoveHeart();
+                            level.RemoveMoney();
 
                             windowGame.DispatchEvents();
                             windowGame.Display();

@@ -14,7 +14,7 @@ namespace PlayWithMac.Model
         public static Dictionary<string, Texture> MapTextures = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> EnemyTextures = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> LiveTextures = new Dictionary<string, Texture>();
-
+        public static Dictionary<string, Texture> MoneyTextures = new Dictionary<string, Texture>();
 
         public static bool IsInitialized { get { return isInitialized; } }
 
@@ -69,7 +69,12 @@ namespace PlayWithMac.Model
             EnemyTextures.Add("Right1", new Texture(Gpath + "GRight0.png"));
             EnemyTextures.Add("Right2", new Texture(Gpath + "GRight1.png"));
         }
-
+        private static void MnInit()
+        {
+            Texture money = new Texture(@".\Ressources\Money\" + "lo.png");
+            money.Repeated = true;
+            MoneyTextures.Add("money", money);
+        }
         public static void init()
         {
             try
@@ -80,6 +85,7 @@ namespace PlayWithMac.Model
                     GDInit();
                     LVInit();
                     GHInit();
+                    MnInit();
                 }
             }
             catch (Exception e)

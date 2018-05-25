@@ -18,5 +18,7 @@ namespace PlayWithMac.Model
         bool GetIsSituated();
         bool Alive { get; }
         void CheckCollision(Live collider);
+        void CheckCollision(Money collider);
+
     }
 }

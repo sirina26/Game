@@ -8,23 +8,32 @@ using SFML.System;
 
 namespace PlayWithMac.Model
 {
-    public class Map: IMap
+    public class Map : IMap
     {
         private Rectangle rect;
         private Sprite sidewalk;
         private Sprite wall;
         bool heartlive;
+        bool moneylive;
 
         public Rectangle Rect { get { return rect; } }
 
-        public bool HeartAlive {
+        public bool HeartAlive
+        {
             get { return heartlive; }
             set { heartlive = value; }
+        }
+
+        public bool MoneyAlive
+        {
+            get { return moneylive; }
+            set { moneylive = value; }
         }
 
         public Map(Rectangle rect)
         {
             heartlive = true;
+            moneylive = true;
             uint heightBase = Textures.MapTextures["Sidewalk"].Size.Y;
             uint widthBase = Textures.MapTextures["Wall"].Size.X;
 

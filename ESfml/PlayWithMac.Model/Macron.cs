@@ -40,6 +40,7 @@ namespace PlayWithMac.Model
         private const int speed = 6;
         private int stopSpeed;
         int liveNumber = 30;
+        int MoneyNumber;
         private const int animation = 5;
         private int animationcollision;
         int health;
@@ -110,7 +111,15 @@ namespace PlayWithMac.Model
             return _liveNumber;
         }
 
-
+        public void CheckCollision(Money collider)
+        {
+            if (this.bodyRect.CheckCollisions(collider.Rect))
+            {
+                bodyCollision = true;
+                MoneyNumber++;
+                collider.MoneyAlive = false;
+            }
+        }
         public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
         {
             window = windowHandler;
