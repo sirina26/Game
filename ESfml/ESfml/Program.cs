@@ -15,10 +15,10 @@ namespace PlayWithMac
 {
     class Program
     {
-        static RenderWindow windowGame = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
 
         static void Main(string[] args)
         {
+            RenderWindow windowGame = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
             Menu menu = new Menu(1200, 700);
            // Options op = new Options(1200, 700);
 
@@ -84,11 +84,6 @@ namespace PlayWithMac
                 menu.Draw(windowMenu);
                 windowMenu.Display();
             }
-        }
-
-        private static void Window_Closed(object sender, EventArgs e)
-        {
-            windowGame.Close();
         }
     }
 }
