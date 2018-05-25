@@ -15,18 +15,22 @@ namespace PlayWithMac
 {
     class Program
     {
-        static RenderWindow windowGame = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
+        //static RenderWindow windowGame = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
 
         static void Main(string[] args)
         {
-            Menu menu = new Menu(1200, 700);
+            const uint width = 1200;
+            const uint heigth = 700;
+
+            Menu menu = new Menu(width, heigth);
+            
            // Options op = new Options(1200, 700);
 
              RenderWindow windowMenu = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
            // RenderWindow windowOp = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
-            Textures.init();
+           // Textures.init();
            // window.Closed += Window_Closed;
-            Levelcontexte level = new Levelcontexte();
+           // Levelcontexte level = new Levelcontexte();
 
             while (windowMenu.IsOpen)
             {
@@ -44,24 +48,10 @@ namespace PlayWithMac
                      if (menu.SelectedItemIndex == 0)
                      {
                         windowMenu.Close();
-                        
-                        while (windowGame.IsOpen)
-                        {
-                            windowGame.Clear(/*backgroundColor*/);
 
-                            level.Actions();
-                            level.PerformActions();
-                            level.DrawObjets(windowGame);
-                            level.RemoveNotAliveObjets();
-                            level.RemoveHeart();
-
-                            windowGame.DispatchEvents();
-                            windowGame.Display();
-
-                            System.Threading.Thread.Sleep(15);
-                        }
-
-                       
+                        ChoiceView choix = new ChoiceView(width, heigth);
+                        choix.Run();
+                                               
                         break;
                     }
                     else if (menu.SelectedItemIndex == 1)
@@ -85,9 +75,9 @@ namespace PlayWithMac
             }
         }
 
-        private static void Window_Closed(object sender, EventArgs e)
+      /*  private static void Window_Closed(object sender, EventArgs e)
         {
             windowGame.Close();
-        }
+        }*/
     }
 }

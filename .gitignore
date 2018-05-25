@@ -2,3 +2,4 @@
 /ESfml/.vs/PlayWithMac/v15/Server/sqlite3/storage.ide
 /ESfml/.vs/PlayWithMac/v15/Server/sqlite3/storage.ide-shm
 /ESfml/.vs/PlayWithMac/v15/Server/sqlite3/storage.ide-wal
+*.vs

@@ -59,10 +59,13 @@
   <ItemGroup>
     <Compile Include="Checkfile.cs" />
     <Compile Include="CheckFileException.cs" />
+    <Compile Include="ChoiceLevel.cs" />
+    <Compile Include="ChoiceView.cs" />
     <Compile Include="GameLoop\GameLoop.cs" />
     <Compile Include="GameLoop\GameTime.cs" />
     <Compile Include="GameOver.cs" />
     <Compile Include="Levelcontexte.cs" />
+    <Compile Include="LevelView.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
