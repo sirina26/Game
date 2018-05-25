@@ -71,7 +71,8 @@ namespace PlayWithMac.Model
         }
         private static void MnInit()
         {
-            Texture money = new Texture(@".\Money\" + "lo.png");
+            
+            Texture money = new Texture(@".\Money\" + "Money.png");
             money.Repeated = true;
             MoneyTextures.Add("money", money);
         }

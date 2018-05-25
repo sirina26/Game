@@ -30,21 +30,21 @@ namespace PlayWithMac
 
             while (windowMenu.IsOpen)
             {
-                 if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
-                 {
-                     menu.Move(Keyboard.Key.Up);
-                 }
-                 else if (Keyboard.IsKeyPressed(Keyboard.Key.Down))
-                 {
-                     menu.Move(Keyboard.Key.Down);
-                 }
+                if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
+                {
+                    menu.Move(Keyboard.Key.Up);
+                }
+                else if (Keyboard.IsKeyPressed(Keyboard.Key.Down))
+                {
+                    menu.Move(Keyboard.Key.Down);
+                }
 
-                 else if (Keyboard.IsKeyPressed(Keyboard.Key.Return))
-                 {
-                     if (menu.SelectedItemIndex == 0)
-                     {
+                else if (Keyboard.IsKeyPressed(Keyboard.Key.Return))
+                {
+                    if (menu.SelectedItemIndex == 0)
+                    {
                         windowMenu.Close();
-                        
+
                         while (windowGame.IsOpen)
                         {
                             windowGame.Clear(/*backgroundColor*/);
@@ -62,7 +62,7 @@ namespace PlayWithMac
                             System.Threading.Thread.Sleep(15);
                         }
 
-                       
+
                         break;
                     }
                     else if (menu.SelectedItemIndex == 1)
