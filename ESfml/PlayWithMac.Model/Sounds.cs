@@ -19,7 +19,7 @@ namespace PlayWithMac.Model
 
         public Sounds()
         {
-            string path = @".\Ressources\Sounds/";
+            string path = @".\Sounds/";
 
             sound = new Dictionary<MacSounds, Sound>();
 

@@ -9,12 +9,12 @@ using PlayWithMac.Model;
 
 namespace PlayWithMac
 {
-    public class Levelcontexte
+    public class LevelContext
     {
-        static Texture _background = new Texture(@".\Ressources\LEVEL1MAP1.png");
+        static Texture _background = new Texture(@".\LEVEL1MAP1.png");
         static Sprite backgroundSprite = new Sprite(_background);
 
-        public class LevelContext
+        public class Level
         {
             public List<IPersonnage> PersonneDraw = null;
             public List<IMap> MapDraw;
@@ -22,7 +22,7 @@ namespace PlayWithMac
             public List<IMap> MoneyDraw;
             public Macron MacronObj;
 
-            public LevelContext(string levelPath)
+            public Level(string levelPath)
             {
                 PersonneDraw = new List<IPersonnage>();
                 MapDraw = new List<IMap>();
@@ -65,17 +65,16 @@ namespace PlayWithMac
             }
         }
 
-        public LevelContext context;
+        public Level _level;
 
-        public Levelcontexte()
+        public LevelContext()
         {
-
-            context = new LevelContext(@".\Ressources\Niveau\" + "Level1.txt");
+            _level = new Level(@".\Niveau\" + "Level1.txt");
         }
 
         public void Actions()
         {
-            foreach (IPersonnage element in context.PersonneDraw)
+            foreach (IPersonnage element in _level.PersonneDraw)
             {
                 element.GetAction();
             }
@@ -83,11 +82,11 @@ namespace PlayWithMac
 
         public void PerformActions()
         {
-            foreach (IPersonnage element in context.PersonneDraw)
+            foreach (IPersonnage element in _level.PersonneDraw)
             {
                 while (element.GetIsSituated() == false)
                 {
-                    foreach (IMap collider in context.MapDraw)
+                    foreach (IMap collider in _level.MapDraw)
                     {
                         if (collider.GetType().Equals(typeof(Map)))
                         {
@@ -95,7 +94,7 @@ namespace PlayWithMac
                         }
                         else throw new Exception();
                     }
-                    foreach (IMap collider in context.LiveDraw)
+                    foreach (IMap collider in _level.LiveDraw)
                     {
                         if (collider.GetType().Equals(typeof(Live)))
                         {
@@ -104,7 +103,7 @@ namespace PlayWithMac
                         }
                         else throw new Exception();
                     }
-                    foreach (IMap collider in context.MoneyDraw)
+                    foreach (IMap collider in _level.MoneyDraw)
                     {
                         if (collider.GetType().Equals(typeof(Money)))
                         {
@@ -113,7 +112,7 @@ namespace PlayWithMac
                         }
                         else throw new Exception();
                     }
-                    foreach (IPersonnage collider in context.PersonneDraw)
+                    foreach (IPersonnage collider in _level.PersonneDraw)
                     {
                         if (collider.GetType().Equals(typeof(Enemy)))
                         {
@@ -133,11 +132,11 @@ namespace PlayWithMac
 
         public void RemoveNotAliveObjets()
         {
-            foreach (IPersonnage element in context.PersonneDraw)
+            foreach (IPersonnage element in _level.PersonneDraw)
             {
                 if (element.Alive == false)
                 {
-                    context.PersonneDraw.Remove(element);
+                    _level.PersonneDraw.Remove(element);
                     break;
                 }
             }
@@ -145,22 +144,22 @@ namespace PlayWithMac
 
         public void RemoveHeart()
         {
-            foreach (IMap element in context.LiveDraw)
+            foreach (IMap element in _level.LiveDraw)
             {
                 if (element.HeartAlive == false)
                 {
-                    context.LiveDraw.Remove(element);
+                    _level.LiveDraw.Remove(element);
                     break;
                 }
             }
         }
         public void RemoveMoney()
         {
-            foreach (IMap element in context.MoneyDraw)
+            foreach (IMap element in _level.MoneyDraw)
             {
                 if (element.MoneyAlive == false)
                 {
-                    context.MoneyDraw.Remove(element);
+                    _level.MoneyDraw.Remove(element);
                     break;
                 }
             }
@@ -168,18 +167,22 @@ namespace PlayWithMac
         public void DrawObjets(RenderWindow windowHandler)
         {
             backgroundSprite.Draw(windowHandler, RenderStates.Default);
-            int X = -(context.MacronObj.BodyRect.Left - 600);
+            int X = -(_level.MacronObj.BodyRect.Left - 600);
 
-            foreach (IMap element in context.MapDraw)
+            foreach (IMap element in _level.MapDraw)
             {
                 element.Draw(windowHandler, X, 0);
             }
 
-            foreach (IPersonnage element in context.PersonneDraw)
+            foreach (IPersonnage element in _level.PersonneDraw)
             {
                 element.Draw(windowHandler, X, 0);
             }
-            foreach(IMap element in context.LiveDraw)
+            foreach(IMap element in _level.LiveDraw)
+            {
+                element.Draw(windowHandler, X, 0);
+            }
+            foreach (IMap element in _level.MoneyDraw)
             {
                 element.Draw(windowHandler, X, 0);
             }

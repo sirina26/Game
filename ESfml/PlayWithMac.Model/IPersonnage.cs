@@ -11,14 +11,16 @@ namespace PlayWithMac.Model
     {
         void GetAction();
         void Move();
+
         void CheckCollision(Macron Collider);
         void CheckCollision(Enemy Collider);
         void CheckCollision(Map Collider);
+        void CheckCollision(Live collider);
+        void CheckCollision(Money collider);
+
         void Draw(RenderWindow windowHandler, int x, int y);
         bool GetIsSituated();
         bool Alive { get; }
-        void CheckCollision(Live collider);
-        void CheckCollision(Money collider);
 
     }
 }

@@ -62,7 +62,7 @@
     <Compile Include="GameLoop\GameLoop.cs" />
     <Compile Include="GameLoop\GameTime.cs" />
     <Compile Include="GameOver.cs" />
-    <Compile Include="Levelcontexte.cs" />
+    <Compile Include="LevelContext.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -218,4 +218,7 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(TargetDir)Resources $(TargetDir) /S /Y /D</PostBuildEvent>
+  </PropertyGroup>
 </Project>

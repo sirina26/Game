@@ -21,7 +21,7 @@ namespace PlayWithMac.Model
         private static void MCInit()
         {
 
-            string MCpath = @".\Ressources\" + @"Macron\";
+            string MCpath = @".\" + @"Macron\";
 
             PersonnagePle.Add("Left0", new Texture(MCpath + "MCLeft0.png"));
             PersonnagePle.Add("Left1", new Texture(MCpath + "MCLeft1.png"));
@@ -40,8 +40,8 @@ namespace PlayWithMac.Model
         private static void GDInit()
         {
 
-            Texture sidewalk = new Texture(@".\Ressources\Map\" + "Ground0.png");//trottoire
-            Texture wall = new Texture(@".\Ressources\Map\" + "Ground1.png");//mûr
+            Texture sidewalk = new Texture(@".\Map\" + "Ground0.png");//trottoire
+            Texture wall = new Texture(@".\Map\" + "Ground1.png");//mûr
 
             sidewalk.Repeated = true;
             wall.Repeated = true;
@@ -52,7 +52,7 @@ namespace PlayWithMac.Model
 
         private static void LVInit()
         {
-            Texture heart = new Texture(@".\Ressources\heart\" + "Live.png");
+            Texture heart = new Texture(@".\heart\" + "Live.png");
 
             heart.Repeated = true;
 
@@ -61,7 +61,7 @@ namespace PlayWithMac.Model
 
         private static void GHInit()
         {
-            string Gpath = @".\Ressources\" + @"Enemy\";
+            string Gpath = @".\" + @"Enemy\";
 
             EnemyTextures.Add("Left1", new Texture(Gpath + "GLeft0.png"));
             EnemyTextures.Add("Left2", new Texture(Gpath + "GLeft1.png"));
@@ -71,7 +71,7 @@ namespace PlayWithMac.Model
         }
         private static void MnInit()
         {
-            Texture money = new Texture(@".\Ressources\Money\" + "lo.png");
+            Texture money = new Texture(@".\Money\" + "lo.png");
             money.Repeated = true;
             MoneyTextures.Add("money", money);
         }

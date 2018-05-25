@@ -39,8 +39,10 @@ namespace PlayWithMac.Model
 
         private const int speed = 6;
         private int stopSpeed;
+        //
         int liveNumber = 30;
-        int MoneyNumber;
+        int MoneyNumber = 0;
+        //
         private const int animation = 5;
         private int animationcollision;
         int health;
@@ -62,7 +64,7 @@ namespace PlayWithMac.Model
 
         public Macron(Rectangle rect)
         {
-            livePoint = new Font(@".\Ressources\arial.ttf");
+            livePoint = new Font(@".\arial.ttf");
             op = new Sounds();
 
             binateSprite = true;
@@ -110,23 +112,25 @@ namespace PlayWithMac.Model
             };
             return _liveNumber;
         }
-
-        public void CheckCollision(Money collider)
+        public Text NumberMoney()
         {
-            if (this.bodyRect.CheckCollisions(collider.Rect))
+            Text _moneyNumber = new Text()
             {
-                bodyCollision = true;
-                MoneyNumber++;
-                collider.MoneyAlive = false;
-            }
+                Font = livePoint,
+                DisplayedString = "               Money" + MoneyNumber.ToString()
+            };
+            return _moneyNumber;
         }
+
         public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
         {
             window = windowHandler;
             Text live = NumberLive();
+            Text money = NumberMoney();
             sprite[side].Position = new Vector2f(bodyRect.Left + xOffset, bodyRect.Top + yOffset);
             windowHandler.Draw(sprite[side]);
             windowHandler.Draw(live);
+            windowHandler.Draw(money);
             if (liveNumber == 0) windowHandler.Close();
         }
 
@@ -306,7 +310,7 @@ namespace PlayWithMac.Model
             playerCenter = new Vector2f(player.Position.X, player.Position.Y);
             mousePosWindows = new Vector2f(Mouse.GetPosition().X, Mouse.GetPosition().Y);
             aimDir = mousePosWindows - playerCenter;
-            aimDirNorm = aimDir / (float) Math.Sqrt(Math.Pow(aimDir.X, 2) + Math.Pow(aimDir.Y, 2));
+            aimDirNorm = aimDir / (float)Math.Sqrt(Math.Pow(aimDir.X, 2) + Math.Pow(aimDir.Y, 2));
 
             float PI = 3.14159265f;
             float deg = (float)Math.Atan2(aimDirNorm.Y, aimDirNorm.X) * 180 / PI;
@@ -320,20 +324,21 @@ namespace PlayWithMac.Model
                 bullets.Add(bl);
             }
 
-            for(int i = 0; i<bullets.Count(); i++)
+            for (int i = 0; i < bullets.Count(); i++)
             {
                 if (liveNumber <= 0)
                 {
                     // bullets.Remove(bullets.Begin + i);
                 }
-                else { 
+                else
+                {
                 }
 
             }
 
             window.Draw(player);
 
-             for (int i = 0; i < bullets.Count(); i++)
+            for (int i = 0; i < bullets.Count(); i++)
             {
                 bullets[i].Shape.Draw(window, RenderStates.Default);
             }
@@ -350,6 +355,16 @@ namespace PlayWithMac.Model
                 bodyCollision = true;
                 liveNumber++;
                 Collider.HeartAlive = false;
+            }
+        }
+
+        public void CheckCollision(Money collider)
+        {
+            if (this.bodyRect.CheckCollisions(collider.Rect))
+            {
+                bodyCollision = true;
+                MoneyNumber++;
+                collider.MoneyAlive = false;
             }
         }
 

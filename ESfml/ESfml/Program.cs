@@ -26,7 +26,7 @@ namespace PlayWithMac
            // RenderWindow windowOp = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
             Textures.init();
            // window.Closed += Window_Closed;
-            Levelcontexte level = new Levelcontexte();
+            LevelContext level = new LevelContext();
 
             while (windowMenu.IsOpen)
             {
@@ -67,11 +67,6 @@ namespace PlayWithMac
                     }
                     else if (menu.SelectedItemIndex == 1)
                     {
-                        /*while (windowOp.IsOpen)
-                        {
-                            op.Draw(windowOp);
-                            //op.Display();
-                        }*/
                         break;
                     }
                     else if (menu.SelectedItemIndex == 2)
