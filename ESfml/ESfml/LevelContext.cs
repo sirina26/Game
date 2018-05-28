@@ -84,6 +84,23 @@ namespace PlayWithMac
         {
             foreach (IPersonnage element in _level.PersonneDraw)
             {
+                foreach (IMap collider in _level.MoneyDraw)
+                {
+                    if (collider.GetType().Equals(typeof(Money)))
+                    {
+                        element.CheckCollision((Money)collider);
+                    }
+                    else throw new Exception();
+                }
+                foreach (IMap collider in _level.LiveDraw)
+                {
+                    if (collider.GetType().Equals(typeof(Live)))
+                    {
+                        element.CheckCollision((Live)collider);
+
+                    }
+                    else throw new Exception();
+                }
                 while (element.GetIsSituated() == false)
                 {
                     foreach (IMap collider in _level.MapDraw)
@@ -94,24 +111,8 @@ namespace PlayWithMac
                         }
                         else throw new Exception();
                     }
-                    foreach (IMap collider in _level.LiveDraw)
-                    {
-                        if (collider.GetType().Equals(typeof(Live)))
-                        {
-                            element.CheckCollision((Live)collider);
-
-                        }
-                        else throw new Exception();
-                    }
-                    foreach (IMap collider in _level.MoneyDraw)
-                    {
-                        if (collider.GetType().Equals(typeof(Money)))
-                        {
-                            element.CheckCollision((Money)collider);
-                        }
-                        else throw new Exception();
-                        break;
-                    }
+                    
+                  
                     foreach (IPersonnage collider in _level.PersonneDraw)
                     {
                         if (collider.GetType().Equals(typeof(Enemy)))
