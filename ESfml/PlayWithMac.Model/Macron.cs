@@ -363,8 +363,9 @@ namespace PlayWithMac.Model
             if (this.bodyRect.CheckCollisions(collider.Rect))
             {
                 bodyCollision = true;
-                MoneyNumber++;
+                MoneyNumber = MoneyNumber + 1;
                 collider.MoneyAlive = false;
+                
             }
         }
 

@@ -108,9 +108,9 @@ namespace PlayWithMac
                         if (collider.GetType().Equals(typeof(Money)))
                         {
                             element.CheckCollision((Money)collider);
-
                         }
                         else throw new Exception();
+                        break;
                     }
                     foreach (IPersonnage collider in _level.PersonneDraw)
                     {

@@ -59,7 +59,7 @@ namespace PlayWithMac
                             windowGame.DispatchEvents();
                             windowGame.Display();
 
-                            System.Threading.Thread.Sleep(15);
+                            System.Threading.Thread.Sleep(10);
                         }
 
 
