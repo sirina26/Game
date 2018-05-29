@@ -35,7 +35,7 @@ namespace PlayWithMac
                 Font = font,
                 Color = Color.White,
                 DisplayedString = "Options",
-                Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 2))
+                Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS)))
             };
 
             menu[2] = new Text
@@ -96,8 +96,6 @@ namespace PlayWithMac
             set { selectedItemIndex = value; }
 
         }
-
-       
 
     }
 }

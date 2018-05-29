@@ -4,40 +4,65 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using SFML.Audio;
+using SFML;
 using SFML.Graphics;
 using SFML.Window;
 
-namespace PlayWithMac
+
+namespace EducalGame
 {
-    public class Options
+    public class Questions
     {
-        public const uint MAX_NUMBER_OF_ITEMS = 3;
-        private const string V = @".\Ressources\arial.ttf";
+        public const uint MAX_NUMBER_OF_ITEMS = 4;
+        private const string V = @".\arial.ttf";
         private int selectedItemIndex;
         private Font font = new Font(V);
-        private Text[] onOffSound = new Text[MAX_NUMBER_OF_ITEMS];
-        static Texture _background = new Texture(@".\Ressources\images.jpg");
+        private Text[] _response = new Text[MAX_NUMBER_OF_ITEMS];
+        static Texture _background = new Texture(@".\images.jpg");
         static Sprite backgroundSprite;
-
-        public Options(uint width, uint heigh)
+        public Text Qua()
         {
-            onOffSound[0] = new Text
+            Text _question = new Text()
+            {
+                Font = font,
+                DisplayedString = "Quelle est la date de l'indépendance de la France ?",
+            };
+            return _question;
+        }
+
+        public Questions(uint width, uint heigh)
+        {
+
+            _response[0] = new Text
             {
                 Font = font,
                 Color = Color.Red,
-                DisplayedString = "Sound ON",
+                DisplayedString = "1880",
                 Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 1))
             };
 
-            onOffSound[1] = new Text
+            _response[1] = new Text
             {
                 Font = font,
                 Color = Color.White,
-                DisplayedString = "Sound Off",
+                DisplayedString = "1960",
                 Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 2))
             };
 
+            _response[2] = new Text
+            {
+                Font = font,
+                Color = Color.White,
+                DisplayedString = "1821",
+                Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 3))
+            };
+            _response[3] = new Text
+            {
+                Font = font,
+                Color = Color.White,
+                DisplayedString = "1955",
+                Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 4))
+            };
             backgroundSprite = new Sprite(_background);
         }
 
@@ -46,17 +71,19 @@ namespace PlayWithMac
             backgroundSprite.Draw(window, RenderStates.Default);
             for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
             {
-                window.Draw(onOffSound[i]);
+                window.Draw(_response[i]);
             }
+            Text quas = Qua();
+            window.Draw(quas);
         }
 
         public void MoveUp()
         {
             if (selectedItemIndex - 1 >= 0)
             {
-                onOffSound[selectedItemIndex].Color = Color.White;
+                _response[selectedItemIndex].Color = Color.White;
                 selectedItemIndex--;
-                onOffSound[selectedItemIndex].Color = Color.Red;
+                _response[selectedItemIndex].Color = Color.Red;
             }
         }
 
@@ -64,15 +91,14 @@ namespace PlayWithMac
         {
             if (selectedItemIndex + 1 < MAX_NUMBER_OF_ITEMS)
             {
-                onOffSound[selectedItemIndex].Color = Color.White;
+                _response[selectedItemIndex].Color = Color.White;
                 selectedItemIndex++;
-                onOffSound[selectedItemIndex].Color = Color.Red;
+                _response[selectedItemIndex].Color = Color.Red;
             }
         }
 
         public void Move(Keyboard.Key key)
         {
-
             if (key == Keyboard.Key.Up)
             {
                 MoveUp();
@@ -87,9 +113,8 @@ namespace PlayWithMac
         {
             get { return selectedItemIndex; }
             set { selectedItemIndex = value; }
-
         }
 
     }
-
 }
+

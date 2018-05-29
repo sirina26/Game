@@ -95,6 +95,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\blanc.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\csfml-audio-2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -218,6 +221,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EducalGame\EducalGame.csproj">
+      <Project>{43aead3d-3863-4d06-ae00-9ebcf4b1a2e7}</Project>
+      <Name>EducalGame</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PlayWithMac.Model\PlayWithMac.Model.csproj">
       <Project>{8cf130c0-07b1-4e8e-b530-acc10c4cba21}</Project>
       <Name>PlayWithMac.Model</Name>

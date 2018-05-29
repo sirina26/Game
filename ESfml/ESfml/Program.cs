@@ -10,7 +10,7 @@ using SFML.Audio;
 using SFML.Graphics;
 using System.Threading;
 using PlayWithMac.Model;
-
+using EducalGame;
 namespace PlayWithMac
 {
     class Program
@@ -19,29 +19,21 @@ namespace PlayWithMac
         static void Main(string[] args)
         {
             RenderWindow windowGame = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
-            Menu menu = new Menu(1200, 700);
-           // Options op = new Options(1200, 700);
-
+            //Menu menu = new Menu(1200, 700);
+            
+            Questions questions = new Questions(100, 700);
              RenderWindow windowMenu = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
-           // RenderWindow windowOp = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
+           
             Textures.init();
            // window.Closed += Window_Closed;
             LevelContext level = new LevelContext();
 
             while (windowMenu.IsOpen)
             {
-                if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
-                {
-                    menu.Move(Keyboard.Key.Up);
-                }
-                else if (Keyboard.IsKeyPressed(Keyboard.Key.Down))
-                {
-                    menu.Move(Keyboard.Key.Down);
-                }
 
-                else if (Keyboard.IsKeyPressed(Keyboard.Key.Return))
+                if (Keyboard.IsKeyPressed(Keyboard.Key.Return))
                 {
-                    if (menu.SelectedItemIndex == 0)
+                    if (questions.SelectedItemIndex == 0)
                     {
                         windowMenu.Close();
 
@@ -65,20 +57,22 @@ namespace PlayWithMac
 
                         break;
                     }
-                    else if (menu.SelectedItemIndex == 1)
+                    else if (questions.SelectedItemIndex == 1)
                     {
                         break;
                     }
-                    else if (menu.SelectedItemIndex == 2)
+                    else if (questions.SelectedItemIndex == 2)
                     {
                         windowMenu.Close();
                         break;
                     }
                 }
+                
 
-                menu.Draw(windowMenu);
+                questions.Draw(windowMenu);
                 windowMenu.Display();
             }
+            
         }
     }
 }
