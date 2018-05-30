@@ -248,5 +248,10 @@ namespace PlayWithMac.Model
         {
             //throw new NotImplementedException();
         }
+
+        public void CheckCollision(Sea collider)
+        {
+         //   throw new NotImplementedException();
+        }
     }
 }

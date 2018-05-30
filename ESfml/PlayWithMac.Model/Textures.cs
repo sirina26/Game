@@ -15,6 +15,7 @@ namespace PlayWithMac.Model
         public static Dictionary<string, Texture> EnemyTextures = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> LiveTextures = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> MoneyTextures = new Dictionary<string, Texture>();
+        public static Dictionary<string, Texture> SeaTextures = new Dictionary<string, Texture>();
 
         public static bool IsInitialized { get { return isInitialized; } }
 
@@ -58,6 +59,12 @@ namespace PlayWithMac.Model
 
             LiveTextures.Add("heart", heart);
         }
+        private static void SAInit()
+        {
+            Texture _sea = new Texture(@".\sea\" + "Sea.png");
+            _sea.Repeated = true;
+            SeaTextures.Add("sea", _sea);
+        }
 
         private static void GHInit()
         {
@@ -87,6 +94,7 @@ namespace PlayWithMac.Model
                     LVInit();
                     GHInit();
                     MnInit();
+                    SAInit();
                 }
             }
             catch (Exception e)

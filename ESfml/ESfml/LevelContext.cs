@@ -20,6 +20,7 @@ namespace PlayWithMac
             public List<IMap> MapDraw;
             public List<IMap> LiveDraw;
             public List<IMap> MoneyDraw;
+            public List<IMap> SeaDraw;
             public Macron MacronObj;
 
             public Level(string levelPath)
@@ -28,7 +29,7 @@ namespace PlayWithMac
                 MapDraw = new List<IMap>();
                 LiveDraw = new List<IMap>();
                 MoneyDraw = new List<IMap>();
-
+                SeaDraw = new List<IMap>();
                 string[] levelDescriptor = File.ReadAllLines(levelPath);
 
                 foreach (string line in levelDescriptor)
@@ -59,6 +60,10 @@ namespace PlayWithMac
                     {
                         MoneyDraw.Add((Money)product);
 
+                    }
+                    else if (product.GetType().Equals(typeof(Sea)))
+                    {
+                        SeaDraw.Add((Sea)product);
                     }
                 }
 
@@ -92,6 +97,13 @@ namespace PlayWithMac
                     }
                     else throw new Exception();
                 }
+                foreach (IMap collider in _level.SeaDraw)
+                {
+                    if (collider.GetType().Equals(typeof(Sea)))
+                    {
+                        element.CheckCollision((Sea)collider);
+                    }
+                }
                 foreach (IMap collider in _level.LiveDraw)
                 {
                     if (collider.GetType().Equals(typeof(Live)))
@@ -119,7 +131,7 @@ namespace PlayWithMac
                         {
                             element.CheckCollision((Enemy)collider);
                         }
-                       else if (collider.GetType().Equals(typeof(Macron)))
+                        else if (collider.GetType().Equals(typeof(Macron)))
                         {
                             element.CheckCollision((Macron)collider);
                         }
@@ -158,7 +170,7 @@ namespace PlayWithMac
         {
             foreach (IMap element in _level.MoneyDraw)
             {
-                if (element.MoneyAlive == false)
+                if (element.SeaAlive == false)
                 {
                     _level.MoneyDraw.Remove(element);
                     break;
@@ -180,6 +192,10 @@ namespace PlayWithMac
                 element.Draw(windowHandler, X, 0);
             }
             foreach(IMap element in _level.LiveDraw)
+            {
+                element.Draw(windowHandler, X, 0);
+            }
+            foreach (IMap element in _level.SeaDraw)
             {
                 element.Draw(windowHandler, X, 0);
             }

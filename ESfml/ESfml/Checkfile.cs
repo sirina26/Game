@@ -59,6 +59,9 @@ namespace PlayWithMac
                 case "money":
                     element = new Money(rect);
                     break;
+                case "sea":
+                    element = new Sea(rect);
+                    break;
             }
 
             return element;
