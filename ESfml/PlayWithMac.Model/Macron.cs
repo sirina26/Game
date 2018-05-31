@@ -377,9 +377,22 @@ namespace PlayWithMac.Model
             }
         }
 
-        public void CheckCollision(BigBoss collider)
+        public void CheckCollision(BigBoss Collider)
         {
-            throw new NotImplementedException();
+            if (this.feetRect.CheckCollisions(Collider.BodyRect))
+            {
+                feetCollision = true;
+                op.CheckCollisionSound();
+            }
+            if (this.bodyRect.CheckCollisions(Collider.BodyRect))
+            {
+                bodyCollision = true;
+                liveNumber--;
+                if (liveNumber <= 0)
+                {
+                    alive = false;
+                }
+            }
         }
     }
 }

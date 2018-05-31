@@ -81,11 +81,11 @@ namespace PlayWithMac.Model
         {
             string Gpath = @".\" + @"BigBoss\";
 
-            BigBossTextures.Add("L1", new Texture(Gpath + "GLeft0.png"));
-            BigBossTextures.Add("L2", new Texture(Gpath + "GLeft1.png"));
+            BigBossTextures.Add("Left1", new Texture(Gpath + "GLeft0.png"));
+            BigBossTextures.Add("Left2", new Texture(Gpath + "GLeft1.png"));
 
-            BigBossTextures.Add("R1", new Texture(Gpath + "GRight0.png"));
-            BigBossTextures.Add("R2", new Texture(Gpath + "GRight1.png"));
+            BigBossTextures.Add("Right1", new Texture(Gpath + "GRight0.png"));
+            BigBossTextures.Add("Right2", new Texture(Gpath + "GRight1.png"));
         }
         private static void MnInit()
         {

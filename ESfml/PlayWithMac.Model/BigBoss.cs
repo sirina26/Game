@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SFML.Graphics;
 using SFML.System;
 
@@ -73,21 +70,19 @@ namespace PlayWithMac.Model
             _animationIterator = 0;
             _side = BigBossSide.Right1;
 
-            rect.Height = Textures.BigBossTextures["R1"].Size.Y;
-            rect.Width = Textures.BigBossTextures["R1"].Size.X;
+            rect.Height = Textures.BigBossTextures["Right1"].Size.Y;
+            rect.Width = Textures.BigBossTextures["Right2"].Size.X;
 
             _sprite = new Dictionary<BigBossSide, Sprite>();
-            _sprite.Add(BigBossSide.Left1, new Sprite(Textures.BigBossTextures["L1"]));
-            _sprite.Add(BigBossSide.Left2, new Sprite(Textures.BigBossTextures["L2"]));
-            _sprite.Add(BigBossSide.Right1, new Sprite(Textures.BigBossTextures["R1"]));
-            _sprite.Add(BigBossSide.Right2, new Sprite(Textures.BigBossTextures["R2"]));
+            _sprite.Add(BigBossSide.Left1, new Sprite(Textures.BigBossTextures["Left1"]));
+            _sprite.Add(BigBossSide.Left2, new Sprite(Textures.BigBossTextures["Left2"]));
+            _sprite.Add(BigBossSide.Right1, new Sprite(Textures.BigBossTextures["Right1"]));
+            _sprite.Add(BigBossSide.Right2, new Sprite(Textures.BigBossTextures["Right2"]));
 
             _bodyRect = rect;
             _feetRect = new Rectangle(rect.Bottom, (rect.Left + (int)rect.Width / 2), 1, (rect.Width / 2));
             _groundRect = new Rectangle(rect.Bottom, (rect.Left), 1, (rect.Width));
         }
-
-        //public bool Alive => throw new NotImplementedException();
 
         public void GetAction()
         {
@@ -256,7 +251,7 @@ namespace PlayWithMac.Model
 
         public void CheckCollision(BigBoss collider)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
