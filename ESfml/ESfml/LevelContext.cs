@@ -30,6 +30,7 @@ namespace PlayWithMac
                 LiveDraw = new List<IMap>();
                 MoneyDraw = new List<IMap>();
                 SeaDraw = new List<IMap>();
+
                 string[] levelDescriptor = File.ReadAllLines(levelPath);
 
                 foreach (string line in levelDescriptor)
@@ -50,6 +51,10 @@ namespace PlayWithMac
                     else if (product.GetType().Equals(typeof(Enemy)))
                     {
                         PersonneDraw.Add((Enemy)product);
+                    }
+                    else if (product.GetType().Equals(typeof(BigBoss)))
+                    {
+                        PersonneDraw.Add((BigBoss)product);
                     }
                     else if (product.GetType().Equals(typeof(Live)))
                     {
@@ -134,6 +139,10 @@ namespace PlayWithMac
                         else if (collider.GetType().Equals(typeof(Macron)))
                         {
                             element.CheckCollision((Macron)collider);
+                        }
+                        else if (collider.GetType().Equals(typeof(BigBoss)))
+                        {
+                            element.CheckCollision((BigBoss)collider);
                         }
                         else throw new Exception();
                     }

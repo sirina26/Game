@@ -377,5 +377,9 @@ namespace PlayWithMac.Model
             }
         }
 
+        public void CheckCollision(BigBoss collider)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
