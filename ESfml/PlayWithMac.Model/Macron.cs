@@ -377,8 +377,5 @@ namespace PlayWithMac.Model
             }
         }
 
-        //Test shoot
-        public Color Color { get; set; }
-        public float Radius { get; set; }
     }
 }
