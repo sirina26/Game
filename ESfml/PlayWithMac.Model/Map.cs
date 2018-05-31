@@ -24,7 +24,7 @@ namespace PlayWithMac.Model
             get { return heartlive; }
             set { heartlive = value; }
         }
-        public bool SeaAlive
+        public bool MoneyAlive
         {
             get { return _seaAlive; }
             set { _seaAlive = value; }

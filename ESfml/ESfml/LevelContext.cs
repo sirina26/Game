@@ -170,7 +170,7 @@ namespace PlayWithMac
         {
             foreach (IMap element in _level.MoneyDraw)
             {
-                if (element.SeaAlive == false)
+                if (element.MoneyAlive == false)
                 {
                     _level.MoneyDraw.Remove(element);
                     break;

@@ -15,7 +15,7 @@ namespace PlayWithMac.Model
         private Sprite _sea;
         public Rectangle Rect => _rect;
 
-        public bool SeaAlive
+        public bool MoneyAlive
         {
             get { return _seaAlive; }
             set { _seaAlive = value; }

@@ -364,14 +364,17 @@ namespace PlayWithMac.Model
             {
                 bodyCollision = true;
                 MoneyNumber++;
-                collider.SeaAlive = false;
+                collider.MoneyAlive = false;
                 
             }
         }
 
         public void CheckCollision(Sea collider)
         {
-            throw new NotImplementedException();
+            if (this.bodyRect.CheckCollisions(collider.Rect))
+            {
+                alive = false;
+            }
         }
 
         //Test shoot
