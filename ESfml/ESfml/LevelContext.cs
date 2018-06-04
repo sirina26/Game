@@ -36,10 +36,10 @@ namespace PlayWithMac
                 foreach (string line in levelDescriptor)
                 {
                     object product;
-
+                    
                     product = Checkfile.CreateRectangularObject(line);
-
-                    if (product.GetType().Equals(typeof(Map)))
+                    if (product == null) throw new ArgumentException("csvwvxcf");
+                    else if (product.GetType().Equals(typeof(Map)))
                     {
                         MapDraw.Add((Map)product);
                     }
@@ -144,7 +144,7 @@ namespace PlayWithMac
                         {
                             element.CheckCollision((BigBoss)collider);
                         }
-                        else throw new Exception();
+                        //else throw new Exception();
                     }
 
                     element.Move();

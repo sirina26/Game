@@ -50,7 +50,7 @@ namespace PlayWithMac
                 case "enemy":
                     element = new Enemy(rect);
                     break;
-                case "bigB":
+                case "bigboss":
                     element = new BigBoss(rect);
                     break;
                 case "heart":
