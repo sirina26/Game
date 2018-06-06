@@ -103,23 +103,14 @@ namespace EducalGame
              if (key == Keyboard.Key.Up)
              {
                  MoveUp();
-             }
+                System.Threading.Thread.Sleep(100);
+            }
              else if (key == Keyboard.Key.Down)
              {
                  MoveDown();
-             }
-            //direction = new Vectors(new Vectors.Vector(speed, stopSpeed));
-            //Vectors.Direction move = direction.NextMove;
-
-            //switch (move)
-            //{
-            //    case Vectors.Direction.Up:
-            //        MoveUp();
-            //        break;
-            //    case Vectors.Direction.Down:
-            //        MoveDown();
-            //        break;
-            //}
+                System.Threading.Thread.Sleep(100);
+            }
+            
         }
 
         public int SelectedItemIndex

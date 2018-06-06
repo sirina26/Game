@@ -73,7 +73,7 @@ namespace PlayWithMac.Model
 
             if (requestedOffset.Y < currentOffset.Y)
             {
-                nextDirection = Direction.Up;
+                 nextDirection = Direction.Up;
                 currentOffset.Y--;
             }
             else if (requestedOffset.Y > currentOffset.Y)
