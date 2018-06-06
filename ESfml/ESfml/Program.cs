@@ -11,12 +11,11 @@ namespace PlayWithMac
         {
             RenderWindow windowGame = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
             Menu menu = new Menu(1200, 700);
-           // Options op = new Options(1200, 700);
 
-             RenderWindow windowMenu = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
-           // RenderWindow windowOp = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
+            RenderWindow windowMenu = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
+
             Textures.init();
-           // window.Closed += Window_Closed;
+
             LevelContext level = new LevelContext();
 
             while (windowMenu.IsOpen)

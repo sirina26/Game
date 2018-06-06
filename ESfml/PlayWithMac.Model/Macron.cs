@@ -129,7 +129,8 @@ namespace PlayWithMac.Model
             windowHandler.Draw(sprite[side]);
             windowHandler.Draw(live);
             windowHandler.Draw(money);
-            if (liveNumber == 0) windowHandler.Close();
+            if(  alive == false)
+                windowHandler.Close();
         }
 
         public void GetAction()
@@ -283,6 +284,7 @@ namespace PlayWithMac.Model
             {
                 bodyCollision = true;
                 liveNumber--;
+                System.Threading.Thread.Sleep(10);
                 if (liveNumber <= 0)
                 {
                     alive = false;
