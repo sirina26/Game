@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using PlayWithMac.Model;
 using SFML;
 using SFML.Graphics;
 using SFML.Window;
@@ -20,6 +20,7 @@ namespace EducalGame
         private Text[] _response = new Text[MAX_NUMBER_OF_ITEMS];
         static Texture _background = new Texture(@".\images.jpg");
         static Sprite backgroundSprite;
+        public Vectors direction;
         public Text Qua()
         {
             Text _question = new Text()
@@ -99,14 +100,26 @@ namespace EducalGame
 
         public void Move(Keyboard.Key key)
         {
-            if (key == Keyboard.Key.Up)
-            {
-                MoveUp();
-            }
-            else if (key == Keyboard.Key.Down)
-            {
-                MoveDown();
-            }
+             if (key == Keyboard.Key.Up)
+             {
+                 MoveUp();
+             }
+             else if (key == Keyboard.Key.Down)
+             {
+                 MoveDown();
+             }
+            //direction = new Vectors(new Vectors.Vector(speed, stopSpeed));
+            //Vectors.Direction move = direction.NextMove;
+
+            //switch (move)
+            //{
+            //    case Vectors.Direction.Up:
+            //        MoveUp();
+            //        break;
+            //    case Vectors.Direction.Down:
+            //        MoveDown();
+            //        break;
+            //}
         }
 
         public int SelectedItemIndex

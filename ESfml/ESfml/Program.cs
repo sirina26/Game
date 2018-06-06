@@ -30,7 +30,14 @@ namespace PlayWithMac
 
             while (windowMenu.IsOpen)
             {
-
+                if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
+                {
+                    questions.Move(Keyboard.Key.Up);
+                }
+                else if (Keyboard.IsKeyPressed(Keyboard.Key.Down))
+                {
+                    questions.Move(Keyboard.Key.Down);
+                }
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Return))
                 {
                     if (questions.SelectedItemIndex == 0)
