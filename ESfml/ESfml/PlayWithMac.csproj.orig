@@ -58,7 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Checkfile.cs" />
-    <Compile Include="CheckFileException.cs" />
     <Compile Include="GameLoop\GameLoop.cs" />
     <Compile Include="GameLoop\GameTime.cs" />
     <Compile Include="GameOver.cs" />
@@ -95,6 +94,22 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <Content Include="Resources\blanc.png">
+=======
+    <Content Include="Resources\BigBoss\GLeft0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\BigBoss\GLeft1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\BigBoss\GRight0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\BigBoss\GRight1.png">
+>>>>>>> dead_when_falls
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\csfml-audio-2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -206,6 +221,9 @@
     <Content Include="Resources\personnage.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\sea\Sea.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\sfmlnet-audio-2.dll" />
     <Content Include="Resources\sfmlnet-graphics-2.dll" />
     <Content Include="Resources\sfmlnet-system-2.dll" />
@@ -218,11 +236,16 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EducalGame\EducalGame.csproj">
+      <Project>{43aead3d-3863-4d06-ae00-9ebcf4b1a2e7}</Project>
+      <Name>EducalGame</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PlayWithMac.Model\PlayWithMac.Model.csproj">
       <Project>{8cf130c0-07b1-4e8e-b530-acc10c4cba21}</Project>
       <Name>PlayWithMac.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy $(TargetDir)Resources $(TargetDir) /S /Y /D</PostBuildEvent>

@@ -12,10 +12,8 @@ namespace PlayWithMac.Model
     {
         bool moneyAlive;
         private Rectangle rect;
-        private Rectangle bodyRect;
         private Sprite _money;
         public Rectangle Rect => rect;
-        public Rectangle BodyRect { get { return bodyRect; } }
 
         public bool MoneyAlive
         {
@@ -46,7 +44,6 @@ namespace PlayWithMac.Model
         {
             _money.Position = new Vector2f(Rect.Left + x, Rect.Top + y);
             windowHandler.Draw(_money);
-
         }
     }
 

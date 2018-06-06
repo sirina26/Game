@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using PlayWithMac.Model;
 
 namespace PlayWithMac
@@ -50,6 +46,9 @@ namespace PlayWithMac
                 case "enemy":
                     element = new Enemy(rect);
                     break;
+                case "bigboss":
+                    element = new BigBoss(rect);
+                    break;
                 case "heart":
                     element = new Live(rect);
                     break;
@@ -59,11 +58,13 @@ namespace PlayWithMac
                 case "money":
                     element = new Money(rect);
                     break;
+                case "sea":
+                    element = new Sea(rect);
+                    break;
             }
 
             return element;
         }
-
 
     }
 }

@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-using SFML.System;
-using SFML.Window;
-using SFML.Audio;
+﻿using SFML.Window;
 using SFML.Graphics;
-using System.Threading;
 using PlayWithMac.Model;
 using EducalGame;
 namespace PlayWithMac

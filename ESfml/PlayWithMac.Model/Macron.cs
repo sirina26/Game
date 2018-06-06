@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
@@ -369,8 +367,30 @@ namespace PlayWithMac.Model
             }
         }
 
-        //Test shoot
-        public Color Color { get; set; }
-        public float Radius { get; set; }
+        public void CheckCollision(Sea collider)
+        {
+            if (this.bodyRect.CheckCollisions(collider.Rect))
+            {
+                alive = false;
+            }
+        }
+
+        public void CheckCollision(BigBoss Collider)
+        {
+            if (this.feetRect.CheckCollisions(Collider.BodyRect))
+            {
+                feetCollision = true;
+                op.CheckCollisionSound();
+            }
+            if (this.bodyRect.CheckCollisions(Collider.BodyRect))
+            {
+                bodyCollision = true;
+                liveNumber--;
+                if (liveNumber <= 0)
+                {
+                    alive = false;
+                }
+            }
+        }
     }
 }

@@ -12,10 +12,10 @@ namespace PlayWithMac.Model
     {
         bool heartAlive;
         private Rectangle rect;
-        private Rectangle bodyRect;
+       
         private Sprite heart;
         public Rectangle Rect => rect;
-        public Rectangle BodyRect { get { return bodyRect; } }
+       
 
         public bool HeartAlive
         {
@@ -46,7 +46,6 @@ namespace PlayWithMac.Model
             heart.Position = new Vector2f(Rect.Left + x, Rect.Top + y);
             windowHandler.Draw(heart);
 
-            //if (heartAlive == false) Remove();
         }
     }
 }

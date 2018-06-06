@@ -17,7 +17,8 @@ namespace PlayWithMac.Model
         void CheckCollision(Map Collider);
         void CheckCollision(Live collider);
         void CheckCollision(Money collider);
-
+        void CheckCollision(Sea collider);
+        void CheckCollision(BigBoss collider);
         void Draw(RenderWindow windowHandler, int x, int y);
         bool GetIsSituated();
         bool Alive { get; }
