@@ -25,8 +25,9 @@ namespace PlayWithMac.Model
          bool _feetCollides;
          bool _groundCollides;
          bool _isSituated;
+        readonly Font _yN;
 
-         const int _speed = 2;
+        const int _speed = 2;
          int _fallSpeed;
          const int _animationSpeed = 2;
          int _animationIterator;
@@ -62,9 +63,19 @@ namespace PlayWithMac.Model
                     break;
             }
         }
-
+        public Text YN()
+        {
+            Text _liveNumber = new Text()
+            {
+                Font = _yN,
+                DisplayedString = " Good"
+            };
+            return _liveNumber;
+        }
         public Enemy(Rectangle rect)
         {
+            _yN = new Font(@".\arial.ttf");
+
             _binateSprite = true;
             _isAlive = true;
             _bodyCollides = false;
@@ -239,42 +250,40 @@ namespace PlayWithMac.Model
         {
             _sprite[_side].Position = new Vector2f(_bodyRect.Left + xOffset, _bodyRect.Top + yOffset);
             windowHandler.Draw(_sprite[_side]);
+            Text answer = YN();
+
             if (_isAlive == false)
             {
                 RenderWindow windowGame2 = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
 
                 Questions ques = new Questions(1200, 700);
 
-                ques.Draw(windowGame2);
-
-
-                if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
+                while (windowGame2.IsOpen)
                 {
-                    ques.Move(Keyboard.Key.Up);
-                }
-                else if (Keyboard.IsKeyPressed(Keyboard.Key.Down))
-                {
-                    ques.Move(Keyboard.Key.Down);
-                }
+                    if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
+                    {
+                        ques.Move(Keyboard.Key.Up);
+                    }
+                    else if (Keyboard.IsKeyPressed(Keyboard.Key.Down))
+                    {
+                        ques.Move(Keyboard.Key.Down);
+                    }
+                    else if (Keyboard.IsKeyPressed(Keyboard.Key.Return))
+                    {
 
-                if (ques.SelectedItemIndex == 0)
-                {
+                        if (ques.SelectedItemIndex == 0)
+                        {
+                            windowHandler.Draw(answer);
+                        }
+                        else
+                        {
 
+                        }
+                    }
+
+                    ques.Draw(windowGame2);
+                    windowGame2.Display();
                 }
-                if (ques.SelectedItemIndex == 1)
-                {
-
-                }
-                if (ques.SelectedItemIndex == 2)
-                {
-
-                }
-                else
-                {
-
-                }
-
-                windowGame2.Display();
 
             }
         }

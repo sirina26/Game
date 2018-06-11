@@ -25,7 +25,7 @@ namespace  PlayWithMac.Model
             Text _question = new Text()
             {
                 Font = font,
-                DisplayedString = "Quelle est la date de l'indépendance de la France ?",
+                DisplayedString = "Quelle est la date de la fête nationale de la République française?",
             };
             return _question;
         }
@@ -36,7 +36,7 @@ namespace  PlayWithMac.Model
             {
                 Font = font,
                 Color = Color.Red,
-                DisplayedString = "1880",
+                DisplayedString = "14 Juillet",
                 Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 1))
             };
 
@@ -44,7 +44,7 @@ namespace  PlayWithMac.Model
             {
                 Font = font,
                 Color = Color.White,
-                DisplayedString = "1960",
+                DisplayedString = "15 Juillet",
                 Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 2))
             };
 
@@ -52,14 +52,14 @@ namespace  PlayWithMac.Model
             {
                 Font = font,
                 Color = Color.White,
-                DisplayedString = "1821",
+                DisplayedString = "14 Mai",
                 Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 3))
             };
             _response[3] = new Text
             {
                 Font = font,
                 Color = Color.White,
-                DisplayedString = "1955",
+                DisplayedString = "18 Juillet",
                 Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 4))
             };
             backgroundSprite = new Sprite(_background);
