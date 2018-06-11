@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using SFML.Graphics;
 using SFML.System;
+using SFML.Window;
 
 namespace PlayWithMac.Model
 {
     public class BigBoss : IPersonnage
     {
+
         public enum BigBossSide
         {
             Left1,
@@ -233,25 +235,22 @@ namespace PlayWithMac.Model
         {
             _sprite[_side].Position = new Vector2f(_bodyRect.Left + xOffset, _bodyRect.Top + yOffset);
             windowHandler.Draw(_sprite[_side]);
+            
         }
 
         public void CheckCollision(Live collider)
         {
-            //throw new NotImplementedException();
         }
         public void CheckCollision(Money collider)
         {
-            //throw new NotImplementedException();
         }
 
         public void CheckCollision(Sea collider)
         {
-            //   throw new NotImplementedException();
         }
 
         public void CheckCollision(BigBoss collider)
         {
-            //throw new NotImplementedException();
         }
     }
 }

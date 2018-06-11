@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SFML.Graphics;
 using SFML.System;
+using SFML.Window;
 
 namespace PlayWithMac.Model
 {
@@ -238,25 +239,59 @@ namespace PlayWithMac.Model
         {
             _sprite[_side].Position = new Vector2f(_bodyRect.Left + xOffset, _bodyRect.Top + yOffset);
             windowHandler.Draw(_sprite[_side]);
+            if (_isAlive == false)
+            {
+                RenderWindow windowGame2 = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
+
+                Questions ques = new Questions(1200, 700);
+
+                ques.Draw(windowGame2);
+
+
+                if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
+                {
+                    ques.Move(Keyboard.Key.Up);
+                }
+                else if (Keyboard.IsKeyPressed(Keyboard.Key.Down))
+                {
+                    ques.Move(Keyboard.Key.Down);
+                }
+
+                if (ques.SelectedItemIndex == 0)
+                {
+
+                }
+                if (ques.SelectedItemIndex == 1)
+                {
+
+                }
+                if (ques.SelectedItemIndex == 2)
+                {
+
+                }
+                else
+                {
+
+                }
+
+                windowGame2.Display();
+
+            }
         }
 
         public void CheckCollision(Live collider)
         {
-            //throw new NotImplementedException();
         }
         public void CheckCollision(Money collider)
         {
-            //throw new NotImplementedException();
         }
 
         public void CheckCollision(Sea collider)
         {
-         //   throw new NotImplementedException();
         }
 
         public void CheckCollision(BigBoss collider)
         {
-            //throw new NotImplementedException();
         }
     }
 }

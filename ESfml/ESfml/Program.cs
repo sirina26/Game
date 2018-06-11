@@ -52,7 +52,6 @@ namespace PlayWithMac
                             System.Threading.Thread.Sleep(10);
                         }
 
-
                         break;
                     }
                     else if (menu.SelectedItemIndex == 1)

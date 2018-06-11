@@ -96,8 +96,5 @@ namespace PlayWithMac
             set { selectedItemIndex = value; }
 
         }
-
-       
-
     }
 }

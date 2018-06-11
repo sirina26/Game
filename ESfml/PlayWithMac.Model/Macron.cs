@@ -12,7 +12,7 @@ namespace PlayWithMac.Model
     {
         readonly Font livePoint;
         readonly Sounds op;
-
+        
         public enum MovementMacron
         {
             StaysLeft,
@@ -135,6 +135,7 @@ namespace PlayWithMac.Model
 
         public void GetAction()
         {
+            //op.BackGroundMusic();
             bodyCollision = false;
             isSituated = false;
 

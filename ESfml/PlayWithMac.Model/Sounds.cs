@@ -9,11 +9,12 @@ namespace PlayWithMac.Model
 {
     public class Sounds
     {
-        bool on = true;
+        bool on = false;
         public enum MacSounds
         {
             Jump,
-            Kick
+            Kick,
+            background
         }
         Dictionary<MacSounds, Sound> sound;
 
@@ -25,6 +26,8 @@ namespace PlayWithMac.Model
 
             sound.Add(MacSounds.Jump, new Sound(new SoundBuffer(path + "jump.wav")));
             sound.Add(MacSounds.Kick, new Sound(new SoundBuffer(path + "kick.wav")));
+            //sound.Add(MacSounds.background, new Sound(new SoundBuffer(path + "bg.wav")));
+
         }
         public void GetActionSound()
         {
@@ -43,5 +46,9 @@ namespace PlayWithMac.Model
             }
             else { }
         }
+        //public void BackGroundMusic()
+        //{
+        //    sound[MacSounds.background].Play();
+        //}
     }
 }
