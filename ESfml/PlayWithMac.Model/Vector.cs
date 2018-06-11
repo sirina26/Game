@@ -26,7 +26,8 @@ namespace PlayWithMac.Model
             Up,
             Down,
             Left,
-            Right
+            Right,
+            Horizontal
         }
 
         /* private uint NumberOfCollisions;
@@ -90,7 +91,7 @@ namespace PlayWithMac.Model
             return movePossible;
         }
 
-        private bool moveHorizontal()
+        public bool moveHorizontal()
         {
             bool movePossible = true;
             horizontalMoveFailed = false;
@@ -202,6 +203,11 @@ namespace PlayWithMac.Model
                     verticalMoveFailed = true;
                     moveBack();
                 }
+            }else if(lastDirection == Direction.Horizontal)
+            {
+                horizontalMoveFailed = false;
+                verticalMoveFailed = true;
+                moveHorizontal();
             }
 
             lastDirection = nextDirection;

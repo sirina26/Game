@@ -56,7 +56,10 @@ namespace PlayWithMac
                     case "map":
                         element = new Map(rect);
                         break;
-                }
+                    /*case "bombe":
+                        element = new Bullet(rect);
+                        break;*/
+            }
 
             return element;
         }

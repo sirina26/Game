@@ -1,4 +1,3 @@
-C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\PlayWithMac.Model\obj\Debug\PlayWithMac.Model.csprojResolveAssemblyReference.cache
 C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\PlayWithMac.Model\obj\Debug\PlayWithMac.Model.csproj.CoreCompileInputs.cache
 C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\PlayWithMac.Model\bin\Debug\PlayWithMac.Model.exe.config
 C:\Users\andor\OneDrive\Documents\INTECH\Game\Game\ESfml\PlayWithMac.Model\bin\Debug\PlayWithMac.Model.exe

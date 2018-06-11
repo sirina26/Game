@@ -28,7 +28,6 @@ namespace PlayWithMac.Model
             Shoot
         }
 
-
         private bool binateSprite;
         private bool alive;
         private bool bodyCollision;
@@ -45,6 +44,7 @@ namespace PlayWithMac.Model
         int health;
 
         private MovementMacron side;
+        MvtBullet _sideB;
 
         private Dictionary<MovementMacron, Sprite> sprite;
         private Rectangle bodyRect;
@@ -58,6 +58,13 @@ namespace PlayWithMac.Model
 
         public List<Bullet> bullets;
         RenderWindow window;
+        public Vectors DirectionBb;
+
+        //Dictionary<MvtBullet, Sprite> _spriteB;
+
+        Bullet _bombe;
+        int x;
+        int y;
 
         public Macron(Rectangle rect)
         {
@@ -93,6 +100,8 @@ namespace PlayWithMac.Model
 
             bodyRect = rect;
             feetRect = new Rectangle(rect.Bottom, (rect.Left + 3), 1, (rect.Width - 6));
+
+            _bombe = new Bullet(rect);
         }
 
         public void CheckCollision(Macron Collider)
@@ -118,10 +127,16 @@ namespace PlayWithMac.Model
             sprite[side].Position = new Vector2f(bodyRect.Left + xOffset, bodyRect.Top + yOffset);
             windowHandler.Draw(sprite[side]);
             windowHandler.Draw(live);
-            if (liveNumber == 0) windowHandler.Close();
+            
+            if(shooted == true)
+            {
+                _bombe.SpriteB[_bombe.GetMvtBull].Position = new Vector2f(bodyRect.Top + xOffset, bodyRect.Left);
+                window.Draw(_bombe.SpriteB[_bombe.GetMvtBull]);
+                
+            }
         }
 
-        public void GetAction()
+        public void GetAction(RenderWindow awin)
         {
             bodyCollision = false;
             isSituated = false;
@@ -183,8 +198,10 @@ namespace PlayWithMac.Model
             //Gestion de shoot
             else if (Keyboard.IsKeyPressed(Keyboard.Key.B))
             {
-                side = MovementMacron.Shoot;
-                ShootEnemy();
+                //side = MovementMacron.Shoot;
+                shooted = true;
+                _bombe.MoveBullet();
+                _bombe.MoveShoot();
             }
             else
             {
@@ -246,7 +263,11 @@ namespace PlayWithMac.Model
                     FeetRect.Top++;
                     break;
             }
+
+            
         }
+
+
 
         public void CheckCollision(Map Collider)
         {
@@ -279,60 +300,6 @@ namespace PlayWithMac.Model
             }
         }
 
-        public void ShootEnemy()
-        {
-            shooted = true;
-            CircleShape player = new CircleShape(25f);
-            player.FillColor = Color.White;
-            player.SetPointCount(3);
-            player.Position = sprite[side].Position;
-
-            Bullet bl = new Bullet();
-            bullets = new List<Bullet>();
-            Vector2f playerCenter;
-            Vector2f mousePosWindows;
-            Vector2f aimDir;
-            Vector2f aimDirNorm;
-
-            playerCenter = new Vector2f(player.Position.X, player.Position.Y);
-            mousePosWindows = new Vector2f(Mouse.GetPosition().X, Mouse.GetPosition().Y);
-            aimDir = mousePosWindows - playerCenter;
-            aimDirNorm = aimDir / (float) Math.Sqrt(Math.Pow(aimDir.X, 2) + Math.Pow(aimDir.Y, 2));
-
-            float PI = 3.14159265f;
-            float deg = (float)Math.Atan2(aimDirNorm.Y, aimDirNorm.X) * 180 / PI;
-            player.Rotation = deg + 90;
-
-            if (Mouse.IsButtonPressed(Mouse.Button.Left))
-            {
-                bl.Shape.Position = playerCenter;
-                bl.CurrVelocity = aimDirNorm * bl.Maxspeed;
-
-                bullets.Add(bl);
-            }
-
-            for(int i = 0; i<bullets.Count(); i++)
-            {
-                if (liveNumber <= 0)
-                {
-                    // bullets.Remove(bullets.Begin + i);
-                }
-                else { 
-                }
-
-            }
-
-            window.Draw(player);
-
-             for (int i = 0; i < bullets.Count(); i++)
-            {
-                bullets[i].Shape.Draw(window, RenderStates.Default);
-            }
-
-            window.Display();
-
-        }
-
         public void CheckCollision(Live Collider)
         {
 
@@ -343,9 +310,5 @@ namespace PlayWithMac.Model
                 Collider.HeartAlive = false;
             }
         }
-
-        //Test shoot
-        public Color Color { get; set; }
-        public float Radius { get; set; }
     }
 }

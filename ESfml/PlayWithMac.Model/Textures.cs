@@ -15,6 +15,8 @@ namespace PlayWithMac.Model
         public static Dictionary<string, Texture> EnemyTextures = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> LiveTextures = new Dictionary<string, Texture>();
 
+        public static Dictionary<string, Texture> BombeTextures = new Dictionary<string, Texture>();//textures de la bombe
+
 
         public static bool IsInitialized { get { return isInitialized; } }
 
@@ -59,6 +61,14 @@ namespace PlayWithMac.Model
             LiveTextures.Add("heart", heart);
         }
 
+        private static void BBInit()
+        {
+            string Gpath = @".\Ressources\" + @"Bombe\";
+
+            BombeTextures.Add("Rigth", new Texture(Gpath + "transparent.png"));
+            BombeTextures.Add("Rigth2", new Texture(Gpath + "papirus.png"));
+        }
+
         private static void GHInit()
         {
             string Gpath = @".\Ressources\" + @"Enemy\";
@@ -79,6 +89,7 @@ namespace PlayWithMac.Model
                     MCInit();
                     GDInit();
                     LVInit();
+                    BBInit();
                     GHInit();
                 }
             }

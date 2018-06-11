@@ -35,7 +35,7 @@ namespace PlayWithMac.Model
          Rectangle _bodyRect;
          Rectangle _feetRect;
          Rectangle _groundRect;
-        public Vectors _director;
+         public Vectors _director;
 
         public bool Alive { get { return _isAlive; } }
         public Rectangle BodyRect { get { return _bodyRect; } }
@@ -51,10 +51,6 @@ namespace PlayWithMac.Model
 
             switch (_side)
             {
-                case EnemySide.Left1:
-                case EnemySide.Left2:
-                    _side = (_binateSprite) ? EnemySide.Left1 : EnemySide.Left2;
-                    break;
                 case EnemySide.Right1:
                 case EnemySide.Right2:
                     _side = (_binateSprite) ? EnemySide.Right1 : EnemySide.Right2;
@@ -87,9 +83,7 @@ namespace PlayWithMac.Model
             _groundRect = new Rectangle(rect.Bottom, (rect.Left), 1, (rect.Width));
         }
 
-        //public bool Alive => throw new NotImplementedException();
-
-        public void GetAction()
+        public void GetAction(RenderWindow win)
         {
             _isSituated = false;
 

@@ -49,8 +49,6 @@ namespace PlayWithMac.Model
         {
             heart.Position = new Vector2f(Rect.Left + x, Rect.Top + y);
             windowHandler.Draw(heart);
-
-            //if (heartAlive == false) Remove();
         }
     }
 }

@@ -23,15 +23,17 @@ namespace PlayWithMac
         {
             Textures.init();
             _contexte = new Levelcontexte();
+            bool res;
 
             while (_windows.IsOpen)
             {
                 _windows.Clear(/*backgroundColor*/);
 
-                _contexte.Actions();
+                _contexte.Actions(_windows);
                 _contexte.PerformActions();
                 _contexte.DrawObjets(_windows);
-                _contexte.RemoveNotAliveObjets();
+                res = _contexte.RemoveNotAliveObjets(_windows);
+                _contexte.DrawGameOver(_windows, res);
                 _contexte.RemoveHeart();
 
                 _windows.DispatchEvents();

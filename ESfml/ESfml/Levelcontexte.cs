@@ -19,6 +19,7 @@ namespace PlayWithMac
             public List<IPersonnage> PersonneDraw = null;
             public List<IMap> MapDraw;
             public List<IMap> LiveDraw;
+            //public List<IPersonnage> BulletDraw;
             public Macron MacronObj;
 
             public LevelContext(string levelPath)
@@ -26,6 +27,7 @@ namespace PlayWithMac
                 PersonneDraw = new List<IPersonnage>();
                 MapDraw = new List<IMap>();
                 LiveDraw = new List<IMap>();
+               // BulletDraw = new List<IPersonnage>();
 
                 string[] levelDescriptor = File.ReadAllLines(levelPath);
 
@@ -52,7 +54,10 @@ namespace PlayWithMac
                     {
                         LiveDraw.Add((Live)product);
 
-                    }
+                    }/*else if (product.GetType().Equals(typeof(Bullet)))
+                    {
+                        BulletDraw.Add((Bullet)product);
+                    }*/
                 }
 
             }
@@ -66,11 +71,11 @@ namespace PlayWithMac
             context = new LevelContext(@".\Ressources\Niveau\" + "Level1.txt");
         }
 
-        public void Actions()
+        public void Actions(RenderWindow win)
         {
             foreach (IPersonnage element in context.PersonneDraw)
             {
-                element.GetAction();
+                element.GetAction(win);
             }
         }
 
@@ -116,15 +121,32 @@ namespace PlayWithMac
             }
         }
 
-        public void RemoveNotAliveObjets()
+        public bool RemoveNotAliveObjets(RenderWindow windows)
         {
+           bool gover = false;
             foreach (IPersonnage element in context.PersonneDraw)
             {
-                if (element.Alive == false)
+                if (element.Alive == false )
                 {
+                    if (element.GetType().Equals(typeof(Macron)))
+                    {
+                        gover = true;
+                    }
+                  
                     context.PersonneDraw.Remove(element);
                     break;
                 }
+            }
+
+            return gover;
+        }
+
+        public void DrawGameOver(RenderWindow windows, bool test )
+        {
+            if(test == true)
+            {
+                Gameover over = new Gameover();
+                over.Draw(windows);
             }
         }
 
@@ -158,6 +180,7 @@ namespace PlayWithMac
             {
                 element.Draw(windowHandler, X, 0);
             }
+
         }
 
     }

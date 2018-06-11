@@ -9,7 +9,7 @@ namespace PlayWithMac.Model
 {
     public interface IPersonnage
     {
-        void GetAction();
+        void GetAction(RenderWindow win);
         void Move();
         void CheckCollision(Macron Collider);
         void CheckCollision(Enemy Collider);

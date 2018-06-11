@@ -57,11 +57,13 @@
   <ItemGroup>
     <Compile Include="Bullet.cs" />
     <Compile Include="Enemy.cs" />
+    <Compile Include="Gameover.cs" />
     <Compile Include="IMap.cs" />
     <Compile Include="IPersonnage.cs" />
     <Compile Include="Live.cs" />
     <Compile Include="Macron.cs" />
     <Compile Include="Map.cs" />
+    <Compile Include="MvtBullet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rectangle.cs" />
