@@ -20,6 +20,7 @@ namespace  PlayWithMac.Model
         static Texture _background = new Texture(@".\images.jpg");
         static Sprite backgroundSprite;
         public Vectors direction;
+
         public Text Qua()
         {
             Text _question = new Text()

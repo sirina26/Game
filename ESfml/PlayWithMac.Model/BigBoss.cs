@@ -23,6 +23,7 @@ namespace PlayWithMac.Model
         bool _feetCollides;
         bool _groundCollides;
         bool _isSituated;
+        readonly Font _yN;
 
         const int _speed = 2;
         int _fallSpeed;
@@ -63,6 +64,8 @@ namespace PlayWithMac.Model
 
         public BigBoss(Rectangle rect)
         {
+            _yN = new Font(@".\arial.ttf");
+
             _binateSprite = true;
             _isAlive = true;
             _bodyCollides = false;
@@ -230,12 +233,55 @@ namespace PlayWithMac.Model
         {
             return _isSituated;
         }
-
+        public Text YN()
+        {
+            Text _liveNumber = new Text()
+            {
+                Font = _yN,
+                DisplayedString = " Good"
+            };
+            return _liveNumber;
+        }
         public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
         {
             _sprite[_side].Position = new Vector2f(_bodyRect.Left + xOffset, _bodyRect.Top + yOffset);
             windowHandler.Draw(_sprite[_side]);
-            
+            Text answer = YN();
+
+            if (_isAlive == false)
+            {
+                RenderWindow windowGame2 = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
+
+                Questions ques = new Questions(1200, 700);
+
+                while (windowGame2.IsOpen)
+                {
+                    if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
+                    {
+                        ques.Move(Keyboard.Key.Up);
+                    }
+                    else if (Keyboard.IsKeyPressed(Keyboard.Key.Down))
+                    {
+                        ques.Move(Keyboard.Key.Down);
+                    }
+                    else if (Keyboard.IsKeyPressed(Keyboard.Key.Return))
+                    {
+
+                        if (ques.SelectedItemIndex == 0)
+                        {
+                            windowHandler.Draw(answer);
+                        }
+                        else
+                        {
+
+                        }
+                    }
+
+                    ques.Draw(windowGame2);
+                    windowGame2.Display();
+                }
+
+            }
         }
 
         public void CheckCollision(Live collider)
