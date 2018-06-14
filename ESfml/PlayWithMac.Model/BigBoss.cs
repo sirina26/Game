@@ -233,20 +233,20 @@ namespace PlayWithMac.Model
         {
             return _isSituated;
         }
-        public Text YN()
-        {
-            Text _liveNumber = new Text()
-            {
-                Font = _yN,
-                DisplayedString = " Good"
-            };
-            return _liveNumber;
-        }
+        //public Text YN()
+        //{
+        //    Text _liveNumber = new Text()
+        //    {
+        //        Font = _yN,
+        //        DisplayedString = " Good"
+        //    };
+        //    return _liveNumber;
+        //}
         public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
         {
             _sprite[_side].Position = new Vector2f(_bodyRect.Left + xOffset, _bodyRect.Top + yOffset);
             windowHandler.Draw(_sprite[_side]);
-            Text answer = YN();
+            //Text answer = YN();
 
             if (_isAlive == false)
             {
@@ -269,7 +269,7 @@ namespace PlayWithMac.Model
 
                         if (ques.SelectedItemIndex == 0)
                         {
-                            windowHandler.Draw(answer);
+                            //windowHandler.Draw(answer);
                         }
                         else
                         {

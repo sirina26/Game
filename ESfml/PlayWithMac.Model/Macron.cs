@@ -37,10 +37,10 @@ namespace PlayWithMac.Model
 
         private const int speed = 6;
         private int stopSpeed;
-        //
+
         int liveNumber = 30;
         int MoneyNumber = 0;
-        //
+
         private const int animation = 5;
         private int animationcollision;
         int health;
@@ -57,7 +57,8 @@ namespace PlayWithMac.Model
         public Rectangle BodyRect { get { return bodyRect; } }
         public Rectangle FeetRect { get { return feetRect; } }
 
-        public List<Bullet> bullets;
+        //public List<Bullet> bullets;
+
         RenderWindow window;
 
         public Macron(Rectangle rect)
@@ -301,8 +302,6 @@ namespace PlayWithMac.Model
             player.SetPointCount(3);
             player.Position = sprite[side].Position;
 
-            Bullet bl = new Bullet();
-            bullets = new List<Bullet>();
             Vector2f playerCenter;
             Vector2f mousePosWindows;
             Vector2f aimDir;
@@ -317,33 +316,8 @@ namespace PlayWithMac.Model
             float deg = (float)Math.Atan2(aimDirNorm.Y, aimDirNorm.X) * 180 / PI;
             player.Rotation = deg + 90;
 
-            if (Mouse.IsButtonPressed(Mouse.Button.Left))
-            {
-                bl.Shape.Position = playerCenter;
-                bl.CurrVelocity = aimDirNorm * bl.Maxspeed;
-
-                bullets.Add(bl);
-            }
-
-            for (int i = 0; i < bullets.Count(); i++)
-            {
-                if (liveNumber <= 0)
-                {
-                    // bullets.Remove(bullets.Begin + i);
-                }
-                else
-                {
-                }
-
-            }
-
+          
             window.Draw(player);
-
-            for (int i = 0; i < bullets.Count(); i++)
-            {
-                bullets[i].Shape.Draw(window, RenderStates.Default);
-            }
-
             window.Display();
 
         }
