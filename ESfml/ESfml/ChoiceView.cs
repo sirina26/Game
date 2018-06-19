@@ -42,31 +42,30 @@ namespace PlayWithMac
                     choix.Move(Keyboard.Key.Down);
                 }
 
-                else if (Keyboard.IsKeyPressed(Keyboard.Key.Return))
+                else if (Keyboard.IsKeyPressed(Keyboard.Key.Space))
                 {
                     if (choix.SelectedItemIndex == 0)
                     {
                         window.Close();
-                        LevelView level = new LevelView(_width, _heigth);
+                        LevelView level = new LevelView(_width, _heigth, 1);
                         level.Run();
-                      
-                        break;
+
                     }
                     else if (choix.SelectedItemIndex == 1)
                     {
-
-                        break;
+                        window.Close();
+                        LevelView level = new LevelView(_width, _heigth,2);
+                        level.Run();
                     }
                     else if (choix.SelectedItemIndex == 2)
                     {
-                        window.Close();
-                        break;
+                       
                     }
                 }
 
                 choix.Draw(window);
                 window.Display();
-
+                //System.Threading.Thread.Sleep(15);
             }
         }
     }

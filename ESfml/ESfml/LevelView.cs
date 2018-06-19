@@ -13,17 +13,18 @@ namespace PlayWithMac
     {
         LevelContext _contexte;
         RenderWindow _windows;
+        int _level;
 
-        public LevelView(uint width, uint heigth)
+        public LevelView(uint width, uint heigth, int level)
         {
             _windows = new RenderWindow(new VideoMode(width, heigth), "PlayWithMac");
+            _level = level;
         }
 
         public void Run()
         {
-            Textures.init();
-            _contexte = new LevelContext();
-            //bool res;
+            Textures.init(_level);
+            _contexte = new LevelContext(_level);
 
             while (_windows.IsOpen)
             {
@@ -40,6 +41,10 @@ namespace PlayWithMac
                 _windows.DispatchEvents();
                 _windows.Display();
 
+                if (Keyboard.IsKeyPressed(Keyboard.Key.Escape))
+                {
+                    _windows.Close();
+                }
                 System.Threading.Thread.Sleep(15);
             }
         }

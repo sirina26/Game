@@ -11,8 +11,27 @@ namespace PlayWithMac
 {
     public class LevelContext
     {
-        static Texture _background = new Texture(@".\LEVEL1MAP1.png");
-        static Sprite backgroundSprite = new Sprite(_background);
+       
+        public Level _level;
+        Sprite backgroundSprite;
+        public LevelContext(int level)
+        {
+
+            if (level == 1)
+            {
+                _level = new Level(@".\Niveau\" + "Level1.txt");
+                Texture _background = new Texture(@".\LEVEL1MAP1.png");
+                backgroundSprite = new Sprite(_background);
+
+            }
+            else //if (level == 2)
+            {
+                _level = new Level(@".\Niveau\" + "Level2.txt");
+                Texture _background = new Texture(@".\LEVEL2MAP.png");
+                backgroundSprite = new Sprite(_background);
+            }
+
+        }
 
         public class Level
         {
@@ -75,12 +94,8 @@ namespace PlayWithMac
             }
         }
 
-        public Level _level;
+        
 
-        public LevelContext()
-        {
-            _level = new Level(@".\Niveau\" + "Level1.txt");
-        }
 
         public void Actions()
         {
@@ -188,7 +203,7 @@ namespace PlayWithMac
         }
         public void DrawObjets(RenderWindow windowHandler)
         {
-            backgroundSprite.Draw(windowHandler, RenderStates.Default);
+           backgroundSprite.Draw(windowHandler, RenderStates.Default);
             int X = -(_level.MacronObj.BodyRect.Left - 600);
 
             foreach (IMap element in _level.MapDraw)

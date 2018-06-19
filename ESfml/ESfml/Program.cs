@@ -12,8 +12,9 @@ namespace PlayWithMac
             const uint width = 1200;
             const uint heigth = 700;
 
-            // RenderWindow windowGame = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
             Menu menu = new Menu(width, heigth);
+           //ChoiceLevel menu = new ChoiceLevel(width, heigth);
+
 
             RenderWindow windowMenu = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
 
@@ -39,25 +40,7 @@ namespace PlayWithMac
                         windowMenu.Close();
                         ChoiceView choix = new ChoiceView(width, heigth);
                         choix.Run();
-
-                        /* while (windowGame.IsOpen)
-                         {
-                             windowGame.Clear(/*backgroundColor*//*);
-
-                             level.Actions();
-                             level.PerformActions();
-                             level.DrawObjets(windowGame);
-                             level.RemoveNotAliveObjets();
-                             level.RemoveHeart();
-                             level.RemoveMoney();
-
-                             windowGame.DispatchEvents();
-                             windowGame.Display();
-
-                             System.Threading.Thread.Sleep(10);
-                         }*/
-
-
+                       
                         break;
                     }
                     else if (menu.SelectedItemIndex == 1)

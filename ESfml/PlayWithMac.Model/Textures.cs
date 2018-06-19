@@ -6,6 +6,7 @@ namespace PlayWithMac.Model
 {
     public class Textures
     {
+        
         private static bool isInitialized = false;
         public static Dictionary<string, Texture> PersonnagePle = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> MapTextures = new Dictionary<string, Texture>();
@@ -36,17 +37,28 @@ namespace PlayWithMac.Model
 
         }
 
-        private static void GDInit()
+        private static void GDInit(int level)
         {
+            if (level == 1) {
+                Texture sidewalk = new Texture(@".\Map\" + "Ground0.png");//trottoire
+                Texture wall = new Texture(@".\Map\" + "Ground1.png");//mûr
+                sidewalk.Repeated = true;
+                wall.Repeated = true;
 
-            Texture sidewalk = new Texture(@".\Map\" + "Ground0.png");//trottoire
-            Texture wall = new Texture(@".\Map\" + "Ground1.png");//mûr
+                MapTextures.Add("Sidewalk", sidewalk);
+                MapTextures.Add("Wall", wall);
+            }
+            else
+            {
+                Texture sidewalk = new Texture(@".\Map1\" + "Ground0.png");//trottoire
+                Texture wall = new Texture(@".\Map1\" + "Ground1.png");//mûr
+                sidewalk.Repeated = true;
+                wall.Repeated = true;
 
-            sidewalk.Repeated = true;
-            wall.Repeated = true;
-
-            MapTextures.Add("Sidewalk", sidewalk);
-            MapTextures.Add("Wall", wall);
+                MapTextures.Add("Sidewalk", sidewalk);
+                MapTextures.Add("Wall", wall);
+            }
+            
         }
 
         private static void LVInit()
@@ -64,16 +76,29 @@ namespace PlayWithMac.Model
             SeaTextures.Add("sea", _sea);
         }
 
-        private static void GHInit()
+        private static void GHInit(int level)
         {
-            string Gpath = @".\" + @"Enemy\";
+            if (level == 1)
+            {
+                string Gpath = @".\" + @"Enemy\";
+                EnemyTextures.Add("Left1", new Texture(Gpath + "GLeft0.png"));
+                EnemyTextures.Add("Left2", new Texture(Gpath + "GLeft1.png"));
 
-            EnemyTextures.Add("Left1", new Texture(Gpath + "GLeft0.png"));
-            EnemyTextures.Add("Left2", new Texture(Gpath + "GLeft1.png"));
+                EnemyTextures.Add("Right1", new Texture(Gpath + "GRight0.png"));
+                EnemyTextures.Add("Right2", new Texture(Gpath + "GRight1.png"));
+            }
+            //else
+            //{
+            //string Gpath = @".\" + @"thief\";
+            //    EnemyTextures.Add("Left1", new Texture(Gpath + "GLeft0.png"));
+            //    EnemyTextures.Add("Left2", new Texture(Gpath + "GLeft1.png"));
 
-            EnemyTextures.Add("Right1", new Texture(Gpath + "GRight0.png"));
-            EnemyTextures.Add("Right2", new Texture(Gpath + "GRight1.png"));
-        }
+            //    EnemyTextures.Add("Right1", new Texture(Gpath + "GRight0.png"));
+            //    EnemyTextures.Add("Right2", new Texture(Gpath + "GRight1.png"));
+            //}
+
+
+}
         private static void BBInit()
         {
             string Gpath = @".\" + @"BigBoss\";
@@ -91,16 +116,16 @@ namespace PlayWithMac.Model
             money.Repeated = true;
             MoneyTextures.Add("money", money);
         }
-        public static void init()
+        public static void init(int level)
         {
             try
             {
                 if (isInitialized == false)
                 {
                     MCInit();
-                    GDInit();
+                    GDInit(level);
                     LVInit();
-                    GHInit();
+                    GHInit(level);
                     MnInit();
                     SAInit();
                     BBInit();
