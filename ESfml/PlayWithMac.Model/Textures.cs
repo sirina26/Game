@@ -87,18 +87,18 @@ namespace PlayWithMac.Model
                 EnemyTextures.Add("Right1", new Texture(Gpath + "GRight0.png"));
                 EnemyTextures.Add("Right2", new Texture(Gpath + "GRight1.png"));
             }
-            //else
-            //{
-            //string Gpath = @".\" + @"thief\";
-            //    EnemyTextures.Add("Left1", new Texture(Gpath + "GLeft0.png"));
-            //    EnemyTextures.Add("Left2", new Texture(Gpath + "GLeft1.png"));
+            else
+            {
+                string Gpath = @".\" + @"BigBoss\";
+                EnemyTextures.Add("Left1", new Texture(Gpath + "GLeft0.png"));
+                EnemyTextures.Add("Left2", new Texture(Gpath + "GLeft1.png"));
 
-            //    EnemyTextures.Add("Right1", new Texture(Gpath + "GRight0.png"));
-            //    EnemyTextures.Add("Right2", new Texture(Gpath + "GRight1.png"));
-            //}
+                EnemyTextures.Add("Right1", new Texture(Gpath + "GRight0.png"));
+                EnemyTextures.Add("Right2", new Texture(Gpath + "GRight1.png"));
+            }
 
 
-}
+        }
         private static void BBInit()
         {
             string Gpath = @".\" + @"BigBoss\";
