@@ -48,7 +48,7 @@ namespace PlayWithMac.Model
                 MapTextures.Add("Sidewalk", sidewalk);
                 MapTextures.Add("Wall", wall);
             }
-            else
+            else if (level == 2)
             {
                 Texture sidewalk = new Texture(@".\Map1\" + "Ground0.png");//trottoire
                 Texture wall = new Texture(@".\Map1\" + "Ground1.png");//mûr
@@ -58,7 +58,18 @@ namespace PlayWithMac.Model
                 MapTextures.Add("Sidewalk", sidewalk);
                 MapTextures.Add("Wall", wall);
             }
-            
+            else if (level == 3)
+            {
+                Texture sidewalk = new Texture(@".\Map3\" + "Ground0.png");//trottoire
+                Texture wall = new Texture(@".\Map3\" + "Ground1.png");//mûr
+                sidewalk.Repeated = true;
+                wall.Repeated = true;
+
+                MapTextures.Add("Sidewalk", sidewalk);
+                MapTextures.Add("Wall", wall);
+            }
+
+
         }
 
         private static void LVInit()
@@ -87,16 +98,24 @@ namespace PlayWithMac.Model
                 EnemyTextures.Add("Right1", new Texture(Gpath + "GRight0.png"));
                 EnemyTextures.Add("Right2", new Texture(Gpath + "GRight1.png"));
             }
-            else
+            else if (level == 2)
             {
-                string Gpath = @".\" + @"BigBoss\";
+                string Gpath = @".\" + @"thief\";
                 EnemyTextures.Add("Left1", new Texture(Gpath + "GLeft0.png"));
                 EnemyTextures.Add("Left2", new Texture(Gpath + "GLeft1.png"));
 
                 EnemyTextures.Add("Right1", new Texture(Gpath + "GRight0.png"));
                 EnemyTextures.Add("Right2", new Texture(Gpath + "GRight1.png"));
             }
+            else if (level == 3)
+            {
+                string Gpath = @".\" + @"thief\";
+                EnemyTextures.Add("Left1", new Texture(Gpath + "GLeft0.png"));
+                EnemyTextures.Add("Left2", new Texture(Gpath + "GLeft1.png"));
 
+                EnemyTextures.Add("Right1", new Texture(Gpath + "GRight0.png"));
+                EnemyTextures.Add("Right2", new Texture(Gpath + "GRight1.png"));
+            }
 
         }
         private static void BBInit()

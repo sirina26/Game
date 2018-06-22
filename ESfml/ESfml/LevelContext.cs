@@ -24,13 +24,18 @@ namespace PlayWithMac
                 backgroundSprite = new Sprite(_background);
 
             }
-            else //if (level == 2)
+            else if (level == 2)
             {
                 _level = new Level(@".\Niveau\" + "Level2.txt");
                 Texture _background = new Texture(@".\LEVEL2MAP.png");
                 backgroundSprite = new Sprite(_background);
             }
-
+            else if (level == 3)
+            {
+                _level = new Level(@".\Niveau\" + "Level3.txt");
+                Texture _background = new Texture(@".\LEVEL3MAP.png");
+                backgroundSprite = new Sprite(_background);
+            }
         }
 
         public class Level

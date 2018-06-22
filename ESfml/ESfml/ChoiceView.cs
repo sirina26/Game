@@ -42,7 +42,7 @@ namespace PlayWithMac
                     choix.Move(Keyboard.Key.Down);
                 }
 
-                else if (Keyboard.IsKeyPressed(Keyboard.Key.Space))
+                else if (Keyboard.IsKeyPressed(Keyboard.Key.P))
                 {
                     if (choix.SelectedItemIndex == 0)
                     {
@@ -59,7 +59,9 @@ namespace PlayWithMac
                     }
                     else if (choix.SelectedItemIndex == 2)
                     {
-                       
+                        window.Close();
+                        LevelView level = new LevelView(_width, _heigth, 3);
+                        level.Run();
                     }
                 }
 
