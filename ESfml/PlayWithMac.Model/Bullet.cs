@@ -9,27 +9,38 @@ using SFML.Window;
 
 namespace PlayWithMac.Model
 {
-    public class Bullet
+    public class Bullet : IMap
     {
-        CircleShape shape;
-        Vector2f currVelocity;
-        float maxSpeed;
-               
+        private Rectangle rect;
 
-        public Bullet(float radius = 5f)
+        private Sprite Shoot;
+        bool heartlive = false;
+
+
+        public Bullet(Rectangle rect)
         {
-            shape = new CircleShape();
-            currVelocity = new Vector2f(0f, 0f);
-            maxSpeed = 15f;
-            shape.Radius = radius;
-            shape.FillColor = Color.Red;
+            uint heightBase = Textures.BombeTextures["bombe"].Size.Y;
+            uint widthBase = Textures.BombeTextures["bombe"].Size.X;
+            rect.Height = heightBase;
+            rect.Width = widthBase;
+
+
+            Shoot = new Sprite(Textures.BombeTextures["bombe"], new IntRect(0, 0, (int)rect.Width, (int)(rect.Height)));
+            Shoot.Position = new Vector2f(rect.Left, rect.Top);
+
+            this.rect = rect;
         }
 
-        public CircleShape Shape {
-            get { return shape; }
-            set { shape = value;  }
+        public bool HeartAlive { get => heartlive; set => heartlive = value; }
+
+        public bool MoneyAlive => false;
+
+        public Rectangle Rect => rect;
+
+        public void Draw(RenderWindow windowHandler, int x, int y)
+        {
+            Shoot.Position = new Vector2f(Rect.Left + x, Rect.Top + y);
+            windowHandler.Draw(Shoot);
         }
-        public Vector2f CurrVelocity { get; set; }
-        public float Maxspeed { get; }
     }
 }

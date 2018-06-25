@@ -15,6 +15,8 @@ namespace PlayWithMac.Model
         public static Dictionary<string, Texture> SeaTextures = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> BigBossTextures = new Dictionary<string, Texture>();
 
+        public static Dictionary<string, Texture> BombeTextures = new Dictionary<string, Texture>();//textures de la bombe
+
         public static bool IsInitialized { get { return isInitialized; } }
 
         private static void MCInit()
@@ -32,7 +34,7 @@ namespace PlayWithMac.Model
             PersonnagePle.Add("Right2", new Texture(MCpath + "MCRight2.png"));
             PersonnagePle.Add("Right3", new Texture(MCpath + "MCRight3.png"));
 
-            PersonnagePle.Add("shoot", new Texture(MCpath + "shoot.png"));
+           // PersonnagePle.Add("shoot", new Texture(MCpath + "shoot.png"));
 
         }
 
@@ -91,6 +93,14 @@ namespace PlayWithMac.Model
             money.Repeated = true;
             MoneyTextures.Add("money", money);
         }
+
+        private static void BLInit()
+        {
+            Texture bombe = new Texture(@".\Bombe\" + "Money.png");
+            bombe.Repeated = true;
+            BombeTextures.Add("bombe", bombe);
+        }
+
         public static void init()
         {
             try
@@ -104,6 +114,7 @@ namespace PlayWithMac.Model
                     MnInit();
                     SAInit();
                     BBInit();
+                    BLInit();
                 }
             }
             catch (Exception e)

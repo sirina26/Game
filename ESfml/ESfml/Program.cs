@@ -9,14 +9,13 @@ namespace PlayWithMac
 
         static void Main(string[] args)
         {
-            RenderWindow windowGame = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
-            Menu menu = new Menu(1200, 700);
+            const uint width = 1200;
+            const uint heigth = 700;
+
+            Menu menu = new Menu(width, heigth);
 
             RenderWindow windowMenu = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
-
-            Textures.init();
-
-            LevelContext level = new LevelContext();
+            
 
             while (windowMenu.IsOpen)
             {
@@ -34,29 +33,13 @@ namespace PlayWithMac
                     if (menu.SelectedItemIndex == 0)
                     {
                         windowMenu.Close();
-
-                        while (windowGame.IsOpen)
-                        {
-                            windowGame.Clear(/*backgroundColor*/);
-
-                            level.Actions();
-                            level.PerformActions();
-                            level.DrawObjets(windowGame);
-                            level.RemoveNotAliveObjets();
-                            level.RemoveHeart();
-                            level.RemoveMoney();
-
-                            windowGame.DispatchEvents();
-                            windowGame.Display();
-
-                            System.Threading.Thread.Sleep(10);
-                        }
-
-
+                        ChoiceView choix = new ChoiceView(width, heigth);
+                        choix.Runchoice();
                         break;
                     }
                     else if (menu.SelectedItemIndex == 1)
                     {
+                       
                         break;
                     }
                     else if (menu.SelectedItemIndex == 2)
@@ -64,10 +47,13 @@ namespace PlayWithMac
                         windowMenu.Close();
                         break;
                     }
+                   
                 }
 
                 menu.Draw(windowMenu);
+                windowMenu.DispatchEvents();
                 windowMenu.Display();
+               // System.Threading.Thread.Sleep(50);
             }
         }
     }

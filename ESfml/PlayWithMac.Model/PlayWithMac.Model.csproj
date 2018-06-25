@@ -59,9 +59,12 @@
   <ItemGroup>
     <Compile Include="BigBoss.cs" />
     <Compile Include="Bullet.cs" />
+    <Compile Include="Bullets.cs" />
     <Compile Include="Enemy.cs" />
+    <Compile Include="Gameover.cs" />
     <Compile Include="IMap.cs" />
     <Compile Include="IPersonnage.cs" />
+    <Compile Include="IShoot.cs" />
     <Compile Include="Live.cs" />
     <Compile Include="Macron.cs" />
     <Compile Include="Map.cs" />

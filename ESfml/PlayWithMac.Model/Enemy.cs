@@ -258,5 +258,10 @@ namespace PlayWithMac.Model
         {
             //throw new NotImplementedException();
         }
+
+        public void CheckCollision(Bullet collider)
+        {
+
+        }
     }
 }

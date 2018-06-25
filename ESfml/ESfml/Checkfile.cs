@@ -61,6 +61,9 @@ namespace PlayWithMac
                 case "sea":
                     element = new Sea(rect);
                     break;
+                case "bombe":
+                    element = new Bullet(rect);
+                    break;
             }
 
             return element;

@@ -21,6 +21,7 @@ namespace PlayWithMac
             public List<IMap> LiveDraw;
             public List<IMap> MoneyDraw;
             public List<IMap> SeaDraw;
+            public List<IMap> ShootDraw;
             public Macron MacronObj;
 
             public Level(string levelPath)
@@ -30,6 +31,7 @@ namespace PlayWithMac
                 LiveDraw = new List<IMap>();
                 MoneyDraw = new List<IMap>();
                 SeaDraw = new List<IMap>();
+                ShootDraw = new List<IMap>();
 
                 string[] levelDescriptor = File.ReadAllLines(levelPath);
 
@@ -69,6 +71,12 @@ namespace PlayWithMac
                     else if (product.GetType().Equals(typeof(Sea)))
                     {
                         SeaDraw.Add((Sea)product);
+                    }
+
+                    //Gestion de shoot
+                    else if (product.GetType().Equals(typeof(Bullet)))
+                    {
+                         
                     }
                 }
 
@@ -117,6 +125,13 @@ namespace PlayWithMac
 
                     }
                     else throw new Exception();
+                }
+                foreach (IMap collider in _level.ShootDraw)
+                {
+                    if (collider.GetType().Equals(typeof(Bullet)))
+                    {
+                        element.CheckCollision((Bullet)collider);
+                    }
                 }
                 while (element.GetIsSituated() == false)
                 {
@@ -186,6 +201,7 @@ namespace PlayWithMac
                 }
             }
         }
+
         public void DrawObjets(RenderWindow windowHandler)
         {
             backgroundSprite.Draw(windowHandler, RenderStates.Default);
@@ -211,6 +227,19 @@ namespace PlayWithMac
             foreach (IMap element in _level.MoneyDraw)
             {
                 element.Draw(windowHandler, X, 0);
+            }
+            foreach (IMap element in _level.ShootDraw)
+            {
+                element.Draw(windowHandler, X, 0);
+            }
+        }
+
+        public void DrawGameOver(RenderWindow windows, bool test)
+        {
+            if (test == true)
+            {
+                Gameover over = new Gameover();
+                over.Draw(windows);
             }
         }
 
