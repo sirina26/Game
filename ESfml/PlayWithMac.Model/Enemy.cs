@@ -26,7 +26,7 @@ namespace PlayWithMac.Model
          bool _groundCollides;
          bool _isSituated;
 
-        const int _speed = 2;
+         const int _speed = 2;
          int _fallSpeed;
          const int _animationSpeed = 2;
          int _animationIterator;

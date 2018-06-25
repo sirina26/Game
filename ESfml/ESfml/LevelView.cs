@@ -34,7 +34,6 @@ namespace PlayWithMac
                 _contexte.PerformActions();
                 _contexte.DrawObjets(_windows);
                 _contexte.RemoveNotAliveObjets();
-               // _contexte.DrawGameOver(_windows, res);
                 _contexte.RemoveHeart();
                 _contexte.RemoveMoney();
 

@@ -49,7 +49,6 @@ namespace PlayWithMac
                         window.Close();
                         LevelView level = new LevelView(_width, _heigth, 1);
                         level.Run();
-
                     }
                     else if (choix.SelectedItemIndex == 1)
                     {
@@ -67,7 +66,6 @@ namespace PlayWithMac
 
                 choix.Draw(window);
                 window.Display();
-                //System.Threading.Thread.Sleep(15);
             }
         }
     }

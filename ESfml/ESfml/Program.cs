@@ -13,7 +13,8 @@ namespace PlayWithMac
             const uint heigth = 700;
 
             Menu menu = new Menu(width, heigth);
-           //ChoiceLevel menu = new ChoiceLevel(width, heigth);
+           
+            //ChoiceLevel menu = new ChoiceLevel(width, heigth);
 
 
             RenderWindow windowMenu = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");

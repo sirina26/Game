@@ -26,20 +26,19 @@ namespace PlayWithMac.Model
             Shoot
         }
 
-
         private bool binateSprite;
         private bool alive;
         private bool bodyCollision;
         private bool feetCollision;
-        private bool shooted;
-        private bool coollidesWithLadder;
+      
         private bool isSituated;
-
+        bool _ifTrue =false;
         private const int speed = 6;
         private int stopSpeed;
 
         int liveNumber = 30;
-        int MoneyNumber = 0;
+        int __moneyNumber ;
+        
 
         private const int animation = 5;
         private int animationcollision;
@@ -53,6 +52,22 @@ namespace PlayWithMac.Model
         public Vectors direction;
 
         public bool Alive { get { return alive; } }
+        public int MoneyNumberUpdate
+        {
+            get { return __moneyNumber; }
+            set
+            {
+                if (_ifTrue == false)
+                {
+                    __moneyNumber = 0;
+                    _ifTrue = true;
+                }
+                else if (_ifTrue == true)
+                {
+                    __moneyNumber = +value;
+                }
+            }
+        }
         public int LiveNumber { get => liveNumber; }
         public Rectangle BodyRect { get { return bodyRect; } }
         public Rectangle FeetRect { get { return feetRect; } }
@@ -70,11 +85,9 @@ namespace PlayWithMac.Model
             alive = true;
             bodyCollision = false;
             feetCollision = false;
-            shooted = false;
-            coollidesWithLadder = false;
+          
             side = MovementMacron.StaysRight;
 
-            health = 100;
             stopSpeed = 0;
             animationcollision = 0;
 
@@ -116,7 +129,7 @@ namespace PlayWithMac.Model
             Text _moneyNumber = new Text()
             {
                 Font = livePoint,
-                DisplayedString = "               Money" + MoneyNumber.ToString()
+                DisplayedString = "               Money" + __moneyNumber.ToString()
             };
             return _moneyNumber;
         }
@@ -296,7 +309,7 @@ namespace PlayWithMac.Model
 
         public void ShootEnemy()
         {
-            shooted = true;
+            
             CircleShape player = new CircleShape(25f);
             player.FillColor = Color.White;
             player.SetPointCount(3);
@@ -338,7 +351,7 @@ namespace PlayWithMac.Model
             if (this.bodyRect.CheckCollisions(collider.Rect))
             {
                 bodyCollision = true;
-                MoneyNumber++;
+                __moneyNumber++;
                 collider.MoneyAlive = false;
                 
             }
