@@ -118,15 +118,29 @@ namespace PlayWithMac.Model
             }
 
         }
-        private static void BBInit()
+        private static void BBInit(int level)
         {
-            string Gpath = @".\" + @"BigBoss\";
+            if (level == 1)
+            {
+                string Gpath = @".\" + @"BigBoss\";
 
-            BigBossTextures.Add("Left1", new Texture(Gpath + "GLeft0.png"));
-            BigBossTextures.Add("Left2", new Texture(Gpath + "GLeft1.png"));
+                BigBossTextures.Add("Left1", new Texture(Gpath + "GLeft0.png"));
+                BigBossTextures.Add("Left2", new Texture(Gpath + "GLeft1.png"));
 
-            BigBossTextures.Add("Right1", new Texture(Gpath + "GRight0.png"));
-            BigBossTextures.Add("Right2", new Texture(Gpath + "GRight1.png"));
+                BigBossTextures.Add("Right1", new Texture(Gpath + "GRight0.png"));
+                BigBossTextures.Add("Right2", new Texture(Gpath + "GRight1.png"));
+            }
+            else if (level == 2)
+            {
+
+                string Gpath = @".\" + @"BigBoss2\";
+
+                BigBossTextures.Add("Left1", new Texture(Gpath + "GLeft0.png"));
+                BigBossTextures.Add("Left2", new Texture(Gpath + "GLeft1.png"));
+
+                BigBossTextures.Add("Right1", new Texture(Gpath + "GRight0.png"));
+                BigBossTextures.Add("Right2", new Texture(Gpath + "GRight1.png"));
+            }
         }
         private static void MnInit()
         {
@@ -147,7 +161,7 @@ namespace PlayWithMac.Model
                     GHInit(level);
                     MnInit();
                     SAInit();
-                    BBInit();
+                    BBInit(level);
                 }
             }
             catch (Exception e)
