@@ -164,7 +164,6 @@ namespace PlayWithMac
                         {
                             element.CheckCollision((BigBoss)collider);
                         }
-                        //else throw new Exception();
                     }
 
                     element.Move();

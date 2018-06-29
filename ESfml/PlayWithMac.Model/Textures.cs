@@ -120,7 +120,7 @@ namespace PlayWithMac.Model
         }
         private static void BBInit(int level)
         {
-            if (level == 1)
+            if (level == 3)
             {
                 string Gpath = @".\" + @"BigBoss\";
 
@@ -130,7 +130,7 @@ namespace PlayWithMac.Model
                 BigBossTextures.Add("Right1", new Texture(Gpath + "GRight0.png"));
                 BigBossTextures.Add("Right2", new Texture(Gpath + "GRight1.png"));
             }
-            else if (level == 2)
+            else if (level == 2 || level == 1)
             {
 
                 string Gpath = @".\" + @"BigBoss2\";

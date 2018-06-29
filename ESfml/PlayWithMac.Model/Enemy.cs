@@ -240,7 +240,11 @@ namespace PlayWithMac.Model
         {
             _sprite[_side].Position = new Vector2f(_bodyRect.Left + xOffset, _bodyRect.Top + yOffset);
             windowHandler.Draw(_sprite[_side]);
-           
+            if (_isAlive == false)
+            {
+                  GameOver gm = new GameOver();
+
+            }
         }
 
         public void CheckCollision(Live collider)

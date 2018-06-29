@@ -16,17 +16,17 @@ namespace PlayWithMac.Model
         public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
         {
             RenderWindow windowGame2 = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
-            Questions ques = new Questions(1200, 700);
-
-            while (windowGame2.IsOpen)
-            {
-                if (Keyboard.IsKeyPressed(Keyboard.Key.Escape))
-                {
-                    ques.Move(Keyboard.Key.Up);
-                }
-            }
-            ques.Draw(windowGame2);
-            windowGame2.Display();
+            Texture image = new Texture("GameOver.png");
+          
+            //while (windowGame2.IsOpen)
+            //{
+            //    if (Keyboard.IsKeyPressed(Keyboard.Key.Escape))
+            //    {
+            //        ques.Move(Keyboard.Key.Up);
+            //    }
+            //}
+            //ques.Draw(windowGame2);
+            //windowGame2.Display();
         }
     }
 }
