@@ -25,9 +25,14 @@ namespace PlayWithMac
 
             while (windowMenu.IsOpen)
             {
+                if (Keyboard.IsKeyPressed(Keyboard.Key.Escape))
+                {
+                    windowMenu.Close();
+                }
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
                 {
                     menu.Move(Keyboard.Key.Up);
+                    
                 }
                 else if (Keyboard.IsKeyPressed(Keyboard.Key.Down))
                 {
@@ -46,7 +51,8 @@ namespace PlayWithMac
                     }
                     else if (menu.SelectedItemIndex == 1)
                     {
-                        break;
+                        Options _options = new Options(width, heigth);
+                        _options.Run();
                     }
                     else if (menu.SelectedItemIndex == 2)
                     {
@@ -57,6 +63,7 @@ namespace PlayWithMac
 
                 menu.Draw(windowMenu);
                 windowMenu.Display();
+               
             }
         }
     }

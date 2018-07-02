@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Checkfile.cs" />
     <Compile Include="ChoiceLevel.cs" />
+    <Compile Include="ChoiceOption.cs" />
     <Compile Include="ChoiceView.cs" />
     <Compile Include="GameLoop\GameLoop.cs" />
     <Compile Include="GameLoop\GameTime.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="LevelContext.cs" />
     <Compile Include="LevelView.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="Options.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -263,6 +265,9 @@
     <Content Include="Resources\sfmlnet-graphics-2.dll" />
     <Content Include="Resources\sfmlnet-system-2.dll" />
     <Content Include="Resources\sfmlnet-window-2.dll" />
+    <Content Include="Resources\Sounds\bg2.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Sounds\jump.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

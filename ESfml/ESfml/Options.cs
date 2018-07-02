@@ -3,93 +3,65 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using SFML.Audio;
+using PlayWithMac.Model;
 using SFML.Graphics;
 using SFML.Window;
+
 
 namespace PlayWithMac
 {
     public class Options
     {
-        public const uint MAX_NUMBER_OF_ITEMS = 3;
-        private const string V = @".\Ressources\arial.ttf";
-        private int selectedItemIndex;
-        private Font font = new Font(V);
-        private Text[] onOffSound = new Text[MAX_NUMBER_OF_ITEMS];
-        static Texture _background = new Texture(@".\Ressources\images.jpg");
-        static Sprite backgroundSprite;
-
-        public Options(uint width, uint heigh)
+        ChoiceOption choix;
+        RenderWindow window;
+        static ContextSettings settings = new ContextSettings();
+        static Color backgroundColor = new Color(5, 70, 55, 1);
+        uint _width;
+        uint _heigth;
+       
+        public Options(uint width, uint heigth)
         {
-            onOffSound[0] = new Text
-            {
-                Font = font,
-                Color = Color.Red,
-                DisplayedString = "Sound ON",
-                Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 1))
-            };
-
-            onOffSound[1] = new Text
-            {
-                Font = font,
-                Color = Color.White,
-                DisplayedString = "Sound Off",
-                Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 2))
-            };
-
-            backgroundSprite = new Sprite(_background);
+            choix = new ChoiceOption(width, heigth);
+            window = new RenderWindow(new VideoMode(width, heigth), "PlayWithMac", Styles.Default, settings);
+            _width = width;
+            _heigth = heigth;
         }
-
-        public void Draw(RenderWindow window)
+       
+        public void Run()
         {
-            backgroundSprite.Draw(window, RenderStates.Default);
-            for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
+
+            while (window.IsOpen)
             {
-                window.Draw(onOffSound[i]);
+                window.Clear();
+
+                if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
+                {
+                    choix.Move(Keyboard.Key.Up);
+                }
+                else if (Keyboard.IsKeyPressed(Keyboard.Key.Down))
+                {
+                    choix.Move(Keyboard.Key.Down);
+                }
+
+                else if (Keyboard.IsKeyPressed(Keyboard.Key.P))
+                {
+                    Sounds s = new Sounds();
+
+                    if (choix.SelectedItemIndex == 0)
+                    {
+                        s.OnOff(true);
+                        window.Close();
+                    }
+                    else if (choix.SelectedItemIndex == 1)
+                    {
+                        s.OnOff(false);
+                        window.Close();
+                    }
+                }
+
+                choix.Draw(window);
+                window.Display();
             }
         }
-
-        public void MoveUp()
-        {
-            if (selectedItemIndex - 1 >= 0)
-            {
-                onOffSound[selectedItemIndex].Color = Color.White;
-                selectedItemIndex--;
-                onOffSound[selectedItemIndex].Color = Color.Red;
-            }
-        }
-
-        public void MoveDown()
-        {
-            if (selectedItemIndex + 1 < MAX_NUMBER_OF_ITEMS)
-            {
-                onOffSound[selectedItemIndex].Color = Color.White;
-                selectedItemIndex++;
-                onOffSound[selectedItemIndex].Color = Color.Red;
-            }
-        }
-
-        public void Move(Keyboard.Key key)
-        {
-
-            if (key == Keyboard.Key.Up)
-            {
-                MoveUp();
-            }
-            else if (key == Keyboard.Key.Down)
-            {
-                MoveDown();
-            }
-        }
-
-        public int SelectedItemIndex
-        {
-            get { return selectedItemIndex; }
-            set { selectedItemIndex = value; }
-
-        }
-
     }
-
 }

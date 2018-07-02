@@ -39,7 +39,6 @@ namespace PlayWithMac.Model
         int liveNumber = 30;
         int __moneyNumber ;
         
-
         private const int animation = 5;
         private int animationcollision;
         int health;
@@ -72,7 +71,6 @@ namespace PlayWithMac.Model
         public Rectangle BodyRect { get { return bodyRect; } }
         public Rectangle FeetRect { get { return feetRect; } }
 
-        //public List<Bullet> bullets;
 
         RenderWindow window;
 
@@ -80,7 +78,7 @@ namespace PlayWithMac.Model
         {
             livePoint = new Font(@".\arial.ttf");
             op = new Sounds();
-
+            op.BackGroundMusic();
             binateSprite = true;
             alive = true;
             bodyCollision = false;

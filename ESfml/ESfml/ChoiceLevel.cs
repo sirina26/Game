@@ -74,7 +74,6 @@ namespace PlayWithMac
 
         public void Move(Keyboard.Key key)
         {
-
             if (key == Keyboard.Key.Up)
             {
                 MoveUp();
@@ -91,7 +90,6 @@ namespace PlayWithMac
         {
             get { return selectedItemIndex; }
             set { selectedItemIndex = value; }
-
         }
     }
 }

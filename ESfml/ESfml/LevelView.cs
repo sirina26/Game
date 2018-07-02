@@ -39,11 +39,12 @@ namespace PlayWithMac
 
                 _windows.DispatchEvents();
                 _windows.Display();
-
+                
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Escape))
                 {
                     _windows.Close();
                 }
+
                 System.Threading.Thread.Sleep(15);
             }
         }

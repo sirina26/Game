@@ -95,12 +95,8 @@ namespace PlayWithMac
                         SeaDraw.Add((Sea)product);
                     }
                 }
-
             }
         }
-
-        
-
 
         public void Actions()
         {
