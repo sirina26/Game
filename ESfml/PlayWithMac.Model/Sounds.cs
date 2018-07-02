@@ -11,7 +11,7 @@ namespace PlayWithMac.Model
 
     public class Sounds
     {
-        public static List<bool> sou;
+        static List<bool> sou;
 
         public void OnOff(bool on)
         {
