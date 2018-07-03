@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using SFML.Graphics;
 using SFML.Window;
-using PlayWithMac.Model;
+//using PlayWithMac.Model;
 
-namespace PlayWithMac
+namespace PlayWithMac.Model
 {
     public class LevelView
     {

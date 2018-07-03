@@ -5,15 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SFML.Graphics;
-using PlayWithMac.Model;
+//using PlayWithMac.Model;
 
-namespace PlayWithMac
+namespace PlayWithMac.Model
 {
     public class LevelContext
     {
        
         public Level _level;
         Sprite backgroundSprite;
+        RenderWindow _windows;
         public LevelContext(int level)
         {
 
@@ -181,6 +182,14 @@ namespace PlayWithMac
                     _level.PersonneDraw.Remove(element);
                     break;
                 }
+
+               /* if(element.Alive == false && element.GetType().Equals(typeof(Enemy)))
+                {
+                    //_windows.Close();
+                    EducationGameView edView = new EducationGameView(1200, 700);
+                    edView.Run();
+                    break;
+                }*/
             }
         }
 
@@ -208,7 +217,9 @@ namespace PlayWithMac
         }
         public void DrawObjets(RenderWindow windowHandler)
         {
+            _windows = windowHandler;
            backgroundSprite.Draw(windowHandler, RenderStates.Default);
+
             int X = -(_level.MacronObj.BodyRect.Left - 600);
 
             foreach (IMap element in _level.MapDraw)

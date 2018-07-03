@@ -144,7 +144,12 @@ namespace PlayWithMac.Model
             windowHandler.Draw(live);
             windowHandler.Draw(money);
             if(  alive == false)
+            {
                 windowHandler.Close();
+                LevelView level = new LevelView(1200, 700, 1);
+                level.Run();
+            }
+                
         }
 
         public void GetAction()

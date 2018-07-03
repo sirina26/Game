@@ -58,9 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BigBoss.cs" />
+    <Compile Include="Checkfile.cs" />
+    <Compile Include="EducationGame.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="IMap.cs" />
     <Compile Include="IPersonnage.cs" />
+    <Compile Include="LevelContext.cs" />
+    <Compile Include="LevelView.cs" />
     <Compile Include="Live.cs" />
     <Compile Include="Macron.cs" />
     <Compile Include="Map.cs" />

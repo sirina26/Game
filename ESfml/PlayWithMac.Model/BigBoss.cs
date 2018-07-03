@@ -250,7 +250,7 @@ namespace PlayWithMac.Model
 
             if (_isAlive == false)
             {
-                RenderWindow windowGame2 = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
+                /*RenderWindow windowGame2 = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
 
                 Questions ques = new Questions(1200, 700);
 
@@ -279,7 +279,7 @@ namespace PlayWithMac.Model
 
                     ques.Draw(windowGame2);
                     windowGame2.Display();
-                }
+                }*/
 
             }
         }

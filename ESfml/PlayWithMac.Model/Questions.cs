@@ -12,57 +12,91 @@ namespace  PlayWithMac.Model
 {
     public class Questions
     {
-        public const uint MAX_NUMBER_OF_ITEMS = 4;
-        private const string V = @".\arial.ttf";
+        public const uint MAX_NUMBER_OF_ITEMS = 3;
+        private const string V = @".\game_educatif\police\9SYSTEMA.TTF";
         private int selectedItemIndex;
         private Font font = new Font(V);
         private Text[] _response = new Text[MAX_NUMBER_OF_ITEMS];
-        static Texture _background = new Texture(@".\images.jpg");
+        static Texture _background;
         static Sprite backgroundSprite;
-        public Vectors direction;
+       
+        int score;
+        int nbquestion = 0;
+        int _nbfois = 0;
+        private string[] _rep = new string[] { "14 Juillet", "Allemagne","Louis XIV" };
 
-        public Text Qua()
+        Text _question;
+
+        private string[,] _resultat =
         {
-            Text _question = new Text()
+            {"14 Juillet", "30 Mai", "14 Janvier" },
+            {"France", "Allemagne", "Corée du Sud" },
+            {"Napoléon", "Louis XIV", "Philippe August" }
+           
+        };
+
+
+
+        public Text Qua(int quest)
+        {
+            Text[] _questions = new Text[3];
+            Text _return = new Text();
+            _questions[0] = new Text()
             {
                 Font = font,
-                DisplayedString = "Quelle est la date de la fête nationale de la République française?",
+                DisplayedString = "Quelle est la date de la fête nationale française?",
             };
-            return _question;
+            _questions[1] = new Text()
+            {
+                Font = font,
+                DisplayedString = "Quel equipe a gagné la coupe du monde en 2014 ?",
+            };
+            _questions[2] = new Text()
+            {
+                Font = font,
+                DisplayedString = "Quel roi est surnommé le 'Roi-Soleil'?",
+            };
+            
+
+            for (int i = 0; i < _questions.Length; i++)
+            {
+                if (i == quest)
+                {
+                    _return = _questions[i];
+
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
+            return _return;
         }
 
-        public Questions(uint width, uint heigh)
+        public int Score => score;
+
+        public Questions(uint width, uint heigh, int ind)
         {
-            _response[0] = new Text
-            {
-                Font = font,
-                Color = Color.Red,
-                DisplayedString = "14 Juillet",
-                Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 1))
-            };
+            score = 0;
+          
+            _response = DisplayQuestion(ind, width, heigh);
 
-            _response[1] = new Text
+            if (ind == 0)
             {
-                Font = font,
-                Color = Color.White,
-                DisplayedString = "15 Juillet",
-                Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 2))
-            };
+                _background = new Texture(@".\game_educatif\FE_educatif1.jpg");
+                _question = Qua(ind);
+            }else if(ind == 2)
+            {
+                _background = new Texture(@".\game_educatif\roisoleil.jpg");
+                _question = Qua(ind);
+            }else if(ind == 1)
+            {
+                _background = new Texture(@".\game_educatif\coupes.jpg");
+                _question = Qua(ind);
+            }
+                
 
-            _response[2] = new Text
-            {
-                Font = font,
-                Color = Color.White,
-                DisplayedString = "14 Mai",
-                Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 3))
-            };
-            _response[3] = new Text
-            {
-                Font = font,
-                Color = Color.White,
-                DisplayedString = "18 Juillet",
-                Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 4))
-            };
             backgroundSprite = new Sprite(_background);
         }
 
@@ -73,8 +107,8 @@ namespace  PlayWithMac.Model
             {
                 window.Draw(_response[i]);
             }
-            Text quas = Qua();
-            window.Draw(quas);
+            //Text quas = Qua(ques);
+            window.Draw(_question);
         }
 
         public void MoveUp()
@@ -102,12 +136,12 @@ namespace  PlayWithMac.Model
             if (key == Keyboard.Key.Up)
             {
                 MoveUp();
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(200);
             }
             else if (key == Keyboard.Key.Down)
             {
                 MoveDown();
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(200);
             }
         }
 
@@ -117,6 +151,123 @@ namespace  PlayWithMac.Model
             set { selectedItemIndex = value; }
         }
 
+        public void Run(int ind)
+        {
+            RenderWindow win = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
+
+            while (win.IsOpen)
+            {
+                if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
+                {
+                    this.Move(Keyboard.Key.Up);
+                   
+                }
+                else if (Keyboard.IsKeyPressed(Keyboard.Key.Down))
+                {
+                    this.Move(Keyboard.Key.Down);
+                    
+                }
+
+                else if (Keyboard.IsKeyPressed(Keyboard.Key.B))
+                {
+                   
+                    if (VerifResponse(_response[selectedItemIndex].DisplayedString) == true)
+                    {
+                            win.Close();
+                            if(ind == 2)
+                            {
+                                LevelView level = new LevelView(1200, 700, 2);
+                                level.Run();
+                            }
+                            else
+                            {
+                                Questions question = new Questions(1200, 700, ind+1);
+                                question.Run(ind+1);
+                                score++;
+                            }
+                            
+                            break;
+                    }else{
+                        win.Close();
+                        nbquestion = 0;
+                       this.Run(ind);
+                       _nbfois++;
+
+                        if(_nbfois >= 3)
+                        {
+                            win.Close();
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    
+                   
+
+                        
+                   
+                }
+
+                this.Draw(win);
+                win.Display();
+            }
+        }
+
+        public bool VerifResponse(string rep)
+        {
+            bool result = false;
+
+            for(int i= 0; i< _rep.Length; i++)
+            {
+                if(_rep[i] == rep)
+                {
+                    result = true;
+                    break;
+                }
+            }
+
+            return result;
+        }
+
+        public Text[] DisplayQuestion(int i, uint width, uint heigh)
+        {
+            Text[] _rep = new Text[3];
+
+            for(int j = 0; j<_resultat.Length; j++)
+            {
+                if(i == j)
+                {
+                    _rep[0] = new Text
+                    {
+                        Font = font,
+                        Color = Color.Red,
+                        DisplayedString = _resultat[i,0],
+                        Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 1))
+                    };
+
+                    _rep[1] = new Text
+                    {
+                        Font = font,
+                        Color = Color.White,
+                        DisplayedString = _resultat[i, 1],
+                        Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 2))
+                    };
+
+                    _rep[2] = new Text
+                    {
+                        Font = font,
+                        Color = Color.White,
+                        DisplayedString = _resultat[i, 2],
+                        Position = new SFML.System.Vector2f(width / 2, (heigh / (MAX_NUMBER_OF_ITEMS + 1) * 3))
+                    };
+
+                }
+            }
+
+            return _rep;
+
+        }
     }
 }
 
