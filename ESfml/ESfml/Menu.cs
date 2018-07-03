@@ -83,10 +83,12 @@ namespace PlayWithMac
             if (key == Keyboard.Key.Up)
             {
                 MoveUp();
+                System.Threading.Thread.Sleep(200);
             }
             else if (key == Keyboard.Key.Down)
             {
                 MoveDown();
+                System.Threading.Thread.Sleep(200);
             }
         }
 

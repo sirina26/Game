@@ -46,6 +46,9 @@ namespace PlayWithMac
                     }
                     else if (menu.SelectedItemIndex == 1)
                     {
+                        //windowMenu.Close();
+                        Options _options = new Options(width, heigth);
+                        _options.Run();
                         break;
                     }
                     else if (menu.SelectedItemIndex == 2)

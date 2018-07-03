@@ -250,26 +250,22 @@ namespace PlayWithMac.Model
 
             if (_isAlive == false)
             {
-                /*RenderWindow windowGame2 = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
+                windowHandler.Close();
+                RenderWindow windowGame2 = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
 
-                Questions ques = new Questions(1200, 700);
+                EducationGame ques = new EducationGame(1200, 700);
 
                 while (windowGame2.IsOpen)
                 {
-                    if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
-                    {
-                        ques.Move(Keyboard.Key.Up);
-                    }
-                    else if (Keyboard.IsKeyPressed(Keyboard.Key.Down))
-                    {
-                        ques.Move(Keyboard.Key.Down);
-                    }
-                    else if (Keyboard.IsKeyPressed(Keyboard.Key.Return))
+
+                    if (Keyboard.IsKeyPressed(Keyboard.Key.S))
                     {
 
                         if (ques.SelectedItemIndex == 0)
                         {
-                            //windowHandler.Draw(answer);
+                            windowGame2.Close();
+                            Questions question = new Questions(1200, 700, 0);
+                            question.Run(0);
                         }
                         else
                         {
@@ -279,10 +275,9 @@ namespace PlayWithMac.Model
 
                     ques.Draw(windowGame2);
                     windowGame2.Display();
-                }*/
-
+                }
             }
-        }
+            }
 
         public void CheckCollision(Live collider)
         {

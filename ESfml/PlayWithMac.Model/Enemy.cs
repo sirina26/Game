@@ -241,38 +241,9 @@ namespace PlayWithMac.Model
             _sprite[_side].Position = new Vector2f(_bodyRect.Left + xOffset, _bodyRect.Top + yOffset);
             windowHandler.Draw(_sprite[_side]);
 
-            if (_isAlive == false)
-            {
-                windowHandler.Close();
-                /*EducationGame game = new EducationGame(1200, 700);
-                game.Draw(windowHandler);*/
-                RenderWindow windowGame2 = new RenderWindow(new VideoMode(1200, 700), "PlayWithMac");
+        
 
-                EducationGame ques = new EducationGame(1200, 700);
-
-                while (windowGame2.IsOpen)
-                {
-                   
-                     if (Keyboard.IsKeyPressed(Keyboard.Key.S))
-                    {
-
-                        if (ques.SelectedItemIndex == 0)
-                        { 
-                            windowGame2.Close();
-                            Questions question = new Questions(1200, 700,0);
-                            question.Run(0);
-                        }
-                        else
-                        {
-
-                        }
-                    }
-
-                    ques.Draw(windowGame2);
-                    windowGame2.Display();
-                }
-
-            }
+            
 
         }
 

@@ -81,6 +81,8 @@ namespace PlayWithMac.Model
             livePoint = new Font(@".\arial.ttf");
             op = new Sounds();
 
+            op.BackGroundMusic();
+
             binateSprite = true;
             alive = true;
             bodyCollision = false;
