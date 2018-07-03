@@ -41,7 +41,6 @@ namespace PlayWithMac.Model
         
         private const int animation = 5;
         private int animationcollision;
-        int health;
 
         private MovementMacron side;
 
