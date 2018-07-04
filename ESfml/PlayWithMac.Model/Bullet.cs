@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
 
 namespace PlayWithMac.Model
 {
-    public class BigBoss : IPersonnage
+    class Bullet: IPersonnage
     {
 
-        public enum BigBossSide
+        public enum BulletSide
         {
-            Left1,
-            Left2,
-            Right1,
-            Right2
+           b1,b2
         }
 
         bool _binateSprite;
@@ -23,15 +23,14 @@ namespace PlayWithMac.Model
         bool _feetCollides;
         bool _groundCollides;
         bool _isSituated;
-        readonly Font _yN;
 
         const int _speed = 2;
         int _fallSpeed;
         const int _animationSpeed = 2;
         int _animationIterator;
-        BigBossSide _side;
+        BulletSide _side;
 
-        Dictionary<BigBossSide, Sprite> _sprite;
+        Dictionary<BulletSide, Sprite> _sprite;
         Rectangle _bodyRect;
         Rectangle _feetRect;
         Rectangle _groundRect;
@@ -43,6 +42,7 @@ namespace PlayWithMac.Model
 
         private void ChooseSprite()
         {
+            //peut enlever
             if (_animationIterator++ > _animationSpeed)
             {
                 _animationIterator = 0;
@@ -51,20 +51,19 @@ namespace PlayWithMac.Model
 
             switch (_side)
             {
-                case BigBossSide.Left1:
-                case BigBossSide.Left2:
-                    _side = (_binateSprite) ? BigBossSide.Left1 : BigBossSide.Left2;
+                
+                case BulletSide.b1:
+                    _side =  BulletSide.b1;
                     break;
-                case BigBossSide.Right1:
-                case BigBossSide.Right2:
-                    _side = (_binateSprite) ? BigBossSide.Right1 : BigBossSide.Right2;
+                
+                case BulletSide.b2:
+                    _side = BulletSide.b2;
                     break;
             }
         }
 
-        public BigBoss(Rectangle rect)
+        public Bullet(Rectangle rect)
         {
-            _yN = new Font(@".\arial.ttf");
 
             _binateSprite = true;
             _isAlive = true;
@@ -73,21 +72,20 @@ namespace PlayWithMac.Model
             _groundCollides = false;
             _fallSpeed = 0;
             _animationIterator = 0;
-            _side = BigBossSide.Right1;
+            _side = BulletSide.b1;
 
-            rect.Height = Textures.BigBossTextures["Right1"].Size.Y;
-            rect.Width = Textures.BigBossTextures["Right2"].Size.X;
+            rect.Height = Textures.BulletTexture["b1"].Size.Y;
+            rect.Width = Textures.BulletTexture["b2"].Size.X;
 
-            _sprite = new Dictionary<BigBossSide, Sprite>();
-            _sprite.Add(BigBossSide.Left1, new Sprite(Textures.BigBossTextures["Left1"]));
-            _sprite.Add(BigBossSide.Left2, new Sprite(Textures.BigBossTextures["Left2"]));
-            _sprite.Add(BigBossSide.Right1, new Sprite(Textures.BigBossTextures["Right1"]));
-            _sprite.Add(BigBossSide.Right2, new Sprite(Textures.BigBossTextures["Right2"]));
+            _sprite = new Dictionary<BulletSide, Sprite>();
+            _sprite.Add(BulletSide.b1, new Sprite(Textures.BulletTexture["b1"]));
 
             _bodyRect = rect;
             _feetRect = new Rectangle(rect.Bottom, (rect.Left + (int)rect.Width / 2), 1, (rect.Width / 2));
             _groundRect = new Rectangle(rect.Bottom, (rect.Left), 1, (rect.Width));
         }
+
+        //public bool Alive => throw new NotImplementedException();
 
         public void GetAction()
         {
@@ -103,7 +101,7 @@ namespace PlayWithMac.Model
 
                 if (_bodyCollides == true)
                 {
-                    _side = (_side == BigBossSide.Left1 || _side == BigBossSide.Left2) ? BigBossSide.Right1 : BigBossSide.Left1;
+                    _side = BulletSide.b1;
                 }
             }
 
@@ -115,14 +113,16 @@ namespace PlayWithMac.Model
 
             switch (_side)
             {
-                case BigBossSide.Left1:
-                case BigBossSide.Left2:
+                
+                case BulletSide.b1:
                     _director = new Vectors(new Vectors.Vector((-_speed), _fallSpeed));
                     break;
-                case BigBossSide.Right1:
-                case BigBossSide.Right2:
+                
+                case BulletSide.b2:
                     _director = new Vectors(new Vectors.Vector(_speed, _fallSpeed));
                     break;
+
+
             }
         }
 
@@ -172,13 +172,13 @@ namespace PlayWithMac.Model
                     throw new Exception();
             }
 
-            if ((move == Vectors.Direction.Right) && (_side == BigBossSide.Left1))
+            if ((move == Vectors.Direction.Right) && (_side == BulletSide.b1))
             {
-                _side = BigBossSide.Right1;
+                _side = BulletSide.b1;
             }
-            else if ((move == Vectors.Direction.Left) && (_side == BigBossSide.Right1))
+            else if ((move == Vectors.Direction.Left) && (_side == BulletSide.b2))
             {
-                _side = BigBossSide.Left1;
+                _side = BulletSide.b2;
             }
         }
 
@@ -233,16 +233,11 @@ namespace PlayWithMac.Model
         {
             return _isSituated;
         }
-         
+
         public void Draw(RenderWindow windowHandler, int xOffset, int yOffset)
         {
             _sprite[_side].Position = new Vector2f(_bodyRect.Left + xOffset, _bodyRect.Top + yOffset);
             windowHandler.Draw(_sprite[_side]);
-
-            if (_isAlive == false)
-            {
-                
-            }
         }
 
         public void CheckCollision(Live collider)

@@ -15,6 +15,7 @@ namespace PlayWithMac.Model
         public static Dictionary<string, Texture> MoneyTextures = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> SeaTextures = new Dictionary<string, Texture>();
         public static Dictionary<string, Texture> BigBossTextures = new Dictionary<string, Texture>();
+        public static Dictionary<string, Texture> BulletTexture = new Dictionary<string, Texture>();
 
         public static bool IsInitialized { get { return isInitialized; } }
 
