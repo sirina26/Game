@@ -236,7 +236,7 @@
     <Content Include="Resources\Map\LEVEL1MAP2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\Money\Money.png">
+    <Content Include="Resources\sea\Money\Money.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Niveau\Level1.txt">
